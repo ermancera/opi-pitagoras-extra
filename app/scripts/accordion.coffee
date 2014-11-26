@@ -16,9 +16,6 @@ AccordionCtrl = ($scope) ->
     }
   ]
 
-  $scope.status =
-    open: false
-
   return
 
 
