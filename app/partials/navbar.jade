@@ -1,0 +1,29 @@
+header.navbar.navbar-inverse(
+  role="navigation"
+  ng-controller="MainCtrl"
+)
+  .navbar-inner
+    .container-fluid
+      .navbar-header
+        button.navbar-toggle.collapsed(
+          type="button"
+          ng-click="collapsed = !collapsed"
+        )
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+
+        a.navbar-brand(href="#/") OPI
+
+      .collapse.navbar-collapse(collapse="collapsed")
+        ul#nav-links.nav.navbar-nav
+          li
+            a(href="#/panel") Movimientos
+
+          li
+            a(href="#/historial") Historial
+
+        form.navbar-form.navbar-right
+          label.btn.btn-success.btn-sm(ng-click="reset(true)", ng-if="modified")
+            i.glyphicon.glyphicon-refresh

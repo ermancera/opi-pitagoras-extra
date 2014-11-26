@@ -1,0 +1,63 @@
+.modal-header
+  h3.modal-title {{active.action.do}} {{amount | currency}} {{active.action.dir}} {{title(active.id)}}
+
+.modal-body
+  h4 1. Selecciona una operación
+
+  .btn-group-vertical
+    label.btn.btn-default.btn-huge(
+      btn-radio="'{{item.id}}'"
+      ng-click="select(item)"
+      ng-model="action"
+      ng-mouseenter="hoverMenu(item)"
+      ng-mouseleave="hoverMenu()"
+      ng-repeat="item in items"
+    ) {{item.desc}}
+
+  h4(ng-show="active.id != 'all'") 2. Selecciona una cantidad
+
+  .btn-group(ng-show="active.id != 'all'")
+    label.btn.btn-danger.pill(
+      btn-radio="0.05"
+      ng-click="change(0.05)"
+      ng-model="multi"
+      ng-mouseenter="hover(0.05)"
+      ng-mouseleave="hover()"
+    ) 5%
+
+    label.btn.btn-warning.pill(
+      btn-radio="0.10"
+      ng-click="change(0.10)"
+      ng-model="multi"
+      ng-mouseenter="hover(0.10)"
+      ng-mouseleave="hover()"
+    ) 10%
+
+    label.btn.btn-success.pill(
+      btn-radio="0.25"
+      ng-click="change(0.25)"
+      ng-model="multi"
+      ng-mouseenter="hover(0.25)"
+      ng-mouseleave="hover()"
+    ) 25%
+
+    label.btn.btn-success.pill(
+      btn-radio="0.50"
+      ng-click="change(0.50)"
+      ng-model="multi"
+      ng-mouseenter="hover(0.50)"
+      ng-mouseleave="hover()"
+    ) 50%
+
+    label.btn.btn-success.pill(
+      btn-radio="1.00"
+      ng-click="change(1.00)"
+      ng-model="multi"
+      ng-mouseenter="hover(1.00)"
+      ng-mouseleave="hover()"
+    ) 100%
+
+
+.modal-footer
+  button.btn.btn-default(ng-click="cancel()") Cancelar
+  button.btn.btn-success(ng-click="ok()") Aceptar

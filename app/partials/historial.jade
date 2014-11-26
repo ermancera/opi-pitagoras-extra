@@ -1,0 +1,30 @@
+.panel.panel-default(ng-controller="MainCtrl")
+  .panel-heading
+    | Historial
+
+    label.btn.btn-success.btn-xs.pull-right(
+      btn-checkbox
+      btn-checkbox-false="false"
+      btn-checkbox-true="true"
+      ng-model="debug"
+    ) debug
+
+  table.table.table-striped.table-hover
+    thead
+      tr
+        th #
+        th Cuándo
+        th Descripción
+
+    tbody
+      tr(
+        ng-class="item.type"
+        ng-show="(debug && item.type === 'debug') || item.type !== 'debug'"
+        ng-repeat="item in history | orderBy : id : reverse"
+      )
+        th {{item.id}}
+        th(am-time-ago="message.time") {{item.at}}
+        th {{item.text}}
+
+      tr(ng-if="history.length == 0")
+        th(span=3) Sin resultados...

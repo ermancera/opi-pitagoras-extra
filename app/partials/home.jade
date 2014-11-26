@@ -1,0 +1,12 @@
+.container(ng-controller="AccordionCtrl")
+  label.checkbox
+    input(type='checkbox', ng-model='oneAtATime')
+    |     Abrir un elemento a la vez
+  
+  accordion(close-others='oneAtATime', is-open='status.open')
+    accordion-group(ng-repeat='group in groups', on-accordion-group-click="{{group.template}}")
+      accordion-heading
+        | {{group.title}}
+        i.pull-right.glyphicon(ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}")
+
+      div(ng-include="currentTemplate")

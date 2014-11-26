@@ -1,0 +1,25 @@
+.row(ng-controller="ModalCtrl")
+  .jumbotron.text-center(ng-show="pocket === 0")
+    h2 No tienes monedas en la bolsa.
+    p.lead
+      | Necesitas tener monedas en la bolsa para poder hacer un depósito en otra cuenta.
+      | Recuerda que necesitas depositar todas tus monedas para poder guardar tus cambios.
+
+  .jumbotron.text-center(ng-hide="pocket === 0")
+    h2 Tienes {{pocket | currency}} en la bolsa.
+    p.lead Puedes depositar monedas en cuentas existentes o crear una nueva cuenta y depositarlas ahí.
+
+  .col-md-4
+    button.btn.btn-success.btn-huge(ng-click="open('get')", ng-disabled="total() === 0")
+      i.fa.fa-cloud-download
+      p.text-center Retirar
+
+  .col-md-4
+    button.btn.btn-success.btn-huge(ng-click="open('put')", ng-disabled="pocket === 0")
+      i.fa.fa-cloud-upload
+      p.text-center Enviar
+
+  .col-md-4
+    button.btn.btn-success.btn-huge(ng-click="save()", ng-disabled="(pocket !== 0) || !modified")
+      i.fa.fa-check-circle
+      p.text-center Guardar
