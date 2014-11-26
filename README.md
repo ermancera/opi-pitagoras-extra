@@ -1,25 +1,7 @@
-# OPIbank
-## Examen de @opi_global para @bkuri.
+# pitagoras-extras
+## Elementos UI para Pitágoras
 
 Utiliza Coffeescript, AngularJS, Jade y Stylus.
-
-    Para el examen es importante tener en cuenta las siguientes consideraciones:
-     - Deberías de utilizar Angular para realizarlo.
-     - No es necesario realizar conexiones con servidores, cualquier uso de base de datos puedes hacerlo del lado del cliente usando local storage.
-     - No hace falta crear un login.
-     - Se va a calificar la limpeza del código.
-
-    El examen consta de lo siguiente:
-     - Se cuenta con dos cuentas bancarias con cantidades c1 y c2 de dinero inicialmente.
-     - El usuario puede sacar dinero de una cuenta, durante el paso debe de quedar en otro objeto llamado "bolsa".
-     - El usuario puede poner dinero en una cuenta, durante el paso debe de quedar en el objeto "bolsa" (pero negativo).
-     - El usuario puede distribuir el monto de "bolsa" en las cuentas.
-     - El usuario puede crear una nueva cuenta con el monto de la bolsa (total o parcial).
-     - El usuario da guardar a los cambios cuando el objeto "bolsa" está en cero.
-     - Todos los pasos (luego del commit) pueden ser consultados en un historial de cambios.
-
-    OPCIONAL: Se da puntos adicionales si utilizas un gráfico de d3.js
-
 
 ## Instalación
 
@@ -58,6 +40,3 @@ descargará los componentes de AngularJS, Bootstrap y jQuery, los cuales están 
 Utilizar el siguiente comando:
 
 `npm start`
-
-
-## Gracias!
