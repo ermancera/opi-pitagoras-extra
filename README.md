@@ -1,4 +1,4 @@
-# pitagoras-extras
+# pitagoras-extra
 ## Elementos UI para Pitágoras
 
 Utiliza Coffeescript, AngularJS, Jade y Stylus.
