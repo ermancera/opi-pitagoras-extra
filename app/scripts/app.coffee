@@ -42,6 +42,7 @@ app.directive 'spinner', ->
   template: '<div class="loading"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>'
 
 dataService = ($http) ->
+  # see https://fdietz.github.io/recipes-with-angular-js/consuming-external-services/requesting-json-data-with-ajax.html
   getData: ->
     return # AJAX
 
