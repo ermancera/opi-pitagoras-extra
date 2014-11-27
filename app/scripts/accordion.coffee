@@ -47,7 +47,6 @@ AccordionCtrl = ($scope) ->
       goals: 50
       notes: true
       payments: 6
-      template: 'app/partials/element.jade'
       visits: true
     }
     {
@@ -57,7 +56,6 @@ AccordionCtrl = ($scope) ->
       goals: 75
       notes: false
       payments: 4
-      template: 'app/partials/element.jade'
       visits: true
     }
   ]
@@ -70,18 +68,13 @@ accordion = (angular.module 'accordion', [])
 accordion.controller 'AccordionCtrl', AccordionCtrl
 
 accordion.directive 'onAccordionGroupClick', ->
+  ###
   link: ($scope, element, attrs) ->
     template = attrs.onAccordionGroupClick
 
     element.on 'click', ->
       $scope.currentTemplate = template
       $scope.$apply()
-
+  ###
   require: '^accordion'
   restrict: 'A'
-
-accordion.controller 'ChildController1', ->
-  alert 'Init child controller 1'
-
-accordion.controller 'ChildController2', ->
-  alert 'Init child controller 2'
