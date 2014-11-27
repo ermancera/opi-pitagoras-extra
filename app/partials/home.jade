@@ -6,7 +6,13 @@
   accordion(close-others='oneAtATime', is-open='status.open')
     accordion-group(ng-repeat='group in groups', on-accordion-group-click="{{group.template}}")
       accordion-heading
-        | {{group.title}}
+        | {{group.code}}
+        progressbar(animate='false', value='dynamic', type='success')
+        progressbar(animate='false', value='dynamic', type='success')
+        progressbar(animate='false', value='dynamic', type='success')
+        // TODO pagos
+        // TODO notes
+        // TODO visits
         i.pull-right.glyphicon(ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}")
 
       div(ng-include="currentTemplate")

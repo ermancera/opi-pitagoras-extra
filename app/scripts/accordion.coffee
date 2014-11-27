@@ -7,12 +7,26 @@ AccordionCtrl = ($scope) ->
 
   $scope.groups = [
     {
-      title: 'Grupo 1'
+      beneficiaries: 12
+      budget:
+        total: 90000
+      code: '06.002.05.1.1.2.2.'
+      goal: 50
+      notes: true
+      payments: 6
       template: 'app/partials/element.jade'
+      visits: true
     }
     {
-      title: 'Grupo 2'
+      beneficiaries: 24
+      budget:
+        total: 90000
+      code: '06.007.01.1.2.4.2.'
+      goal: 75
+      notes: false
+      payments: 4
       template: 'app/partials/element.jade'
+      visits: true
     }
   ]
 
