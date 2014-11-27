@@ -10,16 +10,16 @@
           .col-sm-3
             | {{group.code}}
           
-          .col-sm-2(ng-hide='{{status.open}}')
+          .col-sm-2(ng-hide='status.open')
             progressbar.small(animate='false', value='group.budget', type='{{progressType(group.budget)}}')
               
-          .col-sm-2(ng-hide='{{status.open}}')
+          .col-sm-2(ng-hide='status.open')
             progressbar.small(animate='false', value='group.goals', type='{{progressType(group.goals)}}')
               
-          .col-sm-2(ng-hide='{{status.open}}')
+          .col-sm-2(ng-hide='status.open')
             progressbar.small(animate='false', value='group.benefs', type='{{progressType(group.benefs)}}')
           
-          .col-sm-3
+          .col-sm-3(ng-hide='status.open')
             i.glyphicon.glyphicon-usd(ng-class="{'disabled': (group.payments < 1)}", tooltip="tooltip")
             i.glyphicon.glyphicon-eye-open(ng-class="{'disabled': !group.notes}", tooltip="tooltip")
             i.glyphicon.glyphicon-magnet(ng-class="{'disabled': !group.visits}", tooltip="tooltip")
@@ -33,7 +33,7 @@
           //      i.glyphicon.glyphicon-remove            
 
       h3
-        | Nombre del Elemento
+        | {{group.code}}
       
       button.btn.btn-sm.btn-primary(type='button', ng-click='randomStacked()') Randomizar
 
