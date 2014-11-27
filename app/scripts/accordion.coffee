@@ -62,6 +62,7 @@ AccordionCtrl = ($scope) ->
     }
   ]
 
+  $scope.randomStacked()
   return
 
 
