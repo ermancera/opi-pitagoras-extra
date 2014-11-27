@@ -6,13 +6,36 @@
   accordion(close-others='oneAtATime', is-open='status.open')
     accordion-group(ng-repeat='group in groups', on-accordion-group-click="{{group.template}}")
       accordion-heading
-        | {{group.code}}
-        progressbar(animate='false', value='dynamic', type='success')
-        progressbar(animate='false', value='dynamic', type='success')
-        progressbar(animate='false', value='dynamic', type='success')
+        .row
+          .col-sm-3
+            | {{group.code}}
+          
+          .col-sm-2(ng-hide='{{status.open}}')
+            progressbar.small(animate='false', value='group.budget', type='{{progressType(group.budget)}}')
+              
+          .col-sm-2(ng-hide='{{status.open}}')
+            progressbar.small(animate='false', value='group.goals', type='{{progressType(group.goals)}}')
+              
+          .col-sm-2(ng-hide='{{status.open}}')
+            progressbar.small(animate='false', value='group.benefs', type='{{progressType(group.benefs)}}')
+          
+          .col-sm-3
+            i.glyphicon.glyphicon-usd(ng-class="{'disabled': (group.payments < 1)}", tooltip="tooltip")
+            i.glyphicon.glyphicon-eye-open(ng-class="{'disabled': !group.notes}", tooltip="tooltip")
+            i.glyphicon.glyphicon-magnet(ng-class="{'disabled': !group.visits}", tooltip="tooltip")
+          
+          //.col-sm-2
+          //  .btn-group(role='group', aria-label='Acciones')
+          //    button.btn.btn-default.btn-xs(type='button')
+          //      i.glyphicon.glyphicon-ok
+          //    
+          //    button.btn.btn-default.btn-xs(type='button')
+          //      i.glyphicon.glyphicon-remove
+              
+              
         // TODO pagos
         // TODO notes
         // TODO visits
-        i.pull-right.glyphicon(ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}")
+        //i.pull-right.glyphicon(ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}")
 
       div(ng-include="currentTemplate")

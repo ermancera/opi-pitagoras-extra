@@ -1,28 +1,9 @@
-element = (angular.module 'element', [])
+'use strict'
+
 
 ElementCtrl = ($scope) ->
   $scope.max = 200
 
-  $scope.random = ->
-    value = (Math.floor (Math.random() * 100) + 1)
-    type = undefined
-
-    if (value < 25)
-      type = 'success'
-
-    else if (value < 50)
-      type = 'info'
-
-    else if (value < 75)
-      type = 'warning'
-
-    else
-      type = 'danger'
-
-    $scope.showWarning = (type is 'danger' or type is 'warning')
-    $scope.dynamic = value
-    $scope.type = type
-    return
 
   $scope.randomStacked = ->
     $scope.stacked = []
@@ -45,10 +26,12 @@ ElementCtrl = ($scope) ->
         type: types[index]
 
       i++
+
     return
 
-  $scope.random()
+
   $scope.randomStacked()
   return
 
+element = (angular.module 'element', [])
 element.controller 'ElementCtrl', ElementCtrl
