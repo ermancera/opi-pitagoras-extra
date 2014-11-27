@@ -1,9 +1,0 @@
-div(ng-controller="ElementCtrl")
-  h3
-    | Nombre del Elemento
-  
-  button.btn.btn-sm.btn-primary(type='button', ng-click='randomStacked()') Randomizar
-
-  progress
-    bar(ng-repeat='bar in stacked track by $index', value='bar.value', type='{{bar.type}}')
-      span(ng-hide='bar.value < 5') {{bar.value}}%

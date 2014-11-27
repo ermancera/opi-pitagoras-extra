@@ -38,4 +38,11 @@
         // TODO visits
         //i.pull-right.glyphicon(ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}")
 
-      div(ng-include="currentTemplate")
+      h3
+        | Nombre del Elemento
+      
+      button.btn.btn-sm.btn-primary(type='button', ng-click='randomStacked()') Randomizar
+
+      progress
+        bar(ng-repeat='bar in stacked track by $index', value='bar.value', type='{{bar.type}}')
+          span(ng-hide='bar.value < 5') {{bar.value}}%
