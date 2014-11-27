@@ -1,10 +1,9 @@
 'use strict'
 
 
-AccordionCtrl = ($scope) ->
-  $scope.currentTemplate = null
+AccordionCtrl = ($scope, $http) ->
+  $scope.groups = []
   $scope.oneAtATime = true
-
 
   $scope.progressType = (value) ->
     type = switch
@@ -12,7 +11,6 @@ AccordionCtrl = ($scope) ->
       when (value < 50) then 'warning'
       when (value < 75) then 'info'
       else 'success'
-
 
   $scope.randomStacked = ->
     $scope.stacked = []
@@ -38,7 +36,18 @@ AccordionCtrl = ($scope) ->
 
     return
 
+  #url = 'http://pitagoras.nightly.opi.la/api/activities'
+  url = '/js/activities.json'
+  get = ($http.get url)
 
+  get.error (data, status, headers, config) ->
+    console.log 'error'
+
+  get.success (data, status, headers, config) ->
+    console.log status
+    $scope.groups = data.activities
+
+  ###
   $scope.groups = [
     {
       benefs: 12
@@ -59,6 +68,7 @@ AccordionCtrl = ($scope) ->
       visits: true
     }
   ]
+  ###
 
   $scope.randomStacked()
   return
