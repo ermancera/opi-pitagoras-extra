@@ -4,6 +4,7 @@
 AccordionCtrl = ($scope, $http, Fullscreen) ->
   $scope.groups = []
   $scope.oneAtATime = true
+  $scope.zoomed = false
 
   $scope.progressType = (value) ->
     type = switch
