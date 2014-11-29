@@ -1,4 +1,4 @@
-.container-fluid(ng-controller="AccordionCtrl")
+.container(ng-controller="AccordionCtrl")
   label.checkbox
     input(type='checkbox', ng-model='oneAtATime')
     |     Abrir un elemento a la vez
@@ -13,17 +13,17 @@
           .col-sm-2(ng-hide='status.open')
             progressbar.small(
               animate='false'
-              value='(group.budget_breakthrough * group.total_cost) / 100'
               max='group.total_cost'
               type='{{progressType((group.budget_breakthrough * group.total_cost) / 100)}}'
+              value='(group.budget_breakthrough * group.total_cost) / 100'
             )
           
           .col-sm-2(ng-hide='status.open')
             progressbar.small(
               animate='false'
-              value='(group.completed_goals * group.goal_number) / 100'
               max='group.goal_number'
               type='{{progressType((group.completed_goals * group.goal_number) / 100)}}'
+              value='(group.completed_goals * group.goal_number) / 100'
             )
           
           .col-sm-2(ng-hide='status.open')
@@ -39,21 +39,64 @@
             i.glyphicon.glyphicon-eye-open(ng-class="{'disabled': !group.notes}", tooltip="tooltip")
             i.glyphicon.glyphicon-magnet(ng-class="{'disabled': !group.visits}", tooltip="tooltip")
 
-      h3
-        | {{group.user_key}}
-      
-      progress
-        bar(ng-repeat='bar in stacked track by $index', value='bar.value', type='{{bar.type}}')
-          span(ng-hide='bar.value < 5') {{bar.value}}%
-      
-      .btn-group.pull-right(role='group', aria-label='Acciones')
+          
+      .btn-group
         button.btn.btn-xs.btn-primary(type='button', ng-click='randomStacked()')
           | Randomizar
+
         
-        button.btn.btn-xs.btn-default(type='button')
-          i.glyphicon.glyphicon-ok
-          | Aceptar
+        button.btn.btn-xs.btn-default(type='button', ng-click='fullScreen()')
+          | fullScreen
+
+
+      tabset
+        tab.active
+          tab-heading
+            i.glyphicon.glyphicon-info-sign
+            | Descripción
+
+          h3
+            | {{group.user_key}}
           
-        button.btn.btn-xs.btn-default(type='button')
-          i.glyphicon.glyphicon-plus
-          | Agregar Observación
+          h6
+            | NOMBRE DE MUNICIPIO
+
+          h6
+            | PRESUPUESTO ASIGNADO
+          
+          h3
+            | {{formatMoney(group.total_cost)}}
+
+          progress
+            bar(ng-repeat='bar in stacked track by $index', value='bar.value', type='{{bar.type}}')
+              span(ng-hide='bar.value < 5') {{bar.value}}%
+
+        tab
+          tab-heading
+            i.glyphicon.glyphicon-paperclip
+            | Evidencia
+        
+        tab
+          tab-heading
+            i.glyphicon.glyphicon-certificate
+            | Contrato Factura
+        
+        tab
+          tab-heading
+            i.glyphicon.glyphicon-list-alt
+            | Registrar Avances
+        
+        tab
+          tab-heading
+            i.glyphicon.glyphicon-calendar
+            | Calendarizar
+        
+        tab
+          tab-heading
+            i.glyphicon.glyphicon-ok
+            | Validar
+        
+        tab
+          tab-heading
+            i.glyphicon.glyphicon-plus
+            | Agregar Observación

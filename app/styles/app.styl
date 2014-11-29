@@ -11,6 +11,7 @@ accordion
   .panel-title
     font-size 14px !important
 
+
 body
   margin 0 auto
   //max-width 960px
@@ -18,11 +19,29 @@ body
   & > hr
     margin 30px 0
 
+
+.panel-collapse > .panel-body > .ng-isolate-scope
+  // hack to place tabs at the bottom
+  display flex
+  flex-direction column-reverse
+
+  & > *
+    flex 0 0 auto
+
+
+.nav-tabs
+  .glyphicon
+    padding 0 5px 0 0
+
+  li
+    font-size 12px
+
 .btn-group, .btn-group-vertical
   width: 100%
 
   .pill
     width 20%
+
 
 .btn-huge
   width 100%
@@ -34,12 +53,20 @@ body
   p
     font-size 2em
 
+
 .modal-header
   background inherit !important
+
 
 .nav, .pagination, .carousel, .panel-title a
   cursor pointer
 
-.progress.small
+
+.progress
   height 15px !important
-  margin-bottom inherit !important
+  padding inherit !important
+  border none !important
+
+
+  &.small
+    margin-bottom inherit !important

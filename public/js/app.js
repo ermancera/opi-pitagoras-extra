@@ -38,10 +38,10 @@ AccordionCtrl = function($scope, $http) {
   url = '/js/activities.json';
   get = $http.get(url);
   get.error(function(data, status, headers, config) {
-    return console.log('error');
+    return console.log('GET error');
   });
   get.success(function(data, status, headers, config) {
-    console.log(status);
+    console.log("GET " + status);
     return $scope.groups = data.activities;
   });
 
@@ -76,15 +76,15 @@ accordion.controller('AccordionCtrl', AccordionCtrl);
 
 accordion.directive('onAccordionGroupClick', function() {
   return {
+    link: function($scope, element, attrs) {
+      return element.on('click', function() {
 
-    /*
-    link: ($scope, element, attrs) ->
-      template = attrs.onAccordionGroupClick
-    
-      element.on 'click', ->
+        /*
         $scope.currentTemplate = template
         $scope.$apply()
-     */
+         */
+      });
+    },
     require: '^accordion',
     restrict: 'A'
   };
@@ -139,10 +139,13 @@ app.run(function(amMoment) {
 var MainCtrl, main;
 
 MainCtrl = function($scope, $localStorage, $sessionStorage) {
-  return $scope.$storage = $localStorage.$default({
+  $scope.$storage = $localStorage.$default({
     accounts: [500, 250],
     history: []
   });
+  return $scope.formatMoney = function(amount) {
+    return accounting.formatMoney(amount);
+  };
 };
 
 main = angular.module('main', []);

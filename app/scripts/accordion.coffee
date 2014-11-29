@@ -26,10 +26,10 @@ AccordionCtrl = ($scope, $http) ->
     ]
 
     while i < n
-      index = Math.floor((Math.random() * 4))
+      index = (Math.floor (Math.random() * 4))
 
       $scope.stacked.push
-        value: Math.floor((Math.random() * 30) + 1)
+        value: (Math.floor (Math.random() * 30) + 1)
         type: types[index]
 
       i++
@@ -41,10 +41,10 @@ AccordionCtrl = ($scope, $http) ->
   get = ($http.get url)
 
   get.error (data, status, headers, config) ->
-    console.log 'error'
+    console.log 'GET error'
 
   get.success (data, status, headers, config) ->
-    console.log status
+    console.log "GET #{status}"
     $scope.groups = data.activities
 
   ###
@@ -78,13 +78,14 @@ accordion = (angular.module 'accordion', [])
 accordion.controller 'AccordionCtrl', AccordionCtrl
 
 accordion.directive 'onAccordionGroupClick', ->
-  ###
   link: ($scope, element, attrs) ->
-    template = attrs.onAccordionGroupClick
+    #template = attrs.onAccordionGroupClick
 
     element.on 'click', ->
+      ###
       $scope.currentTemplate = template
       $scope.$apply()
-  ###
+      ###
+
   require: '^accordion'
   restrict: 'A'
