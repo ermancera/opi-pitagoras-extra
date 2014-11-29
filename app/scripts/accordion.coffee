@@ -4,7 +4,10 @@
 AccordionCtrl = ($scope, $http, Fullscreen) ->
   $scope.groups = []
   $scope.oneAtATime = true
-  $scope.zoomed = false
+
+  # this is only for the container to have the correct class at startup
+  # it does not mean that the app starts in fullscreen mode.
+  $scope.zoomed = true
 
   $scope.progressType = (value) ->
     type = switch
