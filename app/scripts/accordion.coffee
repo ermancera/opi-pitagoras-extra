@@ -1,7 +1,7 @@
 'use strict'
 
 
-AccordionCtrl = ($scope, $http) ->
+AccordionCtrl = ($scope, $http, Fullscreen) ->
   $scope.groups = []
   $scope.oneAtATime = true
 
@@ -34,7 +34,9 @@ AccordionCtrl = ($scope, $http) ->
 
       i++
 
-    return
+  $scope.zoom = (element) ->
+    if (Fullscreen.isEnabled()) then Fullscreen.cancel()
+    else Fullscreen.enable (document.querySelector "#a#{element}")
 
   #url = 'http://pitagoras.nightly.opi.la/api/activities'
   url = '/js/activities.json'

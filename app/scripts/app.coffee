@@ -4,6 +4,7 @@ deps = [
   'accordion'
   'angularMoment'
   'app.templates'
+  'FBAngular'
   'main'
   'navbar'
   'ngRoute'

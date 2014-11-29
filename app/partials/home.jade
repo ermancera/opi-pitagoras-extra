@@ -4,7 +4,11 @@
     |     Abrir un elemento a la vez
   
   accordion(close-others='oneAtATime', is-open='status.open')
-    accordion-group(ng-repeat='group in groups', on-accordion-group-click="{{group.template}}")
+    accordion-group(
+      id='a{{group.id}}'
+      ng-repeat='group in groups'
+      on-accordion-group-click="{{group.template}}"
+    )
       accordion-heading
         .row
           .col-sm-3
@@ -39,13 +43,13 @@
             i.glyphicon.glyphicon-eye-open(ng-class="{'disabled': !group.notes}", tooltip="tooltip")
             i.glyphicon.glyphicon-magnet(ng-class="{'disabled': !group.visits}", tooltip="tooltip")
 
-          
+
       .btn-group
         button.btn.btn-xs.btn-primary(type='button', ng-click='randomStacked()')
           | Randomizar
 
         
-        button.btn.btn-xs.btn-default(type='button', ng-click='fullScreen()')
+        button.btn.btn-xs.btn-default(type='button', ng-click='zoom(group.id)')
           | fullScreen
 
 

@@ -1,7 +1,7 @@
 'use strict';
 var AccordionCtrl, accordion;
 
-AccordionCtrl = function($scope, $http) {
+AccordionCtrl = function($scope, $http, Fullscreen) {
   var get, url;
   $scope.groups = [];
   $scope.oneAtATime = true;
@@ -21,18 +21,27 @@ AccordionCtrl = function($scope, $http) {
     })();
   };
   $scope.randomStacked = function() {
-    var i, index, n, types;
+    var i, index, n, types, _results;
     $scope.stacked = [];
     i = 0;
     n = Math.floor((Math.random() * 4) + 1);
     types = ['success', 'info', 'warning', 'danger'];
+    _results = [];
     while (i < n) {
       index = Math.floor(Math.random() * 4);
       $scope.stacked.push({
         value: Math.floor((Math.random() * 30) + 1),
         type: types[index]
       });
-      i++;
+      _results.push(i++);
+    }
+    return _results;
+  };
+  $scope.zoom = function(element) {
+    if (Fullscreen.isEnabled()) {
+      return Fullscreen.cancel();
+    } else {
+      return Fullscreen.enable(document.querySelector("#a" + element));
     }
   };
   url = '/js/activities.json';
@@ -92,7 +101,7 @@ accordion.directive('onAccordionGroupClick', function() {
 ;'use strict';
 var app, dataService, deps, routes;
 
-deps = ['accordion', 'angularMoment', 'app.templates', 'main', 'navbar', 'ngRoute', 'ngStorage', 'ui.bootstrap'];
+deps = ['accordion', 'angularMoment', 'app.templates', 'FBAngular', 'main', 'navbar', 'ngRoute', 'ngStorage', 'ui.bootstrap'];
 
 app = angular.module('app', deps);
 
