@@ -20,7 +20,7 @@ body
     margin 30px 0
 
 
-.panel-collapse > .panel-body > .ng-isolate-scope
+.container:not(.zoomed) .panel-collapse > .panel-body > .ng-isolate-scope
   // hack to place tabs at the bottom
   display flex
   flex-direction column-reverse
@@ -36,8 +36,9 @@ body
   li
     font-size 12px
 
+
 .btn-group, .btn-group-vertical
-  width: 100%
+  width 100%
 
   .pill
     width 20%
@@ -70,3 +71,7 @@ body
 
   &.small
     margin-bottom inherit !important
+
+.zoomed
+  .panel-collapse.collapse.in
+    height 100% !important

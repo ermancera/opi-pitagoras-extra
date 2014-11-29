@@ -38,10 +38,13 @@ AccordionCtrl = function($scope, $http, Fullscreen) {
     return _results;
   };
   $scope.zoom = function(element) {
-    if (Fullscreen.isEnabled()) {
-      return Fullscreen.cancel();
+    var el;
+    el = document.querySelector("#a" + element + " > .panel-collapse");
+    $scope.zoomed = Fullscreen.isEnabled();
+    if (!$scope.zoomed) {
+      Fullscreen.enable(el);
     } else {
-      return Fullscreen.enable(document.querySelector("#a" + element));
+      Fullscreen.cancel();
     }
   };
   url = '/js/activities.json';

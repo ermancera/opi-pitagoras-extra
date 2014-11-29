@@ -35,8 +35,12 @@ AccordionCtrl = ($scope, $http, Fullscreen) ->
       i++
 
   $scope.zoom = (element) ->
-    if (Fullscreen.isEnabled()) then Fullscreen.cancel()
-    else Fullscreen.enable (document.querySelector "#a#{element}")
+    el = (document.querySelector "#a#{element} > .panel-collapse")
+    $scope.zoomed = Fullscreen.isEnabled()
+
+    unless $scope.zoomed then (Fullscreen.enable el)
+    else Fullscreen.cancel()
+    return
 
   #url = 'http://pitagoras.nightly.opi.la/api/activities'
   url = '/js/activities.json'
