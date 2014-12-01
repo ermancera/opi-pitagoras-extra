@@ -48,31 +48,22 @@
 
 
       .btn-group
-        button.btn.btn-xs.btn-primary(type='button', ng-click='randomStacked()')
-          | Randomizar
-
-        
-        button.btn.btn-xs.btn-default(type='button', ng-click='zoom(group.id)')
-          | fullScreen
-
+        button.btn.btn-xs.btn-primary(type='button', ng-click='randomStacked()') Randomizar
+        button.btn.btn-xs.btn-default(type='button', ng-click='zoom(group.id)') fullScreen
 
       tabset
         tab.active
           tab-heading
             i.glyphicon.glyphicon-info-sign
             | Descripción
-
-          h3
-            | {{group.user_key}}
           
-          h6
-            | NOMBRE DE MUNICIPIO
-
-          h6
-            | PRESUPUESTO ASIGNADO
+          h3 {{group.user_key}}
           
-          h3
-            | {{formatMoney(group.total_cost)}}
+          h6 NOMBRE DE MUNICIPIO
+
+          h6 PRESUPUESTO ASIGNADO
+          
+          h3 {{formatMoney(group.total_cost)}}
 
           progress
             bar(ng-repeat='bar in stacked track by $index', value='bar.value', type='{{bar.type}}')
