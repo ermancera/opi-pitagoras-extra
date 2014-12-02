@@ -4,10 +4,7 @@
 AccordionCtrl = ($scope, $http, Fullscreen) ->
   $scope.groups = []
   $scope.oneAtATime = true
-
-  # this is only for the container to have the correct class at startup
-  # it does not mean that the app starts in fullscreen mode.
-  $scope.zoomed = true
+  $scope.zoomed = false
 
   $scope.progressType = (value) ->
     type = switch
@@ -44,6 +41,8 @@ AccordionCtrl = ($scope, $http, Fullscreen) ->
 
     unless $scope.zoomed then (Fullscreen.enable el)
     else Fullscreen.cancel()
+
+    $scope.zoomed = !$scope.zoomed
     return
 
   #url = 'http://pitagoras.nightly.opi.la/api/activities'

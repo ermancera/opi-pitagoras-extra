@@ -7811,6 +7811,26 @@ button.close {
   content: "\f20c";
 }
 
+accordion .panel-heading {
+  padding: 2px 2px;
+}
+accordion .panel-heading .btn-xs {
+  float: right;
+  padding: 0 6px;
+}
+accordion .panel h3,
+accordion .panel h6 {
+  text-transform: uppercase;
+}
+accordion .panel h3:first-child {
+  margin-bottom: 0;
+}
+accordion .panel h6:first-child {
+  margin-top: 0;
+}
+accordion .col-sm-3:first-child {
+  margin-top: 2px;
+}
 accordion .col-sm-3:last-child {
   text-align: right;
 }

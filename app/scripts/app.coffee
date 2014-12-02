@@ -10,6 +10,7 @@ deps = [
   'ngRoute'
   'ngStorage'
   'ui.bootstrap'
+  'ui.bootstrap.tooltip'
 ]
 
 app = (angular.module 'app', deps)
@@ -41,13 +42,6 @@ app.constant 'angularMomentConfig',
 app.directive 'spinner', ->
   restrict: 'AE'
   template: '<div class="loading"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>'
-
-dataService = ($http) ->
-  # see https://fdietz.github.io/recipes-with-angular-js/consuming-external-services/requesting-json-data-with-ajax.html
-  getData: ->
-    return # AJAX
-
-app.factory 'dataService', ['$http', dataService]
 
 
 app.run (amMoment) ->

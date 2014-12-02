@@ -1,6 +1,27 @@
 accordion
-  .col-sm-3:last-child
-    text-align right
+  .panel-heading
+    padding 2px 2px
+
+    .btn-xs
+      float right
+      padding 0 6px
+
+  .panel
+    h3, h6
+      text-transform uppercase
+
+    h3:first-child
+      margin-bottom 0
+
+    h6:first-child
+      margin-top 0
+
+  .col-sm-3
+    &:first-child
+      margin-top 2px
+      
+    &:last-child
+      text-align right
 
   .disabled
     color lightgray

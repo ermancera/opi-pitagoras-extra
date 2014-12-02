@@ -1,0 +1,24 @@
+<div class='panel panel-default' ng-class="activity.state">
+    <div class="panel-body">
+        <h4>
+            {{ activity.user_key }} {{activity.human_state_name}}
+            {{ activity.admin1 }} / {{ activity.admin2 }} / Poligono:{{ activity.polygon }}
+        </h4>
+        Presupuesto ejercido{{ activity.budget_breakthrough | currency }}<br>    
+        Presupuesto asignado{{ activity.total_cost | currency }}<br>
+        <h4>Avances</h4>
+        Beneficiarios {{ activity.real_beneficiaries |  number:0}} {{ activity.total_of_beneficiaries |  number:0}}<br>
+        Metas:{{ activity.completed_goals | number:0 }} de {{ activity.quantity }}<br>
+        <h4>Acción</h4> {{ activity.action }}<br>
+        <i ui-sref="activities.activity.detail({activityId: activity.id, admin1_id: admin1_id })" class="fa fa-arrow-right"></i>
+        <h4>Descripción</h4> {{ activity.description }}<br>
+        <h4>Categoría</h4> {{activity.activity_type}}<br>
+    </div>
+    <div class="panel-footer">
+        <div class="btn btn-default" ui-sref="activity.CargarEvidencia">Evidencia</div>
+        <div class="btn btn-default" ui-sref="activity.CargarDocumento">Contrato factura</div>
+        <div class="btn btn-default" ui-sref="activity.CargarAvance">Registrar avances</div>
+        <div class="btn btn-default" ui-sref="activity.CargarEvento">Calendarizar</div>
+    </div>
+</div>
+<hr>

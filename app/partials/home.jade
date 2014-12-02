@@ -1,6 +1,6 @@
 .container(
   ng-controller="AccordionCtrl"
-  ng-class='{ zoomed : !zoomed }'
+  ng-class='{ zoomed : zoomed }'
 )
   label.checkbox
     input(type='checkbox', ng-model='oneAtATime')
@@ -42,9 +42,15 @@
             )
           
           .col-sm-3(ng-hide='status.open')
-            i.glyphicon.glyphicon-usd(ng-class="{'disabled': (group.quantity < 1)}", tooltip="tooltip")
-            i.glyphicon.glyphicon-eye-open(ng-class="{'disabled': !group.notes}", tooltip="tooltip")
-            i.glyphicon.glyphicon-magnet(ng-class="{'disabled': !group.visits}", tooltip="tooltip")
+            .btn-group
+              a.btn.btn-link.btn-xs(tooltip="Pagos", tooltip-trigger, tooltip-placement="left")
+                i.glyphicon.glyphicon-magnet(ng-class="{'disabled': !group.visits}")
+                  
+              a.btn.btn-link.btn-xs(tooltip="Observaciones", tooltip-trigger, tooltip-placement="left")
+                i.glyphicon.glyphicon-eye-open(ng-class="{'disabled': !group.notes}")
+              
+              a.btn.btn-link.btn-xs(tooltip="Visitas", tooltip-trigger, tooltip-placement="left")
+                i.glyphicon.glyphicon-usd(ng-class="{'disabled': (group.quantity < 1)}")
 
 
       .btn-group
@@ -52,15 +58,17 @@
         button.btn.btn-xs.btn-default(type='button', ng-click='zoom(group.id)') fullScreen
 
       tabset
-        tab.active
+        tab
           tab-heading
             i.glyphicon.glyphicon-info-sign
             | Descripción
           
-          h3 {{group.user_key}}
+          h3
+            | {{group.user_key}} {{group.human_state_name}}
           
-          h6 NOMBRE DE MUNICIPIO
-
+          h6
+            | {{group.admin1}} / {{group.admin2}} / Polígono: {{group.polygon}}
+          
           h6 PRESUPUESTO ASIGNADO
           
           h3 {{formatMoney(group.total_cost)}}

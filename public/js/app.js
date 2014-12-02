@@ -5,6 +5,7 @@ AccordionCtrl = function($scope, $http, Fullscreen) {
   var get, url;
   $scope.groups = [];
   $scope.oneAtATime = true;
+  $scope.zoomed = false;
   $scope.progressType = function(value) {
     var type;
     return type = (function() {
@@ -46,6 +47,7 @@ AccordionCtrl = function($scope, $http, Fullscreen) {
     } else {
       Fullscreen.cancel();
     }
+    $scope.zoomed = !$scope.zoomed;
   };
   url = '/js/activities.json';
   get = $http.get(url);
@@ -102,9 +104,9 @@ accordion.directive('onAccordionGroupClick', function() {
   };
 });
 ;'use strict';
-var app, dataService, deps, routes;
+var app, deps, routes;
 
-deps = ['accordion', 'angularMoment', 'app.templates', 'FBAngular', 'main', 'navbar', 'ngRoute', 'ngStorage', 'ui.bootstrap'];
+deps = ['accordion', 'angularMoment', 'app.templates', 'FBAngular', 'main', 'navbar', 'ngRoute', 'ngStorage', 'ui.bootstrap', 'ui.bootstrap.tooltip'];
 
 app = angular.module('app', deps);
 
@@ -135,14 +137,6 @@ app.directive('spinner', function() {
     template: '<div class="loading"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>'
   };
 });
-
-dataService = function($http) {
-  return {
-    getData: function() {}
-  };
-};
-
-app.factory('dataService', ['$http', dataService]);
 
 app.run(function(amMoment) {
   return amMoment.changeLocale('es');
