@@ -48,10 +48,10 @@
               a.btn.btn-link.btn-xs(tooltip="Visitas", tooltip-trigger, tooltip-placement="left")
                 i.glyphicon.glyphicon-usd(ng-class="{'disabled': (group.quantity < 1)}")
 
-
-      .btn-group
-        button.btn.btn-xs.btn-primary(type='button', ng-click='randomStacked()') Randomizar
-        button.btn.btn-xs.btn-default(type='button', ng-click='zoom(group.id)') fullScreen
+      //-
+        | .btn-group
+        | button.btn.btn-xs.btn-primary(type='button', ng-click='randomStacked()') Randomizar
+        | button.btn.btn-xs.btn-default(type='button', ng-click='zoom(group.id)') fullScreen
 
       tabset
         tab
