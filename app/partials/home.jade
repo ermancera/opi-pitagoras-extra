@@ -6,7 +6,7 @@
     input(type='checkbox', ng-model='oneAtATime')
     |     Abrir un elemento a la vez
   
-  accordion(close-others='oneAtATime', is-open='status.open')
+  accordion(close-others='oneAtATime', is-open='$parent.isOpen')
     accordion-group(
       id='a{{group.id}}'
       ng-repeat='group in groups'
@@ -17,7 +17,7 @@
           .col-sm-3
             | {{group.user_key}}
           
-          .col-sm-2(ng-hide='status.open')
+          .col-sm-2(ng-hide='$parent.isOpen')
             progressbar.small(
               animate='false'
               max='group.total_cost'
@@ -25,7 +25,7 @@
               value='(group.budget_breakthrough * group.total_cost) / 100'
             )
           
-          .col-sm-2(ng-hide='status.open')
+          .col-sm-2(ng-hide='$parent.isOpen')
             progressbar.small(
               animate='false'
               max='group.goal_number'
@@ -33,7 +33,7 @@
               value='(group.completed_goals * group.goal_number) / 100'
             )
           
-          .col-sm-2(ng-hide='status.open')
+          .col-sm-2(ng-hide='$parent.isOpen')
             progressbar.small(
               animate='false'
               value='(group.real_beneficiaries * group.total_of_beneficiaries) / 100'
@@ -41,7 +41,7 @@
               type='{{progressType((group.real_beneficiaries * group.total_of_beneficiaries) / 100)}}'
             )
           
-          .col-sm-3(ng-hide='status.open')
+          .col-sm-3(ng-hide='$parent.isOpen')
             .btn-group
               a.btn.btn-link.btn-xs(tooltip="Pagos", tooltip-trigger, tooltip-placement="left")
                 i.glyphicon.glyphicon-magnet(ng-class="{'disabled': !group.visits}")
