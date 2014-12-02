@@ -7,11 +7,7 @@
     |     Abrir un elemento a la vez
   
   accordion(close-others='oneAtATime', is-open='$parent.isOpen')
-    accordion-group(
-      id='a{{group.id}}'
-      ng-repeat='group in groups'
-      on-accordion-group-click="{{group.template}}"
-    )
+    accordion-group(id='a{{group.id}}', ng-repeat='group in groups')
       accordion-heading
         .row
           .col-sm-3

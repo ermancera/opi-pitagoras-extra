@@ -87,22 +87,6 @@ AccordionCtrl = function($scope, $http, Fullscreen) {
 accordion = angular.module('accordion', []);
 
 accordion.controller('AccordionCtrl', AccordionCtrl);
-
-accordion.directive('onAccordionGroupClick', function() {
-  return {
-    link: function($scope, element, attrs) {
-      return element.on('click', function() {
-
-        /*
-        $scope.currentTemplate = template
-        $scope.$apply()
-         */
-      });
-    },
-    require: '^accordion',
-    restrict: 'A'
-  };
-});
 ;'use strict';
 var app, deps, routes;
 
