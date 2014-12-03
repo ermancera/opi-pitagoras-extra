@@ -1,15 +1,4 @@
 accordion
-  .panel-heading
-    &:hover
-      box-shadow rgba(0,0,0,0.2) 0px 2px 5px, inset rgba(0,0,0,0.2) 0px -1px 1px
-
-    min-height 24px
-    padding 2px 2px
-
-    .btn-xs
-      float right
-      padding 0 6px
-
   .panel
     box-shadow 0 0 8px rgba(0,0,0,0.2) inset
 
@@ -21,6 +10,17 @@ accordion
 
     h6:first-child
       margin-top 0
+
+    .panel-heading
+      &:hover
+        box-shadow rgba(0,0,0,0.2) 0px 2px 5px, inset rgba(0,0,0,0.2) 0px -1px 1px
+
+      min-height 24px
+      padding 2px 2px
+
+      .btn-xs
+        float right
+        padding 0 6px
 
   .col-sm-2
     margin-top 2px
@@ -50,13 +50,18 @@ body
     margin 30px 0
 
 
-.container:not(.zoomed) .panel-collapse > .panel-body > .ng-isolate-scope
-  // hack to place tabs at the bottom
-  display flex
-  flex-direction column-reverse
+.container
+  &.expanded .panel-heading
+    display none
+    visibility hidden
 
-  & > *
-    flex 0 0 auto
+  &:not(.zoomed) .panel-collapse > .panel-body > .ng-isolate-scope
+    // hack to place tabs at the bottom
+    display flex
+    flex-direction column-reverse
+
+    & > *
+      flex 0 0 auto
 
 
 .nav-tabs

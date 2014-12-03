@@ -1,19 +1,20 @@
 .container(
   ng-controller="AccordionCtrl"
-  ng-class='{ zoomed : zoomed }'
+  ng-class='{ expanded: expanded, zoomed: zoomed }'
 )
-  label.checkbox
-    input(type='checkbox', ng-model='oneAtATime')
-    |     Abrir un elemento a la vez
+
+  .btn-group(role='group', aria-label='Vistas')
+    button.btn.btn-default.btn-xs(type='button', ng-click='expand(false)') Compactar
+    button.btn.btn-default.btn-xs(type='button', ng-click='expand(true)') Expandir
   
-  accordion(close-others='oneAtATime', is-open='isOpen')
-    accordion-group(id='a{{group.id}}', ng-repeat='group in groups')
+  accordion(close-others='single')
+    accordion-group(id='a{{group.id}}', ng-repeat='group in groups', is-open='group.isOpen', is-disabled='group.isOpen')
       accordion-heading
         .row
           .col-sm-3
             | {{group.user_key}}
           
-          .col-sm-2(ng-hide='$parent.isOpen')
+          .col-sm-2(ng-hide='$parent.isOpen && !$parent.expanded')
             progressbar.small(
               animate='false'
               max='group.total_cost'
@@ -21,7 +22,7 @@
               value='(group.budget_breakthrough * group.total_cost) / 100'
             )
           
-          .col-sm-2(ng-hide='$parent.isOpen')
+          .col-sm-2(ng-hide='$parent.isOpen && !$parent.expanded')
             progressbar.small(
               animate='false'
               max='group.goal_number'
@@ -29,7 +30,7 @@
               value='(group.completed_goals * group.goal_number) / 100'
             )
           
-          .col-sm-2(ng-hide='$parent.isOpen')
+          .col-sm-2(ng-hide='$parent.isOpen && !$parent.expanded')
             progressbar.small(
               animate='false'
               value='(group.real_beneficiaries * group.total_of_beneficiaries) / 100'
@@ -37,7 +38,7 @@
               type='{{progressType((group.real_beneficiaries * group.total_of_beneficiaries) / 100)}}'
             )
           
-          .col-sm-3(ng-hide='$parent.isOpen')
+          .col-sm-3(ng-hide='$parent.isOpen && !$parent.expanded')
             .btn-group
               a.btn.btn-link.btn-xs(tooltip="Pagos", tooltip-trigger, tooltip-placement="left")
                 i.glyphicon.glyphicon-magnet(ng-class="{'disabled': !group.visits}")

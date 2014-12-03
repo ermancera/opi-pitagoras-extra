@@ -2,9 +2,18 @@
 
 
 AccordionCtrl = ($scope, $http, Fullscreen) ->
+  $scope.expanded = false
   $scope.groups = []
-  $scope.oneAtATime = true
+  $scope.single = false
   $scope.zoomed = false
+
+  $scope.expand = (state=false) ->
+    $scope.expanded = state
+    $scope.single = !state
+
+    for group in $scope.groups
+      group.disabled = $scope.expanded
+      group.isOpen = $scope.expanded
 
   $scope.progressType = (value) ->
     type = switch
@@ -79,6 +88,7 @@ AccordionCtrl = ($scope, $http, Fullscreen) ->
   ]
   ###
 
+  $scope.expand()
   $scope.randomStacked()
   return
 
