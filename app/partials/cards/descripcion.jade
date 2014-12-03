@@ -1,0 +1,13 @@
+h3
+  | {{group.user_key}} {{group.human_state_name}}
+
+h6
+  | {{group.admin1}} / {{group.admin2}} / Polígono: {{group.polygon}}
+
+h6 PRESUPUESTO ASIGNADO
+
+h3 {{formatMoney(group.total_cost)}}
+
+progress
+  bar(ng-repeat='bar in stacked track by $index', value='bar.value', type='{{bar.type}}')
+    span(ng-hide='bar.value < 5') {{bar.value}}%
