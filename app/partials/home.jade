@@ -6,7 +6,7 @@
     input(type='checkbox', ng-model='oneAtATime')
     |     Abrir un elemento a la vez
   
-  accordion(close-others='oneAtATime', is-open='$parent.isOpen')
+  accordion(close-others='oneAtATime', is-open='isOpen')
     accordion-group(id='a{{group.id}}', ng-repeat='group in groups')
       accordion-heading
         .row
