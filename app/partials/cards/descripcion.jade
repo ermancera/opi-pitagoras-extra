@@ -1,12 +1,9 @@
-h3
-  | {{group.user_key}} {{group.human_state_name}}
+//- Tarjeta principal
 
-h6
-  | {{group.admin1}} / {{group.admin2}} / Polígono: {{group.polygon}}
-
+h3 {{group.user_key}} {{group.human_state_name}}
+h6 {{group.admin1}} / {{group.admin2}} / Polígono: {{group.polygon}}
 h6 PRESUPUESTO ASIGNADO
-
-h3 {{formatMoney(group.total_cost)}}
+h3 {{group.total_cost | currency}}
 
 progress
   bar(ng-repeat='bar in stacked track by $index', value='bar.value', type='{{bar.type}}')
