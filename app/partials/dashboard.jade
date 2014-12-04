@@ -1,0 +1,47 @@
+.jumbotron
+  .row
+    h3 Avance Global
+
+    .stats
+      span Actividades
+      span Sin Avance
+      span En proceso
+      span Completadas
+
+  .row
+    .col-xs-6
+      h3 Presupuesto Asignado
+      h3 {{group.total_cost | currency}}
+
+  .row
+    progress
+      bar(ng-repeat='bar in stacked track by $index', value='bar.value', type='{{bar.type}}')
+        span(ng-hide='bar.value < 5') {{bar.value}}%
+
+  .row.legend
+    .col-xs-3
+      span.badge.comprometido
+      span Comprometido
+      
+    .col-xs-3
+      span.badge.devengado
+      span Devengado
+    
+    .col-xs-3
+      span.badge.pagado
+      span Pagado
+    
+    .col-xs-3
+      span.badge.por-ejercer
+      span Por ejercer
+
+  .row
+    h3 Avances
+
+    .col-xs-6
+      progressbar
+        h3 beneficiarios
+
+    .col-xs-6
+      progressbar
+        h3 metas
