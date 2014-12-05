@@ -45,6 +45,8 @@
               type='{{progressType((group.real_beneficiaries * group.total_of_beneficiaries) / 100)}}'
             )
           
+          .col-xs-1
+          
           .col-xs-2(ng-hide='$parent.isOpen && !$parent.expanded')
             .btn-group
               a.btn.btn-link.btn-xs(tooltip="Pagos", tooltip-trigger, tooltip-placement="left")
