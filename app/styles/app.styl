@@ -3,7 +3,6 @@ accordion
     box-shadow 0 0 8px rgba(0,0,0,0.2) inset
 
     h3, h6
-      text-transform uppercase
       user-select text
 
     h3:first-child
@@ -20,8 +19,10 @@ accordion
       padding 2px 2px
 
       .btn-xs
-        float right
         padding 0 6px
+
+      .col-xs-1
+        font-size smaller
 
   .col-sm-2
     margin-top 2px
@@ -44,14 +45,16 @@ accordion
 
 
 body
-  margin 0 auto
-  //max-width 960px
+  h3, h6
+    text-transform uppercase
 
   & > hr
     margin 30px 0
 
   cursor default
+  margin 0 auto
   user-select none
+  //max-width 960px
 
 
 .container
@@ -66,6 +69,11 @@ body
 
     & > *
       flex 0 0 auto
+
+
+.header
+  .btn-xs
+    padding 0
 
 
 .legend

@@ -22,7 +22,7 @@ AccordionCtrl = ($scope, $http, Fullscreen) ->
       when (value < 75) then 'info'
       else 'success'
 
-  $scope.randomStacked = ->
+  $scope.randomProgress = ->
     $scope.stacked = []
 
     i = 0
@@ -89,7 +89,7 @@ AccordionCtrl = ($scope, $http, Fullscreen) ->
   ###
 
   $scope.expand()
-  $scope.randomStacked()
+  $scope.randomProgress()
   return
 
 
