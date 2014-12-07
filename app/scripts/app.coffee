@@ -10,7 +10,6 @@ deps = [
   'ngRoute'
   'ngStorage'
   'ui.bootstrap'
-  'ui.bootstrap.tooltip'
 ]
 
 app = (angular.module 'app', deps)

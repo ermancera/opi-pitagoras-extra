@@ -8,11 +8,11 @@
   accordion(close-others='single')
     accordion-group(id='a{{group.id}}', ng-repeat='group in groups', is-open='group.isOpen', is-disabled='group.isOpen')
       accordion-heading
-        .row
+        .row(ng-hide='$parent.isOpen && !$parent.expanded')
           .col-xs-3
             | {{group.user_key}}
           
-          .col-xs-1
+          .col-xs-2
             | Municipio
           
           .col-xs-1
@@ -21,7 +21,7 @@
           .col-xs-1
             | Polígono
           
-          .col-xs-1(ng-hide='$parent.isOpen && !$parent.expanded')
+          .col-xs-1
             progressbar.small(
               animate='false'
               max='group.total_cost'
@@ -29,7 +29,7 @@
               value='(group.budget_breakthrough * group.total_cost) / 100'
             )
           
-          .col-xs-1(ng-hide='$parent.isOpen && !$parent.expanded')
+          .col-xs-1
             progressbar.small(
               animate='false'
               max='group.goal_number'
@@ -37,7 +37,7 @@
               value='(group.completed_goals * group.goal_number) / 100'
             )
           
-          .col-xs-1(ng-hide='$parent.isOpen && !$parent.expanded')
+          .col-xs-1
             progressbar.small(
               animate='false'
               value='(group.real_beneficiaries * group.total_of_beneficiaries) / 100'
@@ -45,9 +45,7 @@
               type='{{progressType((group.real_beneficiaries * group.total_of_beneficiaries) / 100)}}'
             )
           
-          .col-xs-1
-          
-          .col-xs-2(ng-hide='$parent.isOpen && !$parent.expanded')
+          .col-xs-2
             .btn-group
               a.btn.btn-link.btn-xs(tooltip="Pagos", tooltip-trigger, tooltip-placement="left")
                 i.glyphicon.glyphicon-usd(ng-class="{'disabled': (group.quantity < 1)}")

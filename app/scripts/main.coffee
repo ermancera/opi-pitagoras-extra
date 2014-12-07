@@ -2,7 +2,7 @@
 
 
 MainCtrl = ($scope, $localStorage, $sessionStorage) ->
-  $scope.$storage = ($localStorage.$default accounts: [ 500, 250 ], history: [])
+  #$scope.$storage = ($localStorage.$default accounts: [ 500, 250 ], history: [])
 
   $scope.formatMoney = (amount) ->
     accounting.formatMoney amount
