@@ -6,11 +6,11 @@
   include ./header.jade
   
   accordion(close-others='single')
-    accordion-group(id='a{{group.id}}', ng-repeat='group in groups', is-open='group.isOpen', is-disabled='group.isOpen')
+    accordion-group(id='a{{activity.id}}', ng-repeat='activity in activities', is-open='activity.isOpen', is-disabled='activity.isOpen')
       accordion-heading
         .row(ng-hide='$parent.isOpen && !$parent.expanded')
           .col-xs-3
-            | {{group.user_key}}
+            | {{activity.user_key}}
           
           .col-xs-2
             | Municipio
@@ -24,42 +24,42 @@
           .col-xs-1
             progressbar.small(
               animate='false'
-              max='group.total_cost'
-              type='{{progressType((group.budget_breakthrough * group.total_cost) / 100)}}'
-              value='(group.budget_breakthrough * group.total_cost) / 100'
+              max='activity.total_cost'
+              type='{{progressType((activity.budget_breakthrough * activity.total_cost) / 100)}}'
+              value='(activity.budget_breakthrough * activity.total_cost) / 100'
             )
           
           .col-xs-1
             progressbar.small(
               animate='false'
-              max='group.goal_number'
-              type='{{progressType((group.completed_goals * group.goal_number) / 100)}}'
-              value='(group.completed_goals * group.goal_number) / 100'
+              max='activity.goal_number'
+              type='{{progressType((activity.completed_goals * activity.goal_number) / 100)}}'
+              value='(activity.completed_goals * activity.goal_number) / 100'
             )
           
           .col-xs-1
             progressbar.small(
               animate='false'
-              value='(group.real_beneficiaries * group.total_of_beneficiaries) / 100'
-              max='group.total_of_beneficiaries'
-              type='{{progressType((group.real_beneficiaries * group.total_of_beneficiaries) / 100)}}'
+              value='(activity.real_beneficiaries * activity.total_of_beneficiaries) / 100'
+              max='activity.total_of_beneficiaries'
+              type='{{progressType((activity.real_beneficiaries * activity.total_of_beneficiaries) / 100)}}'
             )
           
           .col-xs-2
             .btn-group
               a.btn.btn-link.btn-xs(tooltip="Pagos", tooltip-trigger, tooltip-placement="left")
-                i.glyphicon.glyphicon-usd(ng-class="{'disabled': (group.quantity < 1)}")
+                i.glyphicon.glyphicon-usd(ng-class="{'disabled': (activity.quantity < 1)}")
                   
               a.btn.btn-link.btn-xs(tooltip="Observaciones", tooltip-trigger, tooltip-placement="left")
-                i.glyphicon.glyphicon-eye-open(ng-class="{'disabled': !group.notes}")
+                i.glyphicon.glyphicon-eye-open(ng-class="{'disabled': !activity.notes}")
               
               a.btn.btn-link.btn-xs(tooltip="Visitas", tooltip-trigger, tooltip-placement="left")
-                i.glyphicon.glyphicon-magnet(ng-class="{'disabled': !group.visits}")
+                i.glyphicon.glyphicon-magnet(ng-class="{'disabled': !activity.visits}")
 
       //-
         | .btn-group
         | button.btn.btn-xs.btn-primary(type='button', ng-click='randomStacked()') Randomizar
-        | button.btn.btn-xs.btn-default(type='button', ng-click='zoom(group.id)') fullScreen
+        | button.btn.btn-xs.btn-default(type='button', ng-click='zoom(activity.id)') fullScreen
 
       tabset
         tab

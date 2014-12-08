@@ -2,8 +2,8 @@
 
 
 AccordionCtrl = ($scope, $http, Fullscreen) ->
+  $scope.activities = []
   $scope.expanded = false
-  $scope.groups = []
   $scope.single = false
   $scope.zoomed = false
 
@@ -11,9 +11,9 @@ AccordionCtrl = ($scope, $http, Fullscreen) ->
     $scope.expanded = state
     $scope.single = !state
 
-    for group in $scope.groups
-      group.disabled = $scope.expanded
-      group.isOpen = $scope.expanded
+    for activity in $scope.activities
+      activity.disabled = $scope.expanded
+      activity.isOpen = $scope.expanded
 
   $scope.progressType = (value) ->
     type = switch
@@ -63,10 +63,10 @@ AccordionCtrl = ($scope, $http, Fullscreen) ->
 
   get.success (data, status, headers, config) ->
     console.log "GET #{status}"
-    $scope.groups = data.activities
+    $scope.activities = data.activities
 
   ###
-  $scope.groups = [
+  $scope.activities = [
     {
       benefs: 12
       budget: 25

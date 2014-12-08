@@ -1,16 +1,56 @@
 //- Tarjeta principal
 
-.row
-  .col-xs-6
-    h3 {{group.user_key}} {{group.human_state_name}}
-    h6 {{group.admin1}} / {{group.admin2}} / Polígono: {{group.polygon}}
+.card
+  .card-title
+    .row
+      .col-md-6.id-info
+        h2 {{activity.user_key}} {{activity.human_state_name}}
+        h3 {{activity.admin1}} / {{activity.admin2}} / Polígono: {{activity.polygon}}
 
-.row  
-  .col-xs-6
-    h6 PRESUPUESTO ASIGNADO
-    h3 {{group.total_cost | currency}}
+      .col-md-6.date-info
+        p Fecha de creación:
+        p Última modificación:
 
-.row
-  progress
-    bar(ng-repeat='bar in stacked track by $index', value='bar.value', type='{{bar.type}}')
-      span(ng-hide='bar.value < 5') {{bar.value}}%
+  .card-info
+    .row
+      .col-md-6.progress-info
+        h3 Presupuesto asignado
+        h2 Presupuesto asignado
+        h2 Presupuesto ejercido
+        
+        .budget-info
+          progress.progress-bar-por-ejercer
+            bar(ng-repeat='bar in stacked track by $index', value='bar.value', type='{{bar.type}}')
+              span(ng-hide='bar.value < 5') {{bar.value}}%
+          
+          ul.footnote
+            li.footnote-label.footnote-icon-total-pledged Comprometido
+            li.footnote-label.footnote-icon-total-accruable Devengado
+            li.footnote-label.footnote-icon-total-discharged Pagado
+            li.footnote-label.footnote-icon-por-ejercer Por ejercer
+
+        .goals-info
+          h3 Avances
+          
+          progressbar(value='60')
+          .footnote
+            span.footnote-label {{activity.real_beneficiaries | number:0}} {{activity.total_of_beneficiaries | number:0}}
+          
+          progressbar(value='30')
+          .footnote
+            span.footnote-label {{activity.completed_goals | number:0}} de {{activity.quantity}}
+
+      .col-md-6.description-info
+        .action-info
+          h3 Acción
+          p {{activity.action}}
+        
+        .action-info
+          h3 Descripción
+          p {{activity.description | cut:true:300: ' ...'}}
+        
+        .row
+          .col-md-12.more
+            a.more(ui-sref="activities.activity.detail({activityId: activity.id, admin1_id: admin1_id })")
+              | Leer Más
+              i.fa.fa-arrow-right
