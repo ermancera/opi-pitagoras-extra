@@ -1,7 +1,7 @@
 .jumbotron
   .row
     .col-xs-4
-      h6 Avance Global
+      h4 Avance Global
 
     .col-xs-2
       .row
@@ -39,9 +39,10 @@
       h3 {{100000 | currency}}
 
   .row
-    progress
-      bar(ng-repeat='bar in stacked track by $index', value='bar.value', type='{{bar.type}}')
-        span(ng-hide='bar.value < 5') {{bar.value}}%
+    .col-xs-12
+      progress
+        bar(ng-repeat='bar in stacked track by $index', value='bar.value', type='{{bar.type}}')
+          span(ng-hide='bar.value < 5') {{bar.value}}%
 
   .row.legend
     .col-xs-3
@@ -61,12 +62,13 @@
       span Por ejercer
 
   .row
-    h3 Avances
+    .col-xs-12
+      h3 Avances
 
     .col-xs-6
-      progressbar(value='25', type='success')
+      progressbar(value='25', type='progressType(25)')
       h6 beneficiarios
 
     .col-xs-6
-      progressbar(value='25', type='success')
+      progressbar(value='25', type='progressType(25)')
       h6 metas

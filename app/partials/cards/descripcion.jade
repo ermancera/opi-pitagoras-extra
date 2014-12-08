@@ -32,13 +32,18 @@
         .goals-info
           h3 Avances
           
-          progressbar(value='60', type='success')
-          .footnote
-            span.footnote-label {{activity.real_beneficiaries | number:0}} {{activity.total_of_beneficiaries | number:0}}
-          
-          progressbar(value='30', type='success')
-          .footnote
-            span.footnote-label {{activity.completed_goals | number:0}} de {{activity.quantity}}
+          .row.goals-info
+            .col-xs-3
+              progressbar(value='60', type='progressType(60)')
+
+              .footnote
+                span.footnote-label {{activity.real_beneficiaries | number:0}} {{activity.total_of_beneficiaries | number:0}}
+            
+            .col-xs-3
+              progressbar(value='30', type='progressType(30)')
+
+              .footnote
+                span.footnote-label {{activity.completed_goals | number:0}} de {{activity.quantity}}
 
       .col-md-6.description-info
         .action-info
