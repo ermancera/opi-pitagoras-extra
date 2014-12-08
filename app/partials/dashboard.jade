@@ -1,17 +1,42 @@
 .jumbotron
   .row
-    h3 Avance Global
+    .col-xs-4
+      h6 Avance Global
 
-    .stats
-      span Actividades
-      span Sin Avance
-      span En proceso
-      span Completadas
-
+    .col-xs-2
+      .row
+        span 300
+      
+      .row
+        span Actividades
+      
+    .col-xs-2
+      .row
+        span 200
+      
+      .row
+        span Sin Avance
+    
+    .col-xs-2
+      .row
+        span 200
+      
+      .row
+        span En proceso
+    
+    .col-xs-2
+      .row
+        span 200
+      
+      .row
+        span Completadas
+  
+  hr
+  
   .row
     .col-xs-6
       h3 Presupuesto Asignado
-      h3 {{activity.total_cost | currency}}
+      h3 {{100000 | currency}}
 
   .row
     progress
@@ -39,9 +64,9 @@
     h3 Avances
 
     .col-xs-6
-      progressbar
-        h3 beneficiarios
+      progressbar(value='25', type='success')
+      h6 beneficiarios
 
     .col-xs-6
-      progressbar
-        h3 metas
+      progressbar(value='25', type='success')
+      h6 metas

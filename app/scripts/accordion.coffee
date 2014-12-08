@@ -3,6 +3,7 @@
 
 AccordionCtrl = ($scope, $http, Fullscreen) ->
   $scope.activities = []
+  $scope.currentPage = 3
   $scope.expanded = false
   $scope.single = false
   $scope.zoomed = false

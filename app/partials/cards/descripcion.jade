@@ -15,8 +15,8 @@
     .row
       .col-md-6.progress-info
         h3 Presupuesto asignado
-        h2 Presupuesto asignado
-        h2 Presupuesto ejercido
+        h2 Presupuesto asignado {{activity.budget_breakthrough | currency}}
+        h2 Presupuesto ejercido {{activity.total_cost | currency}}
         
         .budget-info
           progress.progress-bar-por-ejercer
@@ -32,11 +32,11 @@
         .goals-info
           h3 Avances
           
-          progressbar(value='60')
+          progressbar(value='60', type='success')
           .footnote
             span.footnote-label {{activity.real_beneficiaries | number:0}} {{activity.total_of_beneficiaries | number:0}}
           
-          progressbar(value='30')
+          progressbar(value='30', type='success')
           .footnote
             span.footnote-label {{activity.completed_goals | number:0}} de {{activity.quantity}}
 
