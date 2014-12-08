@@ -111,4 +111,8 @@
           
           include ./cards/observaciones.jade
 
-  pagination(total-items='25', ng-model='currentPage')
+  pagination.pagination-sm(
+    total-items='totalPages'
+    ng-change='pageChanged()'
+    ng-model='currentPage'
+  )

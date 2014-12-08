@@ -6,6 +6,7 @@ AccordionCtrl = ($scope, $http, Fullscreen) ->
   $scope.currentPage = 3
   $scope.expanded = false
   $scope.single = false
+  $scope.totalPages = 25
   $scope.zoomed = false
 
   $scope.expand = (state=false) ->
@@ -15,6 +16,9 @@ AccordionCtrl = ($scope, $http, Fullscreen) ->
     for activity in $scope.activities
       activity.disabled = $scope.expanded
       activity.isOpen = $scope.expanded
+
+  $scope.pageChanged = ->
+    console.log "Page changed to #{$scope.currentPage}"
 
   $scope.progressType = (value) ->
     type = switch
@@ -44,6 +48,9 @@ AccordionCtrl = ($scope, $http, Fullscreen) ->
         type: types[index]
 
       i++
+
+  $scope.setPage = (page) ->
+    $scope.currentPage = page
 
   $scope.zoom = (element) ->
     el = (document.querySelector "#a#{element} > .panel-collapse")
