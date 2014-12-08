@@ -1,7 +1,7 @@
 .jumbotron
   .row
     .col-xs-4
-      h4 Avance Global
+      h6 Avance Global
 
     .col-xs-2
       .row
@@ -30,45 +30,45 @@
       
       .row
         span Completadas
-  
-  hr
-  
+
   .row
     .col-xs-6
       h3 Presupuesto Asignado
-      h3 {{100000 | currency}}
+      h3 {{activity.total_cost | currency}}
 
   .row
-    .col-xs-12
-      progress
-        bar(ng-repeat='bar in stacked track by $index', value='bar.value', type='{{bar.type}}')
-          span(ng-hide='bar.value < 5') {{bar.value}}%
+    progress
+      bar(ng-repeat='bar in stacked track by $index', value='bar.value', type='{{bar.type}}')
+        span(ng-hide='bar.value < 5') {{bar.value}}%
 
   .row.legend
     .col-xs-3
-      span.badge.comprometido
-      span Comprometido
+      .row
+        .col-xs-1.comprometido
+        .col-xs-2 Comprometido
       
     .col-xs-3
-      span.badge.devengado
-      span Devengado
+      .row
+        .col-xs-1.devengado
+        .col-xs-2 Devengado
     
     .col-xs-3
-      span.badge.pagado
-      span Pagado
+      .row
+        .col-xs-1.pagado
+        .col-xs-2 Pagado
     
     .col-xs-3
-      span.badge.por-ejercer
-      span Por ejercer
+      .row
+        .col-xs-1.por-ejercer
+        .col-xs-2 Por ejercer
 
   .row
-    .col-xs-12
-      h3 Avances
+    h3 Avances
 
     .col-xs-6
-      progressbar(value='25', type='progressType(25)')
-      h6 beneficiarios
+      progressbar
+      h3 beneficiarios
 
     .col-xs-6
-      progressbar(value='25', type='progressType(25)')
-      h6 metas
+      progressbar
+      h3 metas
