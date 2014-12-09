@@ -1,0 +1,17 @@
+//- Tarjeta cambios
+
+.row
+  .col-xs-10
+    h3 Resumen de Cambios
+  
+  .col-xs-2
+    button.btn.btn-info(type='button')
+      i.glyphicon.glyphicon-plus-sign
+      | Agregar
+
+.row
+  .list-group
+    a.list-group-item(href='#', ng-repeat='entry in entries')
+      .col-md-12
+        h4.list-group-item-heading {{entry.title}}
+        p.list-group-item-text {{entry.text}}

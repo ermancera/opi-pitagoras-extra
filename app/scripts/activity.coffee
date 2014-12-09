@@ -4,7 +4,10 @@ ActivityCtrl = ($scope, $http, Fullscreen) ->
   $scope.activities = []
   $scope.benefs = (Math.floor (Math.random() * 99) + 1)
   $scope.currentPage = 3
+  $scope.entries = [] #cambios
   $scope.expanded = false
+  $scope.facturas = []
+  $scope.files = [] #evidencia
   $scope.goals = (Math.floor (Math.random() * 99) + 1)
   $scope.single = false
   $scope.totalPages = 25
@@ -53,6 +56,9 @@ ActivityCtrl = ($scope, $http, Fullscreen) ->
   $scope.setPage = (page) ->
     $scope.currentPage = page
 
+  $scope.today = ->
+    $scope.date = new Date()
+
   $scope.zoom = (element) ->
     el = (document.querySelector "#a#{element} > .panel-collapse")
     $scope.zoomed = Fullscreen.isEnabled()
@@ -99,6 +105,7 @@ ActivityCtrl = ($scope, $http, Fullscreen) ->
 
   $scope.expand()
   $scope.randomProgress()
+  $scope.today()
   return
 
 

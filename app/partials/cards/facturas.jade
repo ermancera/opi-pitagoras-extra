@@ -1,0 +1,36 @@
+//- Tarjeta facturas
+
+.row
+  .col-xs-10
+    h3 Contratos / Facturas
+  
+  .col-xs-2
+    button.btn.btn-info(type='button')
+      i.glyphicon.glyphicon-plus-sign
+      | Agregar
+
+.row
+  .col-xs-12
+    table.table.table-hover
+      thead
+        tr
+          th Fecha
+          th # Doc
+          th Proveedor
+          th Monto
+          th Tipo
+          th Status
+          th Acciones
+      
+      tbody
+        tr(ng-repeat='factura in facturas')
+          td {{factura.date}}
+          td {{factura.num}}
+          td {{factura.provider}}
+          td {{factura.amount}}
+          td {{factura.type}}
+          td {{factura.status}}
+          td
+            a.btn.btn-link
+              i.glyphicon.glyphicon-pencil
+              i.glyphicon.glyphicon-trash
