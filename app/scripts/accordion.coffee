@@ -1,6 +1,5 @@
 'use strict'
 
-
 AccordionCtrl = ($scope, $http, Fullscreen) ->
   $scope.activities = []
   $scope.currentPage = 3

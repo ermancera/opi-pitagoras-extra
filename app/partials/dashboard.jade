@@ -6,24 +6,24 @@
     .col-xs-2
       .row
         span 300
-      
+
       .row
         span Actividades
-      
+
     .col-xs-2
       .row
         span 200
-      
+
       .row
         span Sin Avance
-    
+
     .col-xs-2
       .row
         span 200
-      
+
       .row
         span En proceso
-    
+
     .col-xs-2
       .row
         span 200
@@ -37,38 +37,40 @@
       h3 {{activity.total_cost | currency}}
 
   .row
-    progress
-      bar(ng-repeat='bar in stacked track by $index', value='bar.value', type='{{bar.type}}')
-        span(ng-hide='bar.value < 5') {{bar.value}}%
+    .col-xs-12
+      progress
+        bar(ng-repeat='bar in stacked track by $index', value='bar.value', type='{{bar.type}}')
+          span(ng-hide='bar.value < 5') {{bar.value}}%
 
   .row.legend
     .col-xs-3
       .row
         .col-xs-1.comprometido
         .col-xs-2 Comprometido
-      
+
     .col-xs-3
       .row
         .col-xs-1.devengado
         .col-xs-2 Devengado
-    
+
     .col-xs-3
       .row
         .col-xs-1.pagado
         .col-xs-2 Pagado
-    
+
     .col-xs-3
       .row
         .col-xs-1.por-ejercer
         .col-xs-2 Por ejercer
 
   .row
-    h3 Avances
+    .col-xs-12
+      h3 Avances
 
     .col-xs-6
-      progressbar
+      progressbar(value='45', type='progressType(45)')
       h3 beneficiarios
 
     .col-xs-6
-      progressbar
+      progressbar(value='45', type='progressType(45)')
       h3 metas

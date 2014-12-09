@@ -1,0 +1,79 @@
+body
+  h3, h4, h6
+    text-transform uppercase
+
+  & > hr
+    margin 30px 0
+
+  cursor default
+  margin 0 auto
+  user-select none
+
+
+.container
+  &.expanded .panel-heading
+    display none
+    visibility hidden
+
+  &:not(.zoomed) .panel-collapse > .panel-body > .ng-isolate-scope
+    // hack to place tabs at the bottom
+    display flex
+    flex-direction column-reverse
+
+    & > *
+      flex 0 0 auto
+
+
+.header
+  .btn-link.btn-xs
+    padding 0
+
+
+.legend
+    padding 0 17px
+
+  .col-xs-1
+    height 15px
+
+  .col-xs-2, .col-xs-5
+    font-size smaller
+
+  .comprometido
+    background-color blue
+
+  .devengado
+    background-color blue
+
+  .pagado
+    background-color blue
+
+  .por-ejercer
+    background-color blue
+
+
+.nav-tabs
+  .glyphicon
+    padding 0 5px 0 0
+
+  li
+    font-size 12px
+
+
+.nav, .pagination, .carousel, .panel-title a
+  cursor pointer
+
+
+.progress
+  height 19px !important
+  border none !important
+
+  .progress-bar
+    line-height inherit !important
+
+  &.small
+    margin-bottom inherit !important
+
+
+.zoomed
+  .panel-collapse.collapse.in
+    height 100% !important
