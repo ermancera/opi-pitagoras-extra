@@ -40,14 +40,17 @@ accordion(close-others='single')
         
         .col-xs-2
           .btn-group
-            a.btn.btn-link.btn-xs(tooltip="Pagos", tooltip-trigger, tooltip-placement="left")
-              i.glyphicon.glyphicon-usd(ng-class="{'disabled': (activity.quantity < 1)}")
+            a.btn.btn-link.btn-xs(tooltip="Contratos/Facturas", tooltip-trigger, tooltip-placement="left")
+              i.glyphicon.glyphicon-certificate(ng-class="{'disabled': false}")
                 
-            a.btn.btn-link.btn-xs(tooltip="Observaciones", tooltip-trigger, tooltip-placement="left")
-              i.glyphicon.glyphicon-eye-open(ng-class="{'disabled': !activity.notes}")
+            a.btn.btn-link.btn-xs(tooltip="Evidencia", tooltip-trigger, tooltip-placement="left")
+              i.glyphicon.glyphicon-paperclip(ng-class="{'disabled': false}")
             
-            a.btn.btn-link.btn-xs(tooltip="Visitas", tooltip-trigger, tooltip-placement="left")
-              i.glyphicon.glyphicon-magnet(ng-class="{'disabled': !activity.visits}")
+            a.btn.btn-link.btn-xs(tooltip="Resumen de cambios", tooltip-trigger, tooltip-placement="left")
+              i.glyphicon.glyphicon-ok(ng-class="{'disabled': false}")
+
+            a.btn.btn-link.btn-xs(tooltip="Calendario", tooltip-trigger, tooltip-placement="left")
+              i.glyphicon.glyphicon-calendar(ng-class="{'disabled': false}")
 
     //-
       | .btn-group
@@ -79,7 +82,7 @@ accordion(close-others='single')
       tab
         tab-heading
           i.glyphicon.glyphicon-ok
-          | Resumen de Cambios
+          | Resumen de cambios
       
         include ./cards/cambios.jade
       
