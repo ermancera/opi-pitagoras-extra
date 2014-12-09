@@ -1,0 +1,91 @@
+accordion(close-others='single')
+  accordion-group(id='a{{activity.id}}', ng-repeat='activity in activities', is-open='activity.isOpen', is-disabled='activity.isOpen')
+    accordion-heading
+      .row(ng-hide='$parent.isOpen && !$parent.expanded')
+        .col-xs-3
+          | {{activity.user_key}}
+        
+        .col-xs-2
+          | Municipio
+        
+        .col-xs-1
+          | Entidad
+        
+        .col-xs-1
+          | Polígono
+        
+        .col-xs-1
+          progressbar.small(
+            animate='false'
+            max='activity.total_cost'
+            type='{{progressType((activity.budget_breakthrough * activity.total_cost) / 100)}}'
+            value='(activity.budget_breakthrough * activity.total_cost) / 100'
+          )
+        
+        .col-xs-1
+          progressbar.small(
+            animate='false'
+            max='activity.goal_number'
+            type='{{progressType((activity.completed_goals * activity.goal_number) / 100)}}'
+            value='(activity.completed_goals * activity.goal_number) / 100'
+          )
+        
+        .col-xs-1
+          progressbar.small(
+            animate='false'
+            value='(activity.real_beneficiaries * activity.total_of_beneficiaries) / 100'
+            max='activity.total_of_beneficiaries'
+            type='{{progressType((activity.real_beneficiaries * activity.total_of_beneficiaries) / 100)}}'
+          )
+        
+        .col-xs-2
+          .btn-group
+            a.btn.btn-link.btn-xs(tooltip="Pagos", tooltip-trigger, tooltip-placement="left")
+              i.glyphicon.glyphicon-usd(ng-class="{'disabled': (activity.quantity < 1)}")
+                
+            a.btn.btn-link.btn-xs(tooltip="Observaciones", tooltip-trigger, tooltip-placement="left")
+              i.glyphicon.glyphicon-eye-open(ng-class="{'disabled': !activity.notes}")
+            
+            a.btn.btn-link.btn-xs(tooltip="Visitas", tooltip-trigger, tooltip-placement="left")
+              i.glyphicon.glyphicon-magnet(ng-class="{'disabled': !activity.visits}")
+
+    //-
+      | .btn-group
+      | button.btn.btn-xs.btn-primary(type='button', ng-click='randomStacked()') Randomizar
+      | button.btn.btn-xs.btn-default(type='button', ng-click='zoom(activity.id)') fullScreen
+
+    tabset
+      tab
+        tab-heading
+          i.glyphicon.glyphicon-info-sign
+          | Descripción
+          
+        include ./cards/descripcion.jade
+        
+      tab
+        tab-heading
+          i.glyphicon.glyphicon-certificate
+          | Contratos / Facturas
+      
+        include ./cards/facturas.jade
+      
+      tab
+        tab-heading
+          i.glyphicon.glyphicon-paperclip
+          | Evidencia
+        
+        include ./cards/evidencia.jade
+      
+      tab
+        tab-heading
+          i.glyphicon.glyphicon-ok
+          | Resumen de Cambios
+      
+        include ./cards/cambios.jade
+      
+      tab
+        tab-heading
+          i.glyphicon.glyphicon-calendar
+          | Calendario
+      
+        include ./cards/calendario.jade
