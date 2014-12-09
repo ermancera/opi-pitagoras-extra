@@ -1,0 +1,18 @@
+script(type='text/ng-template', id='modal.html')
+  .modal-header
+    button.close(type='button', data-dismiss='modal')
+      span(aria-hidden='true') &times;
+      span.sr-only Cerrar
+
+    h4#modalLabel.modal-title Actividad
+
+  .modal-body
+    include ./cards/descripcion.jade
+    include ./cards/facturas.jade
+    include ./cards/evidencia.jade
+    include ./cards/cambios.jade
+    include ./cards/calendario.jade
+
+  .modal-footer
+    button.btn.btn-default(type='button', data-dismiss='modal') Cancelar
+    button.btn.btn-primary(type='button', data-dismiss='modal') Cerrar

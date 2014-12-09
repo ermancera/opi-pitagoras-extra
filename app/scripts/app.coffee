@@ -6,6 +6,7 @@ deps = [
   'app.templates'
   'FBAngular'
   'main'
+  'modal'
   'navbar'
   'ngRoute'
   'ngStorage'

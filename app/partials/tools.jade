@@ -1,0 +1,42 @@
+.row.tools
+  .col-xs-12
+    button.btn.btn-info.btn-xs(type='button', ng-click='') Reprogramar
+    button.btn.btn-info.btn-xs(type='button', ng-click='') Enviar informe
+
+.row.search
+  .col-xs-12
+    .input-group
+      input.form-control(type='text')
+
+      .input-group-btn
+        button.btn.btn-info(type='button') Buscar
+        button.btn.btn-info.dropdown-toggle(
+          aria-expanded='false'
+          data-toggle='dropdown'
+          tabindex='-1'
+          type='button'
+        )
+          span.caret
+          span.sr-only Toggle dropdown
+        
+        ul.dropdown-menu(role='menu')
+          li
+            a(href='#') Código
+          
+          li
+            a(href='#') Municipio
+          
+          li
+            a(href='#') Entidad
+          
+          li
+            a(href='#') Polígono
+          
+          li
+            a(href='#') Presupuesto
+          
+          li
+            a(href='#') Metas
+          
+          li
+            a(href='#') Beneficiarios

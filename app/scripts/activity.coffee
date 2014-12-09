@@ -1,6 +1,6 @@
 'use strict'
 
-ActivityCtrl = ($scope, $http, Fullscreen) ->
+ActivityCtrl = ($scope, $http, $modal, $log, Fullscreen) ->
   $scope.activities = []
   $scope.benefs = (Math.floor (Math.random() * 99) + 1)
   $scope.currentPage = 3
@@ -21,6 +21,12 @@ ActivityCtrl = ($scope, $http, Fullscreen) ->
       activity.disabled = $scope.expanded
       activity.isOpen = $scope.expanded
 
+  $scope.openModal = ->
+    $modal.open
+      templateUrl: 'modal.html'
+      controller: 'ModalCtrl'
+      size: 'lg'
+
   $scope.pageChanged = ->
     console.log "Page changed to #{$scope.currentPage}"
 
@@ -36,17 +42,17 @@ ActivityCtrl = ($scope, $http, Fullscreen) ->
     i = 0
     total = 0
 
+    random = ->
+      value = (Math.floor (Math.random() * 24) + 1)
+      total += value
+      value
+
     types = [
       'success'
       'info'
       'warning'
       'danger'
     ]
-
-    random = ->
-      value = (Math.floor (Math.random() * 24) + 1)
-      total += value
-      value
 
     for i in [0...4]
       $scope.stacked.push

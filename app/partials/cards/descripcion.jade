@@ -13,6 +13,16 @@
 
   .card-info
     .row
+      ol.breadcrumb
+        li
+          a(href='#') Home
+          
+        li
+          a(href='#') Library
+        
+        li Data
+    
+    .row
       .col-md-6.progress-info
         h3 Presupuesto asignado
         h2 Presupuesto asignado {{activity.budget_breakthrough | currency}}
@@ -59,3 +69,6 @@
             a.more(ui-sref="activities.activity.detail({activityId: activity.id, admin1_id: admin1_id })")
               | Leer Más
               i.fa.fa-arrow-right
+    
+    .row
+      button.btn.btn-link(type='button', ng-click='openModal()') Ver todo...

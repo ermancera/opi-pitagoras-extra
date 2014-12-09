@@ -1,7 +1,10 @@
+include ./modal.jade
+
 .container(
   ng-controller="ActivityCtrl"
   ng-class='{ expanded: expanded, zoomed: zoomed }'
 )
+  include ./tools.jade
   include ./dashboard.jade
   include ./header.jade
   include ./accordion.jade
