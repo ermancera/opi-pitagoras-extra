@@ -71,46 +71,32 @@
           
         tab
           tab-heading
+            i.glyphicon.glyphicon-certificate
+            | Contratos / Facturas
+        
+          include ./cards/facturas.jade
+        
+        tab
+          tab-heading
             i.glyphicon.glyphicon-paperclip
             | Evidencia
-        
+          
           include ./cards/evidencia.jade
         
         tab
           tab-heading
-            i.glyphicon.glyphicon-certificate
-            | Contrato Factura
-          
-          include ./cards/factura.jade
+            i.glyphicon.glyphicon-ok
+            | Resumen de Cambios
         
-        tab
-          tab-heading
-            i.glyphicon.glyphicon-list-alt
-            | Registrar Avances
-          
-          include ./cards/avances.jade
+          include ./cards/cambios.jade
         
         tab
           tab-heading
             i.glyphicon.glyphicon-calendar
-            | Calendarizar
+            | Calendario
         
-          include ./cards/calendarizar.jade
+          include ./cards/calendario.jade
         
-        tab
-          tab-heading
-            i.glyphicon.glyphicon-ok
-            | Validar
-        
-          include ./cards/validar.jade
-        
-        tab
-          tab-heading
-            i.glyphicon.glyphicon-plus
-            | Agregar Observación
-          
-          include ./cards/observaciones.jade
-
   pagination.pagination-sm(
     total-items='totalPages'
     ng-change='pageChanged()'

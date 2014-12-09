@@ -41,7 +41,7 @@ ActivityCtrl = ($scope, $http, Fullscreen) ->
     ]
 
     random = ->
-      value = (Math.floor (Math.random() * 30) + 1)
+      value = (Math.floor (Math.random() * 24) + 1)
       total += value
       value
 
