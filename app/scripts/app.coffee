@@ -1,7 +1,7 @@
 'use strict'
 
 deps = [
-  'accordion'
+  'activity'
   'angularMoment'
   'app.templates'
   'FBAngular'

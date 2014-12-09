@@ -1,6 +1,6 @@
 'use strict'
 
-AccordionCtrl = ($scope, $http, Fullscreen) ->
+ActivityCtrl = ($scope, $http, Fullscreen) ->
   $scope.activities = []
   $scope.currentPage = 3
   $scope.expanded = false
@@ -100,5 +100,5 @@ AccordionCtrl = ($scope, $http, Fullscreen) ->
   return
 
 
-accordion = (angular.module 'accordion', [])
-accordion.controller 'AccordionCtrl', AccordionCtrl
+activity = (angular.module 'activity', [])
+activity.controller 'ActivityCtrl', ActivityCtrl
