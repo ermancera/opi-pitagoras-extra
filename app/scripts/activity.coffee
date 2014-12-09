@@ -2,8 +2,10 @@
 
 ActivityCtrl = ($scope, $http, Fullscreen) ->
   $scope.activities = []
+  $scope.benefs = (Math.floor (Math.random() * 99) + 1)
   $scope.currentPage = 3
   $scope.expanded = false
+  $scope.goals = (Math.floor (Math.random() * 99) + 1)
   $scope.single = false
   $scope.totalPages = 25
   $scope.zoomed = false
@@ -28,9 +30,8 @@ ActivityCtrl = ($scope, $http, Fullscreen) ->
 
   $scope.randomProgress = ->
     $scope.stacked = []
-
     i = 0
-    n = Math.floor((Math.random() * 4) + 1)
+    total = 0
 
     types = [
       'success'
@@ -39,14 +40,15 @@ ActivityCtrl = ($scope, $http, Fullscreen) ->
       'danger'
     ]
 
-    while i < n
-      index = (Math.floor (Math.random() * 4))
+    random = ->
+      value = (Math.floor (Math.random() * 30) + 1)
+      total += value
+      value
 
+    for i in [0...4]
       $scope.stacked.push
-        value: (Math.floor (Math.random() * 30) + 1)
-        type: types[index]
-
-      i++
+        value: if (i < 3) then random() else (100 - total)
+        type: types[i]
 
   $scope.setPage = (page) ->
     $scope.currentPage = page
