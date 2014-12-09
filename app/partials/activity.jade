@@ -46,8 +46,8 @@ accordion(close-others='single')
             a.btn.btn-link.btn-xs(tooltip="Evidencia", tooltip-trigger, tooltip-placement="left")
               i.glyphicon.glyphicon-paperclip(ng-class="{'disabled': false}")
             
-            a.btn.btn-link.btn-xs(tooltip="Resumen de cambios", tooltip-trigger, tooltip-placement="left")
-              i.glyphicon.glyphicon-ok(ng-class="{'disabled': false}")
+            a.btn.btn-link.btn-xs(tooltip="Cambios", tooltip-trigger, tooltip-placement="left")
+              i.glyphicon.glyphicon-th-list(ng-class="{'disabled': false}")
 
             a.btn.btn-link.btn-xs(tooltip="Calendario", tooltip-trigger, tooltip-placement="left")
               i.glyphicon.glyphicon-calendar(ng-class="{'disabled': false}")
@@ -81,7 +81,7 @@ accordion(close-others='single')
       
       tab
         tab-heading
-          i.glyphicon.glyphicon-ok
+          i.glyphicon.glyphicon-th-list
           | Resumen de cambios
       
         include ./cards/cambios.jade
