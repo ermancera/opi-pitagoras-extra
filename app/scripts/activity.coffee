@@ -1,7 +1,7 @@
 'use strict'
 
 
-ActivityCtrl = ($scope, $http, $modal, $log, Fullscreen) ->
+ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen) ->
   $scope.activities = []
   $scope.benefs = (Math.floor (Math.random() * 99) + 1)
   $scope.currentPage = 3
@@ -13,6 +13,16 @@ ActivityCtrl = ($scope, $http, $modal, $log, Fullscreen) ->
   $scope.single = false
   $scope.totalPages = 25
   $scope.zoomed = false
+
+
+  $scope.enableTab = (id, index) ->
+    sel = "#a#{id} ul.nav-tabs li:nth-child(#{index}) a"
+
+    $timeout ->
+      (angular.element document.querySelector sel).triggerHandler 'click'
+    , 0
+
+    $log.info "clicked on #{sel}"
 
 
   $scope.expand = (state=false) ->
