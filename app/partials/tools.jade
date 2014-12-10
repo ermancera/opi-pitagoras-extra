@@ -1,4 +1,4 @@
-.row.tools
+.row.tools(ng-controller='ToolsCtrl')
   .col-xs-12
     button.btn.btn-info.btn-xs(type='button', ng-click='') Reprogramar
     button.btn.btn-info.btn-xs(type='button', ng-click='') Enviar informe
@@ -9,34 +9,18 @@
       input.form-control(type='text')
 
       .input-group-btn
-        button.btn.btn-info(type='button') Buscar
-        button.btn.btn-info.dropdown-toggle(
-          aria-expanded='false'
-          data-toggle='dropdown'
-          tabindex='-1'
-          type='button'
-        )
-          span.caret
-          span.sr-only Toggle dropdown
-        
-        ul.dropdown-menu(role='menu')
-          li
-            a(href='#') Código
-          
-          li
-            a(href='#') Municipio
-          
-          li
-            a(href='#') Entidad
-          
-          li
-            a(href='#') Polígono
-          
-          li
-            a(href='#') Presupuesto
-          
-          li
-            a(href='#') Metas
-          
-          li
-            a(href='#') Beneficiarios
+        button.btn.btn-info(type='button', ng-click='toggle()') Buscar
+          span.caret(ng-hide='full')
+
+.row.filters(ng-show='full')
+  .col-xs-3
+    button.btn.btn-xs.btn-default.dropdown-toggle(type="button", data-toggle="dropdown", aria-expanded="false") Entidad
+    
+  .col-xs-3
+    button.btn.btn-xs.btn-default.dropdown-toggle(type="button", data-toggle="dropdown", aria-expanded="false") Municipio
+    
+  .col-xs-3
+    button.btn.btn-xs.btn-default.dropdown-toggle(type="button", data-toggle="dropdown", aria-expanded="false") Polígono
+    
+  .col-xs-3
+    button.btn.btn-xs.btn-default.dropdown-toggle(type="button", data-toggle="dropdown", aria-expanded="false") Status

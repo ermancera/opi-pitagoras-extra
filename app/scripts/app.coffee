@@ -12,6 +12,7 @@ deps = [
   'navbar'
   'ngRoute'
   'ngStorage'
+  'tools'
   'ui.bootstrap'
 ]
 

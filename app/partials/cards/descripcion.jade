@@ -66,9 +66,10 @@
         
         .row
           .col-md-12.more
-            a.more(ui-sref="activities.activity.detail({activityId: activity.id, admin1_id: admin1_id })")
-              | Leer Más
+            //-
+              a.more(ui-sref="activities.activity.detail({activityId: activity.id, admin1_id: admin1_id })")
+                | Leer Más
+                i.fa.fa-arrow-right
+            button.btn.btn-link(type='button', ng-click='openModal()')
+              | Leer más
               i.fa.fa-arrow-right
-    
-    .row
-      button.btn.btn-link(type='button', ng-click='openModal()') Ver todo...
