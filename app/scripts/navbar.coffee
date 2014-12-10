@@ -1,15 +1,19 @@
 'use strict'
 
-navbar = (angular.module 'navbar', [])
 
-NavbarCtrl = ($scope) ->
+NavbarCtrl = ($scope, $document) ->
   $scope.btnLabel = 'Entrar'
+  $scope.toggle = ($document.querySelector 'nav > .toggle')
 
+  $scope.toggleHeader = ->
+    $scope.toggle.toggleClass '.hidden'
+
+navbar = (angular.module 'navbar', [])
 navbar.controller 'NavbarCtrl', NavbarCtrl
 
 navbar.directive 'navbar', ->
   compile: (element, attr) ->
-    items = $(element).find('#nav-links li')
+    items = $(element).find '#nav-links li'
 
     for li in items
       $a = $('a', li).first()

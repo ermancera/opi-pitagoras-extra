@@ -1,9 +1,11 @@
 'use strict'
 
+
 deps = [
   'activity'
   'angularMoment'
   'app.templates'
+  'duScroll'
   'FBAngular'
   'main'
   'modal'
@@ -13,8 +15,6 @@ deps = [
   'ui.bootstrap'
 ]
 
-app = (angular.module 'app', deps)
-
 routes = ($routeProvider) ->
   $routeProvider
     .when('/',
@@ -23,6 +23,7 @@ routes = ($routeProvider) ->
     )
     .otherwise redirectTo: '/'
 
+app = (angular.module 'app', deps)
 app.config ['$routeProvider', routes]
 
 app.constant 'angularMomentConfig',

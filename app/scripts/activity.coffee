@@ -1,5 +1,6 @@
 'use strict'
 
+
 ActivityCtrl = ($scope, $http, $modal, $log, Fullscreen) ->
   $scope.activities = []
   $scope.benefs = (Math.floor (Math.random() * 99) + 1)
@@ -13,6 +14,7 @@ ActivityCtrl = ($scope, $http, $modal, $log, Fullscreen) ->
   $scope.totalPages = 25
   $scope.zoomed = false
 
+
   $scope.expand = (state=false) ->
     $scope.expanded = state
     $scope.single = !state
@@ -21,14 +23,17 @@ ActivityCtrl = ($scope, $http, $modal, $log, Fullscreen) ->
       activity.disabled = $scope.expanded
       activity.isOpen = $scope.expanded
 
+
   $scope.openModal = ->
     $modal.open
       templateUrl: 'modal.html'
       controller: 'ModalCtrl'
       size: 'lg'
 
+
   $scope.pageChanged = ->
     console.log "Page changed to #{$scope.currentPage}"
+
 
   $scope.progressType = (value) ->
     type = switch
@@ -36,6 +41,7 @@ ActivityCtrl = ($scope, $http, $modal, $log, Fullscreen) ->
       when (value < 50) then 'warning'
       when (value < 75) then 'info'
       else 'success'
+
 
   $scope.randomProgress = ->
     $scope.stacked = []
@@ -59,11 +65,14 @@ ActivityCtrl = ($scope, $http, $modal, $log, Fullscreen) ->
         value: if (i < 3) then random() else (100 - total)
         type: types[i]
 
+
   $scope.setPage = (page) ->
     $scope.currentPage = page
 
+
   $scope.today = ->
     $scope.date = new Date()
+
 
   $scope.zoom = (element) ->
     el = (document.querySelector "#a#{element} > .panel-collapse")
@@ -74,6 +83,7 @@ ActivityCtrl = ($scope, $http, $modal, $log, Fullscreen) ->
 
     $scope.zoomed = !$scope.zoomed
     return
+
 
   #url = 'http://pitagoras.nightly.opi.la/api/activities'
   url = '/js/activities.json'

@@ -1,4 +1,4 @@
-header.navbar.navbar-inverse(
+nav.navbar.navbar-inverse.navbar-fixed-top(
   role="navigation"
   ng-controller="MainCtrl"
 )
@@ -19,11 +19,29 @@ header.navbar.navbar-inverse(
       .collapse.navbar-collapse(collapse="collapsed")
         ul#nav-links.nav.navbar-nav
           li
-            a(href="#/panel") Movimientos
+            a(href='#') Panel de control
+          
+          li.active
+            a(href="#") Actividades
+          
+          li
+            a(href="#") Archivos
+          
+          li.divider-vertical
+          
+          li
+            a(href="#") Reprogramar
 
           li
-            a(href="#/historial") Historial
+            a(href="#") Enviar informe
 
-        form.navbar-form.navbar-right
-          label.btn.btn-success.btn-sm(ng-click="reset(true)", ng-if="modified")
-            i.glyphicon.glyphicon-refresh
+        form.navbar-form.navbar-right(role='search')
+          .form-group
+            .input-group
+              input.form-control(placeholder='Buscar', type='text')
+              .input-group-btn
+                button.btn.btn-info(type='button')
+                  i.glyphicon.glyphicon-search
+  
+      .toggle.hidden
+        include ./header.jade
