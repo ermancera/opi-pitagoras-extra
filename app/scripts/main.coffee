@@ -5,8 +5,8 @@ MainCtrl = ($scope, $document, $log, $localStorage, $sessionStorage) ->
   toggle = (angular.element document.querySelector 'nav .toggle')
 
   $document.on 'scroll', ->
-    toggle.toggleClass 'hidden', $document.scrollTop() < 320
-    $log.info "Scrolled to #{$document.scrollLeft()}, #{$document.scrollTop()}"
+    toggle.toggleClass 'hidden', $document.scrollTop() < 390
+    #$log.info "Scrolled to #{$document.scrollLeft()}, #{$document.scrollTop()}"
 
   #$scope.$storage = ($localStorage.$default accounts: [ 500, 250 ], history: [])
 

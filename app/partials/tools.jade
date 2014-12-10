@@ -9,8 +9,10 @@
       input.form-control(type='text')
 
       .input-group-btn
-        button.btn.btn-info(type='button', ng-click='toggle()') Buscar
-          span.caret(ng-hide='full')
+        button.btn.btn-info(type='button', ng-click='') Buscar
+        button.btn.btn-info(type='button', ng-click='toggle()')
+          span.glyphicon(ng-class='{"glyphicon-chevron-up": full, "glyphicon-chevron-down": !full}')
+          span.sr-only
 
 .row.filters(ng-show='full')
   .col-xs-3
