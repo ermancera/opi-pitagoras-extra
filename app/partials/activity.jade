@@ -1,18 +1,19 @@
 accordion(close-others='single')
-  accordion-group(id='a{{activity.id}}', ng-repeat='activity in activities', is-open='activity.isOpen', is-disabled='activity.isOpen')
+  accordion-group(
+    id='a{{activity.id}}'
+    ng-repeat='activity in activities'
+    is-open='activity.isOpen'
+    is-disabled='activity.isOpen'
+  )
     accordion-heading
       .row(ng-hide='$parent.isOpen && !$parent.expanded')
-        .col-xs-3
-          | {{activity.user_key}}
+        .col-xs-3 {{activity.user_key}}
         
-        .col-xs-2
-          | Municipio
+        .col-xs-2 Municipio
         
-        .col-xs-1
-          | Entidad
+        .col-xs-1 Entidad
         
-        .col-xs-1
-          | Polígono
+        .col-xs-1 Polígono
         
         .col-xs-1
           progressbar.small(
@@ -65,7 +66,7 @@ accordion(close-others='single')
               i.glyphicon.glyphicon-th-list(ng-class="{'disabled': false}")
 
             a.btn.btn-link.btn-xs(
-              ng-click='enableTab(activity.id, 5)'
+              ng-click="enableTab(activity.id, 5)"
               tooltip="Calendario"
               tooltip-placement="left"
               tooltip-trigger

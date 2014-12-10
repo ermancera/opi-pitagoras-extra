@@ -10,9 +10,11 @@
       .col-md-6.date-info
         p Fecha de creación:
         p Última modificación:
-
+  
+  hr
+  
   .card-info
-    .row
+    .row(ng-hide='true')
       ol.breadcrumb
         li
           a(href='#') Home
@@ -71,5 +73,5 @@
                 | Leer Más
                 i.fa.fa-arrow-right
             button.btn.btn-link(type='button', ng-click='openModal()')
-              | Leer más
+              | Ver detalles
               i.fa.fa-arrow-right

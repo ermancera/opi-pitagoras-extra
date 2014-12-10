@@ -1,0 +1,25 @@
+.row.order-by
+  .col-xs-6
+    | Ordenar por avance de 
+    .btn-group
+      button.btn.btn-xs.btn-info(btn-radio="'Presupuesto'", ng-model='orderBy') Presupuesto
+      button.btn.btn-xs.btn-info(btn-radio="'Metas'", ng-model='orderBy')  Metas
+      button.btn.btn-xs.btn-info(btn-radio="'Beneficiarios'", ng-model='orderBy') Beneficiarios 
+
+  .col-xs-4
+  
+  .col-xs-2
+    .btn-group
+      button.btn.btn-xs.btn-info(
+        btn-radio="'compact'"
+        ng-click='expand(false)'
+        ng-model='displayMode'
+      )
+        i.glyphicon.glyphicon-align-justify
+      
+      button.btn.btn-xs.btn-info(
+        btn-radio="'expanded'"
+        ng-click='expand(true)'
+        ng-model='displayMode'
+      )
+        i.glyphicon.glyphicon-tasks

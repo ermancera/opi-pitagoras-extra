@@ -1,4 +1,4 @@
-.row.header
+.row.header(ng-show='displayMode == "compact"')
   .col-xs-3
     a.btn.btn-xs.btn-link
       h6 Código
@@ -26,7 +26,7 @@
   .col-xs-1
     a.btn.btn-xs.btn-link
       h6 Beneficiarios
-  
-  .col-xs-2.btn-group(role='group', aria-label='Vistas')
-    button.btn.btn-default.btn-xs(type='button', ng-click='expand(false)') C
-    button.btn.btn-default.btn-xs(type='button', ng-click='expand(true)') E
+
+  .col-xs-2
+    a.btn.btn-xs.btn-link.disabled
+      h6 Acciones

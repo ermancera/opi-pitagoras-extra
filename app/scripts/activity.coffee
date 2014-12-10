@@ -22,8 +22,6 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen) ->
       (angular.element document.querySelector sel).triggerHandler 'click'
     , 0
 
-    $log.info "clicked on #{sel}"
-
 
   $scope.expand = (state=false) ->
     $scope.expanded = state
