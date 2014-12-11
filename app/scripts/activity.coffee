@@ -9,11 +9,12 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen) ->
   $scope.entries = [] #cambios
   $scope.facturas = []
   $scope.files = [] #evidencia
+  $scope.fullSearch = false
   $scope.goals = (Math.floor (Math.random() * 99) + 1)
+  $scope.orderBy = 'Presupuesto'
   $scope.single = false
   $scope.totalPages = 25
   $scope.zoomed = false
-  toggle = (angular.element document.querySelector 'nav .toggle')
 
 
   $scope.enableTab = (id, index) ->
@@ -22,18 +23,6 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen) ->
     $timeout ->
       (angular.element document.querySelector sel).triggerHandler 'click'
     , 0
-
-  $document.on 'scroll', =>
-    expanded = ($scope.displayMode is 'expanded')
-    toggle.toggleClass 'hidden', expanded or ($document.scrollTop() < 400)
-    $log.info $document.scrollTop()
-
-  $scope.$watch 'displayMode', (mode) ->
-    expanded = ($scope.displayMode is 'expanded')
-    $scope.single = !expanded
-
-    for activity in $scope.activities
-      activity.disabled = activity.isOpen = expanded
 
 
   $scope.openModal = (template='modal', size='lg') ->
@@ -97,40 +86,36 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen) ->
     return
 
 
-  #url = 'http://pitagoras.nightly.opi.la/api/activities'
-  url = '/js/activities.json'
-  get = ($http.get url)
+  getActivities = ->
+    #url = 'http://pitagoras.nightly.opi.la/api/activities'
+    url = '/js/activities.json'
+    get = ($http.get url)
 
-  get.error (data, status, headers, config) ->
-    console.log 'GET error'
+    get.error (data, status, headers, config) ->
+      console.log 'GET error'
 
-  get.success (data, status, headers, config) ->
-    console.log "GET #{status}"
-    $scope.activities = data.activities
+    get.success (data, status, headers, config) ->
+      console.log "GET #{status}"
+      $scope.activities = data.activities
 
-  ###
-  $scope.activities = [
-    {
-      benefs: 12
-      budget: 25
-      code: '06.002.05.1.1.2.2.'
-      goals: 50
-      notes: true
-      payments: 6
-      visits: true
-    }
-    {
-      benefs: 24
-      budget: 50
-      code: '06.007.01.1.2.4.2.'
-      goals: 75
-      notes: false
-      payments: 4
-      visits: true
-    }
-  ]
-  ###
 
+  setupContextualHeader = ->
+    toggle = (angular.element document.querySelector 'nav .toggle')
+
+    $document.on 'scroll', =>
+      expanded = ($scope.displayMode is 'expanded')
+      toggle.toggleClass 'hidden', expanded or ($document.scrollTop() < 400)
+
+    $scope.$watch 'displayMode', (mode) ->
+      expanded = ($scope.displayMode is 'expanded')
+      $scope.single = !expanded
+
+      for activity in $scope.activities
+        activity.disabled = activity.isOpen = expanded
+
+
+  setupContextualHeader()
+  getActivities()
   $scope.randomProgress()
   $scope.today()
   return

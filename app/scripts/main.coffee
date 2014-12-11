@@ -2,8 +2,6 @@
 
 
 MainCtrl = ($scope, $document, $log, $localStorage, $sessionStorage) ->
-  $scope.orderBy = 'Presupuesto'
-
   #$scope.$storage = ($localStorage.$default accounts: [ 500, 250 ], history: [])
 
   $scope.formatMoney = (amount) ->

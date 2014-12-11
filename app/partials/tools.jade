@@ -1,4 +1,4 @@
-.row.tools(ng-controller='ToolsCtrl')
+.row.tools
   .col-xs-12
     button.btn.btn-info.btn-xs(type='button', ng-click='') Reprogramar
     button.btn.btn-info.btn-xs(type='button', ng-click='') Enviar informe
@@ -10,11 +10,11 @@
 
       .input-group-btn
         button.btn.btn-info(type='button', ng-click='') Buscar
-        button.btn.btn-info(type='button', ng-click='toggle()')
-          span.glyphicon(ng-class='{"glyphicon-chevron-up": full, "glyphicon-chevron-down": !full}')
+        button.btn.btn-info(type='button', ng-click='fullSearch = !fullSearch')
+          span.glyphicon(ng-class='{"glyphicon-chevron-up": fullSearch, "glyphicon-chevron-down": !fullSearch}')
           span.sr-only
 
-.row.filters(ng-show='full')
+.row.filters(ng-show='fullSearch')
   .col-xs-3
     button.btn.btn-xs.btn-default.dropdown-toggle(type="button", data-toggle="dropdown", aria-expanded="false") Entidad
 
