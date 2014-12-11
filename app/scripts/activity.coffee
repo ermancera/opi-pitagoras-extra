@@ -71,10 +71,6 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen) ->
     $scope.currentPage = page
 
 
-  $scope.today = ->
-    $scope.date = new Date()
-
-
   $scope.zoom = (element) ->
     el = (document.querySelector "#a#{element} > .panel-collapse")
     $scope.zoomed = Fullscreen.isEnabled()
@@ -114,10 +110,9 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen) ->
         activity.disabled = activity.isOpen = expanded
 
 
-  setupContextualHeader()
   getActivities()
+  setupContextualHeader()
   $scope.randomProgress()
-  $scope.today()
   return
 
 
