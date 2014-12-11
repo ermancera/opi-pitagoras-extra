@@ -13,6 +13,7 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen) ->
   $scope.single = false
   $scope.totalPages = 25
   $scope.zoomed = false
+  toggle = (angular.element document.querySelector 'nav .toggle')
 
 
   $scope.enableTab = (id, index) ->
@@ -22,9 +23,12 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen) ->
       (angular.element document.querySelector sel).triggerHandler 'click'
     , 0
 
+  $document.on 'scroll', =>
+    expanded = ($scope.displayMode is 'expanded')
+    toggle.toggleClass 'hidden', expanded or ($document.scrollTop() < 400)
+    $log.info $document.scrollTop()
 
   $scope.$watch 'displayMode', (mode) ->
-    $log.info mode
     expanded = ($scope.displayMode is 'expanded')
     $scope.single = !expanded
 

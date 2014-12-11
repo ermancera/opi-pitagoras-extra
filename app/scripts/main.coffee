@@ -3,11 +3,6 @@
 
 MainCtrl = ($scope, $document, $log, $localStorage, $sessionStorage) ->
   $scope.orderBy = 'Presupuesto'
-  toggle = (angular.element document.querySelector 'nav .toggle')
-
-  $document.on 'scroll', =>
-    expanded = (document.querySelector 'body > div.main > div.expanded')
-    toggle.toggleClass 'hidden', expanded? or ($document.scrollTop() < 400)
 
   #$scope.$storage = ($localStorage.$default accounts: [ 500, 250 ], history: [])
 

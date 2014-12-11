@@ -1,3 +1,6 @@
+.header(ng-show='displayMode == "compact"')
+  include ./header.jade
+
 accordion(close-others='single')
   accordion-group(
     id='a{{activity.id}}'
