@@ -5,8 +5,8 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen) ->
   $scope.activities = []
   $scope.benefs = (Math.floor (Math.random() * 99) + 1)
   $scope.currentPage = 3
+  $scope.displayMode = 'compact'
   $scope.entries = [] #cambios
-  $scope.expanded = false
   $scope.facturas = []
   $scope.files = [] #evidencia
   $scope.goals = (Math.floor (Math.random() * 99) + 1)
@@ -23,20 +23,20 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen) ->
     , 0
 
 
-  $scope.expand = (state=false) ->
-    $scope.expanded = state
-    $scope.single = !state
+  $scope.$watch 'displayMode', (mode) ->
+    $log.info mode
+    expanded = ($scope.displayMode is 'expanded')
+    $scope.single = !expanded
 
     for activity in $scope.activities
-      activity.disabled = $scope.expanded
-      activity.isOpen = $scope.expanded
+      activity.disabled = activity.isOpen = expanded
 
 
-  $scope.openModal = ->
+  $scope.openModal = (template='modal', size='lg') ->
     $modal.open
-      templateUrl: 'modal.html'
+      templateUrl: "#{template}.html"
       controller: 'ModalCtrl'
-      size: 'lg'
+      size: size
 
 
   $scope.pageChanged = ->
@@ -127,7 +127,6 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen) ->
   ]
   ###
 
-  $scope.expand()
   $scope.randomProgress()
   $scope.today()
   return

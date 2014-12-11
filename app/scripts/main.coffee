@@ -2,14 +2,12 @@
 
 
 MainCtrl = ($scope, $document, $log, $localStorage, $sessionStorage) ->
-  $scope.displayMode = 'compact'
   $scope.orderBy = 'Presupuesto'
   toggle = (angular.element document.querySelector 'nav .toggle')
 
-  $document.on 'scroll', ->
-    # TODO fix this
-    toggle.toggleClass 'hidden', ($scope.displayMode is 'expanded') or ($document.scrollTop() < 390)
-    #$log.info "Scrolled to #{$document.scrollLeft()}, #{$document.scrollTop()}"
+  $document.on 'scroll', =>
+    expanded = (document.querySelector 'body > div.main > div.expanded')
+    toggle.toggleClass 'hidden', expanded? or ($document.scrollTop() < 400)
 
   #$scope.$storage = ($localStorage.$default accounts: [ 500, 250 ], history: [])
 
@@ -21,4 +19,4 @@ main.controller 'MainCtrl', MainCtrl
 
 main.directive 'main', ->
   replace: true
-  template: '<div ng-view></div>'
+  template: '<div class="main" ng-view></div>'

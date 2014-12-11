@@ -2,7 +2,7 @@ include ./modal.jade
 
 .container(
   ng-controller="ActivityCtrl"
-  ng-class='{ expanded: expanded, zoomed: zoomed }'
+  ng-class='{ expanded: (displayMode == "expanded"), zoomed: zoomed }'
 )
   include ./tools.jade
   include ./dashboard.jade
