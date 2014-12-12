@@ -22,6 +22,10 @@ accordion(close-others='single')
           progressbar.small(
             animate='false'
             max='activity.total_cost'
+            popover='Presupuesto'
+            popover-title='Presupuesto'
+            popover-placement='bottom'
+            popover-trigger='mouseenter'
             type='{{progressType((activity.budget_breakthrough * activity.total_cost) / 100)}}'
             value='(activity.budget_breakthrough * activity.total_cost) / 100'
           )
@@ -30,6 +34,10 @@ accordion(close-others='single')
           progressbar.small(
             animate='false'
             max='activity.goal_number'
+            popover='Metas'
+            popover-title='Metas'
+            popover-placement='bottom'
+            popover-trigger='mouseenter'
             type='{{progressType((activity.completed_goals * activity.goal_number) / 100)}}'
             value='(activity.completed_goals * activity.goal_number) / 100'
           )
@@ -39,6 +47,10 @@ accordion(close-others='single')
             animate='false'
             value='(activity.real_beneficiaries * activity.total_of_beneficiaries) / 100'
             max='activity.total_of_beneficiaries'
+            popover='Beneficiarios'
+            popover-title='Beneficiarios'
+            popover-placement='bottom'
+            popover-trigger='mouseenter'
             type='{{progressType((activity.real_beneficiaries * activity.total_of_beneficiaries) / 100)}}'
           )
         

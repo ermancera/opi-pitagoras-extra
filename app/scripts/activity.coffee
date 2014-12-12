@@ -16,6 +16,7 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
   $scope.totalPages = 25
   $scope.zoomed = false
 
+
   $scope.ask = (what) ->
     question = switch what
       when 'benefs' then "Actualizar el número de beneficiarios (min. 0):"
@@ -65,7 +66,37 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
       else 'success'
 
 
-  $scope.randomProgress = ->
+  $scope.setPage = (page) ->
+    $scope.currentPage = page
+
+
+  $scope.zoom = (element) ->
+    el = (document.querySelector "#a#{element} > .panel-collapse")
+    $scope.zoomed = Fullscreen.isEnabled()
+
+    unless $scope.zoomed then (Fullscreen.enable el)
+    else Fullscreen.cancel()
+
+    $scope.zoomed = !$scope.zoomed
+
+    return
+
+
+  getActivities = ->
+    #url = 'http://pitagoras.nightly.opi.la/api/activities'
+    url = '/js/activities.json'
+    get = ($http.get url)
+
+    get.error (data, status, headers, config) ->
+      console.log 'GET error'
+
+    get.success (data, status, headers, config) ->
+      console.log "GET #{status}"
+
+      $scope.activities = data.activities
+
+
+  randomProgress = ->
     $scope.stacked = []
     i = 0
     total = 0
@@ -88,34 +119,6 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
         type: types[i]
 
 
-  $scope.setPage = (page) ->
-    $scope.currentPage = page
-
-
-  $scope.zoom = (element) ->
-    el = (document.querySelector "#a#{element} > .panel-collapse")
-    $scope.zoomed = Fullscreen.isEnabled()
-
-    unless $scope.zoomed then (Fullscreen.enable el)
-    else Fullscreen.cancel()
-
-    $scope.zoomed = !$scope.zoomed
-    return
-
-
-  getActivities = ->
-    #url = 'http://pitagoras.nightly.opi.la/api/activities'
-    url = '/js/activities.json'
-    get = ($http.get url)
-
-    get.error (data, status, headers, config) ->
-      console.log 'GET error'
-
-    get.success (data, status, headers, config) ->
-      console.log "GET #{status}"
-      $scope.activities = data.activities
-
-
   setupContextualHeader = ->
     toggle = (angular.element document.querySelector 'nav .toggle')
     top = Math.floor $('accordion').offset()['top'] - 80 # padding
@@ -134,7 +137,7 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
 
   setupContextualHeader()
   getActivities()
-  $scope.randomProgress()
+  randomProgress()
   return
 
 
