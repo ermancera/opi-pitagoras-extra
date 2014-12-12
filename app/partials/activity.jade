@@ -43,38 +43,37 @@ accordion(close-others='single')
           )
         
         .col-xs-2
-          .btn-group
-            a.btn.btn-link.btn-xs(
-              ng-click="enableTab(activity.id, 2)"
-              tooltip="Contratos/Facturas"
-              tooltip-placement="left"
-              tooltip-trigger
-            )
-              i.glyphicon.glyphicon-certificate(ng-class="{'disabled': false}")
-                
-            a.btn.btn-link.btn-xs(
-              ng-click="enableTab(activity.id, 3)"
-              tooltip="Evidencia"
-              tooltip-placement="left"
-              tooltip-trigger
-            )
-              i.glyphicon.glyphicon-paperclip(ng-class="{'disabled': false}")
-            
-            a.btn.btn-link.btn-xs(
-              ng-click="enableTab(activity.id, 4)"
-              tooltip="Cambios"
-              tooltip-placement="left"
-              tooltip-trigger
-            )
-              i.glyphicon.glyphicon-th-list(ng-class="{'disabled': false}")
+          a.btn.btn-link.btn-xs(
+            ng-click="enableTab(activity.id, 2)"
+            tooltip="Contratos/Facturas"
+            tooltip-placement="left"
+            tooltip-trigger
+          )
+            i.glyphicon.glyphicon-certificate(ng-class="{'disabled': false}")
+              
+          a.btn.btn-link.btn-xs(
+            ng-click="enableTab(activity.id, 3)"
+            tooltip="Evidencia"
+            tooltip-placement="left"
+            tooltip-trigger
+          )
+            i.glyphicon.glyphicon-paperclip(ng-class="{'disabled': false}")
+          
+          a.btn.btn-link.btn-xs(
+            ng-click="enableTab(activity.id, 4)"
+            tooltip="Cambios"
+            tooltip-placement="left"
+            tooltip-trigger
+          )
+            i.glyphicon.glyphicon-th-list(ng-class="{'disabled': false}")
 
-            a.btn.btn-link.btn-xs(
-              ng-click="enableTab(activity.id, 5)"
-              tooltip="Calendario"
-              tooltip-placement="left"
-              tooltip-trigger
-            )
-              i.glyphicon.glyphicon-calendar(ng-class="{'disabled': false}")
+          a.btn.btn-link.btn-xs(
+            ng-click="enableTab(activity.id, 5)"
+            tooltip="Calendario"
+            tooltip-placement="left"
+            tooltip-trigger
+          )
+            i.glyphicon.glyphicon-calendar(ng-class="{'disabled': false}")
 
     //-
       | .btn-group

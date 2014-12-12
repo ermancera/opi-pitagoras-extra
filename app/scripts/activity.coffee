@@ -97,10 +97,11 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen) ->
 
   setupContextualHeader = ->
     toggle = (angular.element document.querySelector 'nav .toggle')
+    top = Math.floor $('accordion').offset()['top'] - 80 # padding
 
     $document.on 'scroll', =>
       expanded = ($scope.displayMode is 'expanded')
-      toggle.toggleClass 'hidden', expanded or ($document.scrollTop() < 400)
+      toggle.toggleClass 'hidden', expanded or ($document.scrollTop() < top)
 
     $scope.$watch 'displayMode', (mode) ->
       expanded = ($scope.displayMode is 'expanded')
