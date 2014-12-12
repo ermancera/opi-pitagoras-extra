@@ -4,49 +4,87 @@ script(type='text/ng-template', id='upload.html')
       span(aria-hidden='true') &times;
       span.sr-only Cerrar
 
-    h4#modalLabel.modal-title Actividad
+    h4#modalLabel.modal-title Subir Contrato / Factura
 
   .modal-body
     form(role='form')
       .row
-        .col-xs-6
-          button.btn.btn-xs.btn-default.dropdown-toggle.form-control(
-            aria-expanded="false"
-            data-toggle="dropdown"
-            type="button"
-          )
-            | Elige el tipo de documento
-            i.glyphicon.glyphicon-chevron-down.pull-right
+        .col-sm-6
+          .row
+            .col-xs-12
+              button.btn.btn-xs.btn-default.dropdown-toggle.form-control(
+                aria-expanded="false"
+                data-toggle="dropdown"
+                type="button"
+              )
+                | Elige el tipo de documento
+                i.glyphicon.glyphicon-chevron-down.pull-right
 
-      .row
-        .col-xs-6
-          button.btn.btn-xs.btn-default.dropdown-toggle.form-control(
-            aria-expanded="false"
-            data-toggle="dropdown"
-            type="button"
-          )
-            | Selecciona un proveedor
-            i.glyphicon.glyphicon-chevron-down.pull-right
+          .row
+            .col-xs-12
+              button.btn.btn-xs.btn-default.dropdown-toggle.form-control(
+                aria-expanded="false"
+                data-toggle="dropdown"
+                type="button"
+              )
+                | Selecciona un proveedor
+                i.glyphicon.glyphicon-chevron-down.pull-right
 
-      .row
-        .col-xs-6
-          input.form-control(name='docId', placeholder='# de factura, contrato o recibo', type='number')
-      
-      .row
-        .col-xs-6
-          input.form-control(name='docDate', placeholder='Fecha de expedición', type='date')
-      
-      .row
-        .col-xs-3
-          input.form-control(name='partPres', placeholder='Partida presupuestal', type='text')
-            
-        .col-xs-3
-          input.form-control(name='amount', placeholder='Monto del documento', type='number')
-      
-      .row
-        .col-xs-6.drag-drop
-          textarea.form-control(rows='3')
+          .row
+            .col-xs-12
+              input.form-control(
+                name='docId'
+                placeholder='Número de factura, contrato o recibo'
+                type='number'
+              )
+          
+          .row
+            .col-xs-12
+              input.form-control(
+                name='docDate'
+                placeholder='Fecha de expedición'
+                type='date'
+              )
+          
+          .row
+            .col-xs-6
+              input.form-control(
+                name='partPres'
+                placeholder='Partida presupuestal'
+                type='text'
+              )
+                
+            .col-xs-6
+              input.form-control(
+                name='amount'
+                placeholder='Monto del documento'
+                type='number'
+              )
+        
+        .col-sm-6
+          .row
+            .col-xs-12.drag-drop
+              h6 Haz click o arrastra tu archivo aquí para subir
+              p Únicamente archivos con la extensión JPG, PDF o XML no mayores a 2MB
+
+          .row
+            .col-xs-12
+              textarea.form-control(
+                placeholder='Observaciones'
+                rows='3'
+              )
   
   .modal-footer
-    button.btn.btn-danger(type='button', data-dismiss='modal') Cancelar
-    button.btn.btn-success(type='button', data-dismiss='modal') Guardar
+    button.btn.btn-danger(
+      data-dismiss='modal'
+      type='button'
+    )
+      i.glyphicon.glyphicon-remove-circle
+      | Cancelar
+    
+    button.btn.btn-success(
+      data-dismiss='modal'
+      type='button'
+    )
+      i.glyphicon.glyphicon-ok-circle
+      | Guardar
