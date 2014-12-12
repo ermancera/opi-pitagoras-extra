@@ -5,6 +5,7 @@ deps = [
   'activity'
   'angularMoment'
   'app.templates'
+  'cgPrompt'
   'duScroll'
   'FBAngular'
   'main'

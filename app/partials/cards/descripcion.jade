@@ -50,12 +50,20 @@
 
               .footnote
                 span.footnote-label {{activity.real_beneficiaries | number:0}} {{activity.total_of_beneficiaries | number:0}}
+                
+                button.btn.btn-xs.btn-link(ng-click='ask("benefs")', type='button')
+                  i.glyphicon.glyphicon-pencil
+                  |  Registrar avances
             
             .col-xs-3
               progressbar(value='30', type='progressType(30)')
 
               .footnote
                 span.footnote-label {{activity.completed_goals | number:0}} de {{activity.quantity}}
+                
+                button.btn.btn-xs.btn-link(ng-click='ask("goals")', type='button')
+                  i.glyphicon.glyphicon-pencil
+                  |  Registrar avances
 
       .col-md-6.description-info
         .action-info

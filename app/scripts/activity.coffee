@@ -1,7 +1,7 @@
 'use strict'
 
 
-ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen) ->
+ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, prompt) ->
   $scope.activities = []
   $scope.benefs = (Math.floor (Math.random() * 99) + 1)
   $scope.currentPage = 3
@@ -16,6 +16,21 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen) ->
   $scope.totalPages = 25
   $scope.zoomed = false
 
+  $scope.ask = (what) ->
+    question = switch what
+      when 'benefs' then "Actualizar el número de beneficiarios (min. 0):"
+      when 'goals' then "Actualizar el número de metas (min. 0):"
+
+    prompt(
+      input: true
+      label: what
+      message: question
+      title: 'Actualizar'
+    ).then (response) ->
+      $log.info "The response was '#{response}'."
+    , ->
+      $log.info "No response registered."
+
 
   $scope.enableTab = (id, index) ->
     sel = "#a#{id} ul.nav-tabs li:nth-child(#{index}) a"
@@ -23,6 +38,12 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen) ->
     $timeout ->
       (angular.element document.querySelector sel).triggerHandler 'click'
     , 0
+
+
+  $scope.hideHeader = ->
+    # TODO fix this
+    $log.info (angular.element @).addClass 'hidden'
+    return false
 
 
   $scope.openModal = (template='modal', size='lg') ->
@@ -99,7 +120,7 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen) ->
     toggle = (angular.element document.querySelector 'nav .toggle')
     top = Math.floor $('accordion').offset()['top'] - 80 # padding
 
-    $document.on 'scroll', =>
+    $document.on 'scroll', ->
       expanded = ($scope.displayMode is 'expanded')
       toggle.toggleClass 'hidden', expanded or ($document.scrollTop() < top)
 
