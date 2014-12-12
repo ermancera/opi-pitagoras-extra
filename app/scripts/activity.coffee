@@ -47,7 +47,7 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
     return false
 
 
-  $scope.openModal = (template='modal', size='lg') ->
+  $scope.openModal = (template='full', size='lg') ->
     $modal.open
       templateUrl: "#{template}.html"
       controller: 'ModalCtrl'

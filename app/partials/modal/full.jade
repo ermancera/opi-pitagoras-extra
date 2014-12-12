@@ -1,4 +1,4 @@
-script(type='text/ng-template', id='modal.html')
+script(type='text/ng-template', id='full.html')
   .modal-header
     button.close(type='button', data-dismiss='modal')
       span(aria-hidden='true') &times;
@@ -7,11 +7,11 @@ script(type='text/ng-template', id='modal.html')
     h4#modalLabel.modal-title Actividad
 
   .modal-body
-    include ./cards/descripcion.jade
-    include ./cards/facturas.jade
-    include ./cards/evidencia.jade
-    include ./cards/cambios.jade
-    include ./cards/calendario.jade
+    include ../cards/descripcion.jade
+    include ../cards/facturas.jade
+    include ../cards/evidencia.jade
+    include ../cards/cambios.jade
+    include ../cards/calendario.jade
 
   .modal-footer
     button.btn.btn-default(type='button', data-dismiss='modal') Cancelar

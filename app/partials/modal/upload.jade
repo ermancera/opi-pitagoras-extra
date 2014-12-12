@@ -1,0 +1,52 @@
+script(type='text/ng-template', id='upload.html')
+  .modal-header
+    button.close(type='button', data-dismiss='modal')
+      span(aria-hidden='true') &times;
+      span.sr-only Cerrar
+
+    h4#modalLabel.modal-title Actividad
+
+  .modal-body
+    form(role='form')
+      .row
+        .col-xs-6
+          button.btn.btn-xs.btn-default.dropdown-toggle.form-control(
+            aria-expanded="false"
+            data-toggle="dropdown"
+            type="button"
+          )
+            | Elige el tipo de documento
+            i.glyphicon.glyphicon-chevron-down.pull-right
+
+      .row
+        .col-xs-6
+          button.btn.btn-xs.btn-default.dropdown-toggle.form-control(
+            aria-expanded="false"
+            data-toggle="dropdown"
+            type="button"
+          )
+            | Selecciona un proveedor
+            i.glyphicon.glyphicon-chevron-down.pull-right
+
+      .row
+        .col-xs-6
+          input.form-control(name='docId', placeholder='# de factura, contrato o recibo', type='number')
+      
+      .row
+        .col-xs-6
+          input.form-control(name='docDate', placeholder='Fecha de expedición', type='date')
+      
+      .row
+        .col-xs-3
+          input.form-control(name='partPres', placeholder='Partida presupuestal', type='text')
+            
+        .col-xs-3
+          input.form-control(name='amount', placeholder='Monto del documento', type='number')
+      
+      .row
+        .col-xs-6.drag-drop
+          textarea.form-control(rows='3')
+  
+  .modal-footer
+    button.btn.btn-danger(type='button', data-dismiss='modal') Cancelar
+    button.btn.btn-success(type='button', data-dismiss='modal') Guardar
