@@ -32,7 +32,11 @@
         
         .budget-info
           progress.progress-bar-por-ejercer
-            bar(ng-repeat='bar in stacked track by $index', value='bar.value', type='{{bar.type}}')
+            bar(
+              ng-repeat='bar in stacked track by $index'
+              type='{{bar.type}}'
+              value='bar.value'
+            )
               span(ng-hide='bar.value < 10') {{bar.value}}%
           
           ul.footnote
@@ -45,7 +49,7 @@
           h3 Avances
           
           .row.goals-info
-            .col-xs-3
+            .col-xs-6
               progressbar(value='60', type='progressType(60)')
 
               .footnote
@@ -55,7 +59,7 @@
                   i.glyphicon.glyphicon-pencil
                   |  Registrar avances
             
-            .col-xs-3
+            .col-xs-6
               progressbar(value='30', type='progressType(30)')
 
               .footnote
@@ -80,6 +84,5 @@
               a.more(ui-sref="activities.activity.detail({activityId: activity.id, admin1_id: admin1_id })")
                 | Leer Más
                 i.fa.fa-arrow-right
-            button.btn.btn-link(type='button', ng-click='openModal()')
-              | Ver detalles
-              i.fa.fa-arrow-right
+            
+            button.btn.btn-link(type='button', ng-click='openModal()') Ver detalles

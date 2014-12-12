@@ -132,8 +132,8 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
         activity.disabled = activity.isOpen = expanded
 
 
-  getActivities()
   setupContextualHeader()
+  getActivities()
   $scope.randomProgress()
   return
 
