@@ -3,6 +3,8 @@
 modal = (angular.module 'modal', [])
 
 ModalCtrl = ($scope, $modalInstance) ->
+  $scope.breadcrumbs = true
+
   $scope.cancel = ->
     $modalInstance.dismiss 'cancel'
 

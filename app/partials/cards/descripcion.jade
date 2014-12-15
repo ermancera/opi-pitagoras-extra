@@ -1,7 +1,7 @@
 //- Tarjeta principal
 
 .card-info
-  .row
+  .row(ng-if='breadcrumbs')
     ol.breadcrumb
       li
         a(href='#') Home
@@ -38,7 +38,7 @@
         .row.goals-info
           .col-xs-6
             progressbar(value='60', type='progressType(60)')
-
+            
             .footnote
               span.footnote-label {{activity.real_beneficiaries | number:0}} {{activity.total_of_beneficiaries | number:0}}
               
