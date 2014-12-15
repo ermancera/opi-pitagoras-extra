@@ -11,8 +11,10 @@ include ./modal/upload.jade
   include ./activity.jade
 
   pagination.pagination-sm(
-    max-size=25
+    boundary-links='true'
+    max-size='25'
     ng-change='pageChanged()'
     ng-model='pagination.page'
-    total-items='pagination.total'
+    rotate='false'
+    total-items='pagination.total / pagination.per_page'
   )

@@ -13,6 +13,7 @@ deps = [
   'navbar'
   'ngRoute'
   'ngStorage'
+  'pascalprecht.translate'
   'ui.bootstrap'
 ]
 
@@ -25,10 +26,14 @@ routes = ($routeProvider) ->
     )
     .otherwise redirectTo: '/'
 
+translations = ($translateProvider) ->
+  $translateProvider.useUrlLoader 'app/assets/js/lang.json'
+  $translateProvider.preferredLanguage 'es'
+  $translateProvider.useLocalStorage()
 
 app = (angular.module 'app', deps)
 app.config ['$routeProvider', routes]
-
+app.config ['$translateProvider', translation]
 
 app.constant 'angularMomentConfig',
   timezone: 'America/Mexico_City'
