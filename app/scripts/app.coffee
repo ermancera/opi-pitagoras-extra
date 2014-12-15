@@ -17,7 +17,6 @@ deps = [
   'ui.bootstrap'
 ]
 
-
 routes = ($routeProvider) ->
   $routeProvider
     .when('/',
@@ -33,16 +32,14 @@ translations = ($translateProvider) ->
 
 app = (angular.module 'app', deps)
 app.config ['$routeProvider', routes]
-app.config ['$translateProvider', translation]
+#app.config ['$translateProvider', translations]
 
 app.constant 'angularMomentConfig',
   timezone: 'America/Mexico_City'
 
-
 app.directive 'spinner', ->
   restrict: 'AE'
   template: '<div class="loading"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>'
-
 
 app.run (amMoment) ->
   amMoment.changeLocale 'es'
