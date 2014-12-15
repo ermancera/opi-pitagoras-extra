@@ -4,7 +4,6 @@
 ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, prompt) ->
   $scope.activities = []
   $scope.benefs = (Math.floor (Math.random() * 99) + 1)
-  $scope.currentPage = 3
   $scope.displayMode = 'compact'
   $scope.entries = [] #cambios
   $scope.facturas = []
@@ -12,8 +11,8 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
   $scope.fullSearch = false
   $scope.goals = (Math.floor (Math.random() * 99) + 1)
   $scope.orderBy = 'Presupuesto'
+  $scope.pagination = {}
   $scope.single = false
-  $scope.totalPages = 25
   $scope.zoomed = false
 
 
@@ -55,7 +54,7 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
 
 
   $scope.pageChanged = ->
-    console.log "Page changed to #{$scope.currentPage}"
+    console.log "Page changed to #{$scope.pagination.page}"
 
 
   $scope.progressType = (value) ->
@@ -94,6 +93,7 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
       console.log "GET #{status}"
 
       $scope.activities = data.activities
+      $scope.pagination = data.pagination
 
 
   randomProgress = ->
