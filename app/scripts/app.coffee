@@ -16,6 +16,7 @@ deps = [
   'ui.bootstrap'
 ]
 
+
 routes = ($routeProvider) ->
   $routeProvider
     .when('/',
@@ -24,15 +25,19 @@ routes = ($routeProvider) ->
     )
     .otherwise redirectTo: '/'
 
+
 app = (angular.module 'app', deps)
 app.config ['$routeProvider', routes]
+
 
 app.constant 'angularMomentConfig',
   timezone: 'America/Mexico_City'
 
+
 app.directive 'spinner', ->
   restrict: 'AE'
   template: '<div class="loading"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>'
+
 
 app.run (amMoment) ->
   amMoment.changeLocale 'es'
