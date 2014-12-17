@@ -33,8 +33,8 @@
 
   .row
     .col-xs-6
-      h4 Presupuesto Asignado
-      h4 {{activity.total_cost | currency}}
+      h6 Presupuesto Asignado
+      h3 $3,000,000.50
 
   .row
     .col-xs-12
@@ -65,12 +65,17 @@
 
   .row
     .col-xs-12
-      h4 Avances
+      h6 Avances
 
     .col-xs-6
       progressbar(value='benefs', type='success')
-      h4 beneficiarios
 
     .col-xs-6
       progressbar(value='goals', type='success')
-      h4 metas
+
+  .row
+    .col-xs-6
+      h6 beneficiarios
+      
+    .col-xs-6
+      h6 metas
