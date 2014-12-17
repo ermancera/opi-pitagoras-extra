@@ -107,9 +107,9 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
       value
 
     types = [
-      'success'
+      'primary'
       'info'
-      'warning'
+      'success'
       'danger'
     ]
 

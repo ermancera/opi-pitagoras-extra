@@ -1,34 +1,62 @@
 # See http://brunch.io/#documentation for docs.
 
 exports.config =
-  modules:
-    definition: false
-    wrapper: false
-
-  paths:
-    jadeCompileTrigger: '.compile-jade'
-
   files:
     javascripts:
       joinTo:
         'js/app.js': /^app/
-        'js/vendor.js': /^(client|bower_components|vendor)/
+        'js/vendor.js': /^(client|vendor\/scripts)/
 
     stylesheets:
-      joinTo:
-        'css/app.css': /^(app|client|bower_components|vendor)/
+      joinTo: 'css/app.css'
+
+      order:
+        before: ['vendor/styles/bootstrap.min.css']
 
     templates:
       joinTo:
         '.compile-jade': /^app/
 
-  plugins:
-    autoprefixer:
-      cascade: false
+  modules:
+    definition: false
+    wrapper: false
 
+  optimize: false
+
+  overrides:
+    minifier:
+      sourceMaps: false
+
+      plugins:
+        pleeease:
+          optimizers:
+            minifier: true
+            mqpacker: true
+
+  paths:
+    jadeCompileTrigger: '.compile-jade'
+
+  plugins:
     jade_angular:
       modules_folder: 'templates'
       locals: {}
 
-    stylus:
-      plugins: ['autoprefixer-stylus']
+    pleeease:
+      fallbacks:
+        autoprefixer: true
+        rem: false
+        variables: true
+
+      optimizers:
+        import: false
+        minifier: false
+        mqpacker: false
+
+    uglify:
+      mangle: false
+
+      compress:
+        global_defs:
+          DEBUG: true
+
+  sourceMaps: true
