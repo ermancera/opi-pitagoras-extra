@@ -1,3 +1,5 @@
+btn-bg = #eaeff5
+
 accordion
   .col-sm-2
     margin-top 2px
@@ -66,6 +68,18 @@ accordion
 
       .row
         padding 8px 0 8px 16px
+
+  table
+    .btn
+      background-color btn-bg
+      border none
+      color #000
+
+      &.active
+        background-color darken(btn-bg, 5%)
+
+        span
+          color #000
 
   .panel-title
     font-size 14px !important
