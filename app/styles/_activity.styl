@@ -23,9 +23,18 @@ accordion
     &.open
       box-shadow 0 0 8px rgba(0,0,0,0.2) inset
 
-    a.list-group-item
-      height auto
-      min-height 100px
+    a
+      &.list-group-item
+        height auto
+        min-height 100px
+
+      &[tab-heading-transclude]
+        border none
+        color inherit !important
+        background-color inherit
+
+        &:active, &:focus, &:hover
+          background-color #849fbc
 
     h3, h6
       user-select text
