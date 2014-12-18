@@ -73,19 +73,18 @@ accordion
     th > button
       width 100%
 
-      &.btn:hover
-        & strong, & i
-          color #000
-
     .btn
       background-color btn-bg
       border none
+      border-right 1px solid #ddd
+      border-top 1px solid #ddd
       color #000
 
-      &:hover, &.active
+      &:active, &:hover, &.active
         background-color darken(btn-bg, 5%)
+        border none
 
-        span
+        span, strong, i
           color #000
 
   .panel-title
