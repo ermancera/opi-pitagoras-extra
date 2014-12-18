@@ -40,9 +40,16 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
     , 0
 
 
-  $scope.hideHeader = ->
-    # TODO fix this
-    $log.info (angular.element @).addClass 'hidden'
+  $scope.hideHeader = (id) ->
+    opened = (angular.element document.querySelector 'accordion .open')
+
+    if opened.length
+      (angular.element document.querySelector 'accordion .open .hidden').removeClass 'hidden'
+      opened.removeClass 'open'
+
+    element = (document.getElementById "a#{id}")
+    (angular.element element).addClass 'open'
+    (angular.element element.querySelector '.panel-heading').addClass 'hidden'
     return false
 
 
@@ -120,12 +127,14 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
 
 
   setupContextualHeader = ->
+    inner = (angular.element document.querySelector 'nav .navbar-inner')
     toggle = (angular.element document.querySelector 'nav .toggle')
-    top = Math.floor $('accordion').offset()['top'] - 80 # padding
 
     $document.on 'scroll', ->
       expanded = ($scope.displayMode is 'expanded')
-      toggle.toggleClass 'hidden', expanded or ($document.scrollTop() < top)
+      hidden = expanded or ($document.scrollTop() < 510)
+      inner.toggleClass 'normal', hidden
+      toggle.toggleClass 'hidden', hidden
 
     $scope.$watch 'displayMode', (mode) ->
       expanded = ($scope.displayMode is 'expanded')

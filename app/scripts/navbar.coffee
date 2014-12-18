@@ -3,7 +3,7 @@
 
 NavbarCtrl = ($scope, $document) ->
   $scope.btnLabel = 'Entrar'
-  $scope.toggle = ($document.querySelector 'nav > .toggle')
+  $scope.toggle = ($document.querySelector 'nav .toggle')
 
   $scope.toggleHeader = ->
     $scope.toggle.toggleClass '.hidden'

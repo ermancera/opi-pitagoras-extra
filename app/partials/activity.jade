@@ -9,7 +9,7 @@ accordion(close-others='single')
     is-disabled='activity.isOpen'
   )
     accordion-heading
-      .row(ng-click='hideHeader()')
+      .row(ng-click='hideHeader(activity.id)')
         .col-xs-3 {{activity.user_key}}
         
         .col-xs-2 Municipio
