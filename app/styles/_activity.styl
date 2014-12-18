@@ -70,12 +70,19 @@ accordion
         padding 8px 0 8px 16px
 
   table
+    th > button
+      width 100%
+
+      &.btn:hover
+        & strong, & i
+          color #000
+
     .btn
       background-color btn-bg
       border none
       color #000
 
-      &.active
+      &:hover, &.active
         background-color darken(btn-bg, 5%)
 
         span
