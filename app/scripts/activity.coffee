@@ -4,6 +4,7 @@
 ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, prompt) ->
   $scope.activities = []
   $scope.benefs = (Math.floor (Math.random() * 99) + 1)
+  $scope.calView = 'Mensual'
   $scope.displayMode = 'compact'
   $scope.entries = [] #cambios
   $scope.facturas = []
