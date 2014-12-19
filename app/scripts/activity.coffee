@@ -17,6 +17,7 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
   $scope.zoomed = false
 
 
+  # TODO not finished
   $scope.ask = (what) ->
     question = switch what
       when 'benefs' then "Actualizar el número de beneficiarios (min. 0):"
@@ -41,6 +42,7 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
     , 0
 
 
+  # Hides an accordion's header once clicked
   $scope.hideHeader = (id) ->
     opened = (angular.element document.querySelector 'accordion .open')
 
@@ -104,6 +106,7 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
       $scope.pagination = data.pagination
 
 
+  # TODO This should be deleted at some point.
   randomProgress = ->
     $scope.stacked = []
     i = 0

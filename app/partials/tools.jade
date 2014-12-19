@@ -3,16 +3,19 @@
     button.btn.btn-primary.btn-md(type='button', ng-click='') Reprogramar
     button.btn.btn-primary.btn-md(type='button', ng-click='') Enviar informe
 
+
 .row.search
   .col-xs-12
     .input-group
       input.form-control(type='text')
 
       .input-group-btn
+        // TODO missing assignment
         button.btn.btn-default(type='button', ng-click='') Buscar
-        button.btn.btn-default(type='button', ng-click='fullSearch = !fullSearch')
+        button.btn.btn-default(type='button', ng-click='fullSearch = !fullSearch', tooltip='Filtrar por', tooltip-placement='left', tooltip-trigger)
           span.glyphicon(ng-class='{"glyphicon-chevron-up": fullSearch, "glyphicon-chevron-down": !fullSearch}')
           span.sr-only
+
 
 .row.filters(ng-show='fullSearch')
   .col-xs-3
