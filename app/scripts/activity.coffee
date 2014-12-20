@@ -76,13 +76,13 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
 
   $scope.openModal = (template='full', size='lg') ->
     $modal.open
-      templateUrl: "#{template}.html"
       controller: 'ModalCtrl'
       size: size
+      templateUrl: "#{template}.html"
 
 
   $scope.pageChanged = ->
-    console.log "Page changed to #{$scope.pagination.page}"
+    $log.info "Page changed to #{$scope.pagination.page}"
 
 
   $scope.progressType = (value) ->
