@@ -3,7 +3,7 @@
 
 ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, prompt) ->
   $scope.activities = []
-  $scope.benefs = (Math.floor (Math.random() * 99) + 1)
+  $scope.benefs = 0
   $scope.busy = false # is the tab container busy navigating to the tab you asked for?
   $scope.calView = 'Mensual'
   $scope.displayMode = 'compact'
@@ -11,7 +11,7 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
   $scope.facturas = []
   $scope.files = [] #evidencia
   $scope.fullSearch = false
-  $scope.goals = (Math.floor (Math.random() * 99) + 1)
+  $scope.goals = 0
   $scope.orderBy = 'Presupuesto'
   $scope.pagination = {}
   $scope.single = false
@@ -63,6 +63,12 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
     element = (document.getElementById "a#{id}")
     (angular.element element).addClass 'open'
     (angular.element element.querySelector '.panel-heading').addClass 'hidden'
+
+    $timeout ->
+      randomMultiProgress()
+      $scope.benefs = randomProgress()
+      $scope.goals = randomProgress()
+    , 350
 
     $scope.enableTab id
     return false
@@ -118,7 +124,7 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
 
 
   # TODO This should be deleted at some point.
-  randomProgress = ->
+  randomMultiProgress = ->
     $scope.stacked = []
     i = 0
     total = 0
@@ -141,8 +147,8 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
         type: types[i]
 
 
-  reAnimate = (panelId) ->
-    $log panelId
+  randomProgress = ->
+    Math.floor (Math.random() * 99) + 1
 
 
   setupContextualHeader = ->
@@ -165,7 +171,7 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
 
   setupContextualHeader()
   getActivities()
-  randomProgress()
+  randomMultiProgress()
   return
 
 

@@ -79,8 +79,14 @@ accordion
     margin-top: inherit!important;
   }
 
-  .progress.small
-    margin-top -2px
+  .progress
+    transition width 0.25s ease-out
+
+    &.init
+      width 0
+
+    &.small
+      margin-top -2px
 
   table
     th > button
