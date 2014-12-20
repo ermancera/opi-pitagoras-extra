@@ -25,6 +25,7 @@ accordion
 
     &.open
       box-shadow 0 0 8px rgba(0,0,0,0.2) inset
+      margin 10px 0 !important
 
     a
       &.list-group-item
@@ -70,6 +71,13 @@ accordion
       .row
         padding 12px 0 0 16px
 
+    .panel-title
+      font-size 14px !important
+
+  .panel-group .panel + .panel:not(.open) {
+    margin-top: inherit!important;
+  }
+
   .progress.small
     margin-top -2px
 
@@ -93,6 +101,3 @@ accordion
 
           &.text-muted
             color #999
-
-  .panel-title
-    font-size 14px !important
