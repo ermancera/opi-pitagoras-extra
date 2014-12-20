@@ -11,13 +11,23 @@
 
       .input-group-btn
         // TODO missing assignment
-        button.btn.btn-default(type='button', ng-click='') Buscar
-        button.btn.btn-default(type='button', ng-click='fullSearch = !fullSearch', tooltip='Filtrar por', tooltip-placement='left', tooltip-trigger)
+        button.btn.btn-default(
+          ng-click=''
+          type='button'
+        ) Buscar
+
+        button.btn.btn-default(
+          ng-click='fullSearch = !fullSearch'
+          tooltip='Filtrar por'
+          tooltip-placement='left'
+          tooltip-trigger
+          type='button'
+        )
           span.glyphicon(ng-class='{"glyphicon-chevron-up": fullSearch, "glyphicon-chevron-down": !fullSearch}')
           span.sr-only
 
 
-.row.filters(ng-show='fullSearch')
+.row.filters(ng-class='{hidden:!fullSearch}')
   .col-xs-3
     button.btn.btn-xs.btn-default.dropdown-toggle(
       aria-expanded="false"
