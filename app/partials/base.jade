@@ -1,14 +1,14 @@
-include ./modal/full.jade
-include ./modal/upload.jade
+include ./modal/full
+include ./modal/upload
 
 .container(
   ng-class='{ expanded: (displayMode == "expanded"), zoomed: zoomed }'
   ng-controller="ActivityCtrl"
 )
-  include ./tools.jade
-  include ./dashboard.jade
-  include ./orderby.jade
-  include ./activity.jade
+  include ./_search
+  include ./dashboard
+  include ./_orderby
+  include ./activity
 
   pagination.pagination-sm(
     boundary-links='true'

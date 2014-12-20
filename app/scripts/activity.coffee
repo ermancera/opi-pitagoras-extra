@@ -4,6 +4,7 @@
 ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, prompt) ->
   $scope.activities = []
   $scope.benefs = (Math.floor (Math.random() * 99) + 1)
+  $scope.busy = false # is the tab container busy navigating to the tab you asked for?
   $scope.calView = 'Mensual'
   $scope.displayMode = 'compact'
   $scope.entries = [] #cambios
@@ -38,11 +39,16 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
       $log.info "No response registered."
 
 
-  $scope.enableTab = (id, index) ->
+  $scope.enableTab = (id, index=1) ->
+    return if $scope.busy
+
+    $scope.busy = true
     sel = "#a#{id} ul.nav-tabs li:nth-child(#{index}) a"
+    tab = (angular.element document.querySelector sel)
 
     $timeout ->
-      (angular.element document.querySelector sel).triggerHandler 'click'
+      (tab.triggerHandler 'click')
+      $scope.busy = false
     , 0
 
 
@@ -57,6 +63,8 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
     element = (document.getElementById "a#{id}")
     (angular.element element).addClass 'open'
     (angular.element element.querySelector '.panel-heading').addClass 'hidden'
+
+    $scope.enableTab id
     return false
 
 
@@ -91,8 +99,7 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
     else Fullscreen.cancel()
 
     $scope.zoomed = !$scope.zoomed
-
-    return
+    return false
 
 
   getActivities = ->
@@ -132,6 +139,10 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
       $scope.stacked.push
         value: if (i < 3) then random() else (100 - total)
         type: types[i]
+
+
+  reAnimate = (panelId) ->
+    $log panelId
 
 
   setupContextualHeader = ->

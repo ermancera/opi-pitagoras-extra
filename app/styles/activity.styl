@@ -22,6 +22,7 @@ accordion
     border none
     border-top 1px solid #ddd
     min-height row-height
+    transition margin 0.25s ease-in
 
     &.open
       box-shadow 0 0 8px rgba(0,0,0,0.2) inset
@@ -30,7 +31,7 @@ accordion
     a
       &.list-group-item
         height auto
-        min-height 100px
+        min-height 300px
 
       &[tab-heading-transclude]
         border none
