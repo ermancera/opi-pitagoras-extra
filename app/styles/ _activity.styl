@@ -1,4 +1,5 @@
 btn-bg = #eaeff5
+row-height = 38px
 
 accordion
   .col-sm-2
@@ -20,7 +21,7 @@ accordion
   .panel
     border none
     border-top 1px solid #ddd
-    min-height 33px
+    min-height row-height
 
     &.open
       box-shadow 0 0 8px rgba(0,0,0,0.2) inset
@@ -38,16 +39,18 @@ accordion
         &:active, &:focus, &:hover
           background-color #849fbc
 
+    h3
+      margin-top 0
+
     h3, h6
       user-select text
-      margin-top 0
 
     h3:first-child
       margin-bottom 0
 
     .panel-heading
       background-color inherit
-      min-height 33px
+      min-height row-height
       padding 0
 
       &:hover
@@ -60,14 +63,15 @@ accordion
         line-height 1
         padding 0 3px
 
-      .col-xs-1, .col-xs-2
+      .col-xs-1, .col-xs-2:first-child
         font-size smaller
-
-      .col-xs-3
-        font-weight bold
+        padding-top 2px
 
       .row
-        padding 8px 0 8px 16px
+        padding 12px 0 0 16px
+
+  .progress.small
+    margin-top -2px
 
   table
     th > button

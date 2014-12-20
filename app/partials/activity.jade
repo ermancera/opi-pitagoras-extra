@@ -1,5 +1,5 @@
 .panel.header(ng-show='displayMode == "compact"')
-  include ./header.jade
+  include ./_header
 
 accordion(close-others='single')
   accordion-group(
@@ -10,13 +10,13 @@ accordion(close-others='single')
   )
     accordion-heading
       .row(ng-click='hideHeader(activity.id)')
-        .col-xs-3 {{activity.user_key}}
+        .col-xs-3: strong {{activity.user_key}}
         
-        .col-xs-2 Municipio
+        .col-xs-2: span Municipio
         
-        .col-xs-1 Entidad
+        .col-xs-1: span Entidad
         
-        .col-xs-1 Polígono
+        .col-xs-1: span Polígono
         
         .col-xs-1
           progressbar.small(
@@ -60,39 +60,35 @@ accordion(close-others='single')
             tooltip="Contratos/Facturas"
             tooltip-placement="left"
             tooltip-trigger
-          )
-            i.glyphicon.glyphicon-certificate(ng-class="{'disabled': false}")
+          ): .opi-achievement-alt
               
           a.btn.btn-link.btn-xs(
             ng-click="enableTab(activity.id, 3)"
             tooltip="Evidencia"
             tooltip-placement="left"
             tooltip-trigger
-          )
-            i.glyphicon.glyphicon-paperclip(ng-class="{'disabled': false}")
+          ): .opi-add-file
           
           a.btn.btn-link.btn-xs(
             ng-click="enableTab(activity.id, 4)"
             tooltip="Cambios"
             tooltip-placement="left"
             tooltip-trigger
-          )
-            i.glyphicon.glyphicon-th-list(ng-class="{'disabled': false}")
+          ): .opi-eye
 
           a.btn.btn-link.btn-xs(
             ng-click="enableTab(activity.id, 5)"
             tooltip="Calendario"
             tooltip-placement="left"
             tooltip-trigger
-          )
-            i.glyphicon.glyphicon-calendar(ng-class="{'disabled': false}")
+          ): .opi-calendar
 
     //-
       | .btn-group
       | button.btn.btn-xs.btn-primary(type='button', ng-click='randomStacked()') Randomizar
       | button.btn.btn-xs.btn-default(type='button', ng-click='zoom(activity.id)') fullScreen
 
-    include ./cards/_title.jade
+    include ./cards/_title
 
     tabset
       tab.btn.btn-default
@@ -100,32 +96,32 @@ accordion(close-others='single')
           i.glyphicon.glyphicon-info-sign
           | Descripción
           
-        include ./cards/descripcion.jade
+        include ./cards/descripcion
         
       tab.btn.btn-default
         tab-heading
           i.glyphicon.glyphicon-certificate
           | Contratos / Facturas
       
-        include ./cards/facturas.jade
+        include ./cards/facturas
       
       tab.btn.btn-default
         tab-heading
           i.glyphicon.glyphicon-paperclip
           | Evidencia
         
-        include ./cards/evidencia.jade
+        include ./cards/evidencia
       
       tab.btn.btn-default
         tab-heading
           i.glyphicon.glyphicon-th-list
           | Resumen de cambios
       
-        include ./cards/cambios.jade
+        include ./cards/cambios
       
       tab.btn.btn-default
         tab-heading
           i.glyphicon.glyphicon-calendar
           | Calendario
       
-        include ./cards/calendario.jade
+        include ./cards/calendario

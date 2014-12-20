@@ -3,12 +3,8 @@
 .card-info
   .row(ng-if='breadcrumbs')
     ol.breadcrumb
-      li
-        a(href='#') Home
-        
-      li
-        a(href='#') Library
-      
+      li: a(href='#') Home
+      li: a(href='#') Library
       li Data
   
   .row
@@ -24,30 +20,10 @@
             ng-repeat='bar in stacked track by $index'
             type='{{bar.type}}'
             value='bar.value'
-          )
-            span(ng-hide='bar.value < 10') {{bar.value}}%
+          ): span(ng-hide='bar.value < 10') {{bar.value}}%
           
-      .legend
-        .col-xs-3
-          .row
-            .col-xs-1.progress-bar.progress-bar-primary
-            .col-xs-2 Comprometido
-
-        .col-xs-3
-          .row
-            .col-xs-1.progress-bar.progress-bar-info
-            .col-xs-2 Devengado
-
-        .col-xs-3
-          .row
-            .col-xs-1.progress-bar.progress-bar-success
-            .col-xs-2 Pagado
-
-        .col-xs-3
-          .row
-            .col-xs-1.progress-bar.progress-bar-danger
-            .col-xs-5 Por ejercer
-
+      include ../_legend
+      
       .goals-info
         h6 Avances
         progressbar(value='60', type='progressType(60)')

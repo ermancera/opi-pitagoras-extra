@@ -1,9 +1,15 @@
 body
-  h3, h4, h6
-    text-transform uppercase
-
   & > hr
     margin 30px 0
+
+  div[class^=opi]
+    background-size contain
+    height 20px
+    margin-top -4px
+    width 32px
+
+  h3, h4, h6
+    text-transform uppercase
 
   cursor default
   padding-top 85px
@@ -60,8 +66,11 @@ body
     top 4px
 
 .header
-  .btn-link.btn-xs
+  a
     padding 0
+
+    &.wide
+      width 100%
 
   .row
     padding-left 15px
@@ -107,15 +116,14 @@ body
     span.big
       font-size 2em
 
+  .progress
+    margin-bottom 8px
+
 .legend
     padding 0 17px
 
   .col-xs-1
     height 15px !important
-
-  .col-xs-2, .col-xs-5
-    font-size x-small
-    padding-left 5px
 
   .comprometido
     background-color blue
@@ -156,9 +164,10 @@ body
 .progress
   height 15px !important
   border none !important
-  margin-bottom 8px
+  margin-bottom 0
 
   .progress-bar
+    font-size 12px
     line-height inherit !important
 
   &.small
@@ -169,3 +178,6 @@ body
 
   .btn:first-child
     margin-right 10px
+
+.upper
+  text-transform uppercase

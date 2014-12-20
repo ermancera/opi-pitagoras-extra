@@ -42,26 +42,7 @@
         bar(ng-repeat='bar in stacked track by $index', value='bar.value', type='{{bar.type}}')
           span(ng-hide='bar.value < 5') {{bar.value}}%
 
-  .row.legend
-    .col-xs-3
-      .row
-        .col-xs-1.progress-bar.progress-bar-primary
-        .col-xs-2 Comprometido
-
-    .col-xs-3
-      .row
-        .col-xs-1.progress-bar.progress-bar-info
-        .col-xs-2 Devengado
-
-    .col-xs-3
-      .row
-        .col-xs-1.progress-bar.progress-bar-success
-        .col-xs-2 Pagado
-
-    .col-xs-3
-      .row
-        .col-xs-1.progress-bar.progress-bar-danger
-        .col-xs-5 Por ejercer
+  include ./_legend.jade
 
   .row
     .col-xs-12

@@ -2,8 +2,8 @@ include ./modal/full.jade
 include ./modal/upload.jade
 
 .container(
-  ng-controller="ActivityCtrl"
   ng-class='{ expanded: (displayMode == "expanded"), zoomed: zoomed }'
+  ng-controller="ActivityCtrl"
 )
   include ./tools.jade
   include ./dashboard.jade
