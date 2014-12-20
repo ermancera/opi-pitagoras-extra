@@ -17,6 +17,10 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
   $scope.zoomed = false
 
 
+  $scope.$watch 'displayMode', ->
+    hidden = (angular.element document.querySelector '.panel-heading.hidden')
+    (hidden.removeClass 'hidden') if hidden.length
+
   # TODO not finished
   $scope.ask = (what) ->
     question = switch what
