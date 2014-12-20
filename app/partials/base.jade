@@ -1,14 +1,14 @@
-include ./modal/full
-include ./modal/upload
+include modal/full
+include modal/upload
 
 .container(
   ng-class='{ expanded: (displayMode == "expanded"), zoomed: zoomed }'
   ng-controller="ActivityCtrl"
 )
-  include ./_search
-  include ./dashboard
-  include ./_orderby
-  include ./activity
+  include _search
+  include dashboard
+  include _orderby
+  include activity
 
   pagination.pagination-sm(
     boundary-links='true'
