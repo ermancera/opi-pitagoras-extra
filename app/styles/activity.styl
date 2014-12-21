@@ -18,6 +18,10 @@ accordion
   .glyphicon:not(:last-child)
     padding 0 25px 0 0
 
+  .id-info
+    //margin-left 40px
+    transition color 0.25s ease-out
+
   .panel
     border none
     border-top 1px solid #ddd
@@ -25,8 +29,12 @@ accordion
     transition margin 0.25s ease-in
 
     &.open
-      box-shadow 0 0 8px rgba(0,0,0,0.2) inset
-      margin 10px 0 !important
+      box-shadow 0 2px 12px rgba(0,0,0,0.1)
+      margin 12px 0 !important
+
+    &:not(.open)
+      margin 12px 2px 0 2px !important
+      //margin-left 0
 
     a
       &.list-group-item
@@ -54,9 +62,10 @@ accordion
       background-color inherit
       min-height row-height
       padding 0
+      transition margin 0.25 ease-in
 
       &:hover
-        box-shadow rgba(0,0,0,0.2) 0px 2px 5px, inset rgba(0,0,0,0.2) 0px -1px 1px
+        box-shadow rgba(0,0,0,0.2) 8px inset
 
       .btn-group
         margin-top -1px
