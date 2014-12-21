@@ -1,270 +1,270 @@
  
 .opi-achievement {
-	background-image: url('png/achievement.png');
+	background-image: url('../img/icons/achievement.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-achievement-alt {
-	background-image: url('png/achievement-alt.png');
+	background-image: url('../img/icons/achievement-alt.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-actions {
-	background-image: url('png/actions.png');
+	background-image: url('../img/icons/actions.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-activities {
-	background-image: url('png/activities.png');
+	background-image: url('../img/icons/activities.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-add {
-	background-image: url('png/add.png');
+	background-image: url('../img/icons/add.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-add-file {
-	background-image: url('png/add-file.png');
+	background-image: url('../img/icons/add-file.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-add-file-alt {
-	background-image: url('png/add-file-alt.png');
+	background-image: url('../img/icons/add-file-alt.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-budget {
-	background-image: url('png/budget.png');
+	background-image: url('../img/icons/budget.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-calendar {
-	background-image: url('png/calendar.png');
+	background-image: url('../img/icons/calendar.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-calendar-alt {
-	background-image: url('png/calendar-alt.png');
+	background-image: url('../img/icons/calendar-alt.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-camera {
-	background-image: url('png/camera.png');
+	background-image: url('../img/icons/camera.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-camera-add {
-	background-image: url('png/camera-add.png');
+	background-image: url('../img/icons/camera-add.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-cardview {
-	background-image: url('png/cardview.png');
+	background-image: url('../img/icons/cardview.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-checkmark {
-	background-image: url('png/checkmark.png');
+	background-image: url('../img/icons/checkmark.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-checkmark-fill {
-	background-image: url('png/checkmark-fill.png');
+	background-image: url('../img/icons/checkmark-fill.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-collapsed {
-	background-image: url('png/collapsed.png');
+	background-image: url('../img/icons/collapsed.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-comment {
-	background-image: url('png/comment.png');
+	background-image: url('../img/icons/comment.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-crossmark {
-	background-image: url('png/crossmark.png');
+	background-image: url('../img/icons/crossmark.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-dashboard {
-	background-image: url('png/dashboard.png');
+	background-image: url('../img/icons/dashboard.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-edit {
-	background-image: url('png/edit.png');
+	background-image: url('../img/icons/edit.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-eye {
-	background-image: url('png/eye.png');
+	background-image: url('../img/icons/eye.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-feedback {
-	background-image: url('png/feedback.png');
+	background-image: url('../img/icons/feedback.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-folder {
-	background-image: url('png/folder.png');
+	background-image: url('../img/icons/folder.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-id {
-	background-image: url('png/id.png');
+	background-image: url('../img/icons/id.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-info {
-	background-image: url('png/info.png');
+	background-image: url('../img/icons/info.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-lightbolt {
-	background-image: url('png/lightbolt.png');
+	background-image: url('../img/icons/lightbolt.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-list {
-	background-image: url('png/list.png');
+	background-image: url('../img/icons/list.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-location {
-	background-image: url('png/location.png');
+	background-image: url('../img/icons/location.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-lock {
-	background-image: url('png/lock.png');
+	background-image: url('../img/icons/lock.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-mail {
-	background-image: url('png/mail.png');
+	background-image: url('../img/icons/mail.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-next {
-	background-image: url('png/next.png');
+	background-image: url('../img/icons/next.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-picture {
-	background-image: url('png/picture.png');
+	background-image: url('../img/icons/picture.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-pictures {
-	background-image: url('png/pictures.png');
+	background-image: url('../img/icons/pictures.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-profile {
-	background-image: url('png/profile.png');
+	background-image: url('../img/icons/profile.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-questionmark {
-	background-image: url('png/questionmark.png');
+	background-image: url('../img/icons/questionmark.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-raceflag {
-	background-image: url('png/raceflag.png');
+	background-image: url('../img/icons/raceflag.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-remove {
-	background-image: url('png/remove.png');
+	background-image: url('../img/icons/remove.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-return {
-	background-image: url('png/return.png');
+	background-image: url('../img/icons/return.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-search {
-	background-image: url('png/search.png');
+	background-image: url('../img/icons/search.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-settings {
-	background-image: url('png/settings.png');
+	background-image: url('../img/icons/settings.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-star {
-	background-image: url('png/star.png');
+	background-image: url('../img/icons/star.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-trashbin {
-	background-image: url('png/trashbin.png');
+	background-image: url('../img/icons/trashbin.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-upload {
-	background-image: url('png/upload.png');
+	background-image: url('../img/icons/upload.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-user {
-	background-image: url('png/user.png');
+	background-image: url('../img/icons/user.png');
 	background-repeat: no-repeat;
 }
 
  
 .opi-warning {
-	background-image: url('png/warning.png');
+	background-image: url('../img/icons/warning.png');
 	background-repeat: no-repeat;
 }
 
