@@ -12,6 +12,7 @@ _deps = [
   'main'
   'modal'
   'navbar'
+  'ngAnimate'
   'ngRoute'
   'ngStorage'
   'pascalprecht.translate'

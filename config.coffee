@@ -37,6 +37,11 @@ exports.config =
     jadeCompileTrigger: '.compile-jade'
 
   plugins:
+    gzip:
+      paths:
+        javascript: 'public/js'
+        stylesheets: 'public/css'
+        
     jade_angular:
       modules_folder: 'templates'
       locals: {}
