@@ -4,7 +4,7 @@
 accordion(close-others='single')
   accordion-group(
     id='a{{activity.id}}'
-    ng-repeat='activity in activities'
+    ng-repeat='activity in activities | orderBy:orderBy'
     is-open='activity.isOpen'
     is-disabled='activity.isOpen'
   )
