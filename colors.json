@@ -1,0 +1,9 @@
+{
+  "default":         "#D9E2ED",
+  "danger":          "#fa8d7a",
+  "disabled":        "#EAEFF5",
+  "info":            "#75e3cc",
+  "primary":         "#74c0ed",
+  "success":         "#9ce378",
+  "warning":         "#feb157"
+}

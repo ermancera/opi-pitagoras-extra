@@ -14,20 +14,17 @@
         button.btn.btn-default(
           ng-click=''
           type='button'
-        ) Buscar
+        ) {{fullSearch? 'Filtrar por' : 'Buscar'}}
 
         button.btn.btn-default(
           ng-click='fullSearch = !fullSearch'
-          tooltip='Filtrar por'
-          tooltip-placement='left'
-          tooltip-trigger
           type='button'
         )
-          span.glyphicon(ng-class='{"glyphicon-chevron-up": fullSearch, "glyphicon-chevron-down": !fullSearch}')
+          i.glyphicon(ng-class='{"glyphicon-chevron-up": fullSearch, "glyphicon-chevron-down": !fullSearch}')
           span.sr-only
 
 
-.row.filters
+.row.filters(ng-show="fullSearch")
   .col-xs-3
     button.btn.btn-xs.btn-default.dropdown-toggle(
       aria-expanded="false"
