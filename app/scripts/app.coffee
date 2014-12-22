@@ -1,11 +1,11 @@
 'use strict'
 
-
-deps = [
+_deps = [
   'activity'
   'angularMoment'
   'app.templates'
   'cgPrompt'
+  'counter'
   'duScroll'
   'FBAngular'
   'main'
@@ -17,6 +17,9 @@ deps = [
   'ui.bootstrap'
 ]
 
+app = (angular.module 'app', _deps)
+
+
 routes = ($routeProvider) ->
   $routeProvider
     .when('/',
@@ -25,21 +28,18 @@ routes = ($routeProvider) ->
     )
     .otherwise redirectTo: '/'
 
+
 translations = ($translateProvider) ->
   $translateProvider.useUrlLoader 'app/assets/js/lang.json'
   $translateProvider.preferredLanguage 'es'
   $translateProvider.useLocalStorage()
 
-app = (angular.module 'app', deps)
+
 app.config ['$routeProvider', routes]
 #app.config ['$translateProvider', translations]
 
 app.constant 'angularMomentConfig',
   timezone: 'America/Mexico_City'
-
-app.directive 'spinner', ->
-  restrict: 'AE'
-  template: '<div class="loading"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>'
 
 app.run (amMoment) ->
   amMoment.changeLocale 'es'
