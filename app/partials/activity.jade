@@ -10,13 +10,13 @@ accordion(close-others='single')
   )
     accordion-heading
       .row(ng-click='hideHeader(activity.id)')
-        .col-xs-3: strong {{activity.user_key}}
+        .col-xs-2: strong {{activity.user_key}}
         
-        .col-xs-2: span Municipio
+        .col-xs-2: span.small.upper {{activity.admin2 | limitTo:20}}
         
-        .col-xs-1: span Entidad
+        .col-xs-2: span.small.upper {{activity.admin1 | limitTo:20}}
         
-        .col-xs-1: span Polígono
+        .col-xs-1: span.small {{activity.quantity}}
         
         .col-xs-1
           progressbar.small(
