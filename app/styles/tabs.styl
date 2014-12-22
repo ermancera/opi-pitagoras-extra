@@ -20,6 +20,27 @@
       &.btn
         padding 0
 
+.tab-animation > .tab-content
+  position relative
+
+  & > .tab-pane
+    transition 0.25s ease-out all
+
+    &.active-add
+      margin-top -12px
+
+    &.active-remove-active
+      margin-top 12px
+
+    &.active-add, &.active-remove-active
+      opacity 0
+    
+    &.active-remove
+      display block
+      position absolute
+      top 0
+      width 100%
+
 .tab-content
   min-height 300px
 
