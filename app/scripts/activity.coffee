@@ -65,6 +65,8 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
     (angular.element element).addClass 'open'
     (angular.element element.querySelector '.panel-heading').addClass 'hidden'
 
+    $scope.benefs = $scope.goals = 0
+
     $timeout ->
       randomMultiProgress()
       $scope.benefs = randomProgress()
@@ -133,7 +135,7 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
     random = ->
       value = (Math.floor (Math.random() * 24) + 1)
       total += value
-      value
+      return value
 
     types = [
       'primary'
