@@ -13,11 +13,11 @@ directive = ($interval) ->
       $interval.cancel ticker
 
     ticker = $interval ->
-      if ticks < attrs.to
+      if (ticks < attrs.to)
         ticks += (attrs.to * 0.1)
         element.text (Math.floor ticks)
       else stop()
-    , (Number attrs.delay) or 100
+    , (Number attrs.delay) or 1
 
     element.on '$destroy', ->
       stop()

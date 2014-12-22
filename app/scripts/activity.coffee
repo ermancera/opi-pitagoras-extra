@@ -6,7 +6,7 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
   $scope.benefs = 0
   $scope.busy = false # is the tab container busy navigating to the tab you asked for?
   $scope.calView = 'Mensual'
-  $scope.displayMode = 'compact'
+  $scope.displayMode = 'collapsed'
   $scope.entries = [] #cambios
   $scope.facturas = []
   $scope.files = [] #evidencia
@@ -19,8 +19,15 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
 
 
   $scope.$watch 'displayMode', ->
-    hidden = (angular.element document.querySelector '.panel-heading.hidden')
-    (hidden.removeClass 'hidden') if hidden.length
+    get = (what) ->
+      (angular.element document.querySelectorAll what)
+
+    switch $scope.displayMode
+      when 'collapsed'
+        (get '.panel.open').removeClass 'open'
+        (get '.panel-heading.hidden').removeClass 'hidden'
+
+      when 'expanded' then (get '.panel').addClass 'open'
 
 
   # TODO not finished
@@ -90,9 +97,9 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
 
   $scope.progressType = (value) ->
     type = switch
-      when (value < 25) then 'danger'
+      when (value < 75) then 'primary'
       when (value < 50) then 'warning'
-      when (value < 75) then 'info'
+      when (value < 25) then 'danger'
       else 'success'
 
 
