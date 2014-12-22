@@ -1,5 +1,6 @@
 'use strict'
 
+
 _deps = [
   'activity'
   'angularMoment'
@@ -17,8 +18,6 @@ _deps = [
   'ui.bootstrap'
 ]
 
-app = (angular.module 'app', _deps)
-
 
 routes = ($routeProvider) ->
   $routeProvider
@@ -35,6 +34,7 @@ translations = ($translateProvider) ->
   $translateProvider.useLocalStorage()
 
 
+app = (angular.module 'app', _deps)
 app.config ['$routeProvider', routes]
 #app.config ['$translateProvider', translations]
 
