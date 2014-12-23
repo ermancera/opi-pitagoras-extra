@@ -1,63 +1,61 @@
 //- Tarjeta principal
 
-.card-info
-  .row(ng-if='breadcrumbs')
-    ol.breadcrumb
-      li: a(href='#') Home
-      li: a(href='#') Library
-      li Data
-  
-  .row
-    .col-md-6
-      .progress-info
-        h6 Presupuesto asignado
-        h3 {{activity.budget_breakthrough | currency}}
-        //-h2 Presupuesto ejercido {{activity.total_cost | currency}}
-      
-      .budget-info
-        progress.progress-bar-por-ejercer
-          bar(
-            ng-repeat='bar in stacked track by $index'
-            type='{{bar.type}}'
-            value='bar.value'
-          ): span(ng-hide='bar.value < 10') {{bar.value}}%
-          
-      include ../$legend
-      
-      .goals-info
-        h6 Avances
-        progressbar(value='benefs')
-        
-        .footnote
-          span.footnote-label {{activity.real_beneficiaries | number:0}} de {{activity.total_of_beneficiaries | number:0}}
-          
-          button.btn.btn-xs.btn-link(
-            ng-click='ask("benefs")'
-            type='button'
-          )
-            i.glyphicon.glyphicon-pencil
-            |  Registrar avances
-        
-        progressbar(value='goals')
+.row
+  ol.breadcrumb
+    li: a(href='#') Home
+    li: a(href='#') Library
+    li Data
 
-        .footnote
-          span.footnote-label {{activity.completed_goals | number:0}} de {{activity.quantity}}
-          
-          button.btn.btn-xs.btn-link(
-            ng-click='ask("goals")'
-            type='button'
-          )
-            i.glyphicon.glyphicon-pencil
-            |  Registrar avances
+.row
+  .col-xs-12
+    .progress-info
+      h6 Presupuesto asignado
+      h3 {{activity.budget_breakthrough | currency}}
+    
+    .budget-info
+      progress.progress-bar-por-ejercer
+        bar(
+          ng-repeat='bar in stacked track by $index'
+          type='{{bar.type}}'
+          value='bar.value'
+        ): span(ng-hide='bar.value < 10') {{bar.value}}%
+        
+    include ../$legend
+    
+    .goals-info
+      h6 Avances
+      progressbar(value='benefs')
+      
+      .footnote
+        span.footnote-label {{activity.real_beneficiaries | number:0}} de {{activity.total_of_beneficiaries | number:0}}
+        
+        button.btn.btn-xs.btn-link(
+          ng-click='ask("benefs")'
+          type='button'
+        )
+          i.glyphicon.glyphicon-pencil
+          |  Registrar avances
+      
+      progressbar(value='goals')
 
-    .col-md-6.description-info
-      .action-info
-        h6 Acción
-        p {{activity.action}}
-      
-      .action-info
-        h6 Descripción
-      
-      .row
-        .col-md-12
-          p {{activity.description}}
+      .footnote
+        span.footnote-label {{activity.completed_goals | number:0}} de {{activity.quantity}}
+        
+        button.btn.btn-xs.btn-link(
+          ng-click='ask("goals")'
+          type='button'
+        )
+          i.glyphicon.glyphicon-pencil
+          |  Registrar avances
+
+  .col-xs-12.description-info
+    .action-info
+      h6 Acción
+      p {{activity.action}}
+    
+    .action-info
+      h6 Descripción
+    
+    .row
+      .col-xs-12
+        p {{activity.description}}

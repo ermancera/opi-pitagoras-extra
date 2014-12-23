@@ -10,11 +10,20 @@ script(type='text/ng-template', id='full.html')
     include ../cards/$title
 
   .modal-body
-    include ../cards/descripcion_full
-    include ../cards/facturas
-    include ../cards/evidencia
-    include ../cards/cambios
-    include ../cards/calendario
+    .panel
+      include ../cards/descripcion_full
+      
+    .panel
+      include ../cards/facturas
+      
+    .panel
+      include ../cards/evidencia
+      
+    .panel
+      include ../cards/cambios
+      
+    .panel
+      include ../cards/calendario
 
   .modal-footer
     button.btn.btn-default(type='button', data-dismiss='modal') Imprimir

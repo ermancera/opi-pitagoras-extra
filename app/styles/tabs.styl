@@ -1,21 +1,31 @@
-.container:not(.zoomed) .panel-body div:last-child
-  & > .nav-tabs
-    border none
+.container:not(.zoomed)
+  .panel-collapse > .panel-body > .ng-isolate-scope
+    // hack to place tabs at the bottom
+    display flex
+    flex-direction column-reverse
 
-    & > .active > a
-      &, &:hover, &:focus
-        border none
+    & > *
+      flex 0 0 auto
 
-    & > li
-      font-size 12px
-      margin-top -1px
-      margin-bottom 0
+  .panel-body div:last-child
+    & > .nav-tabs
+      border none
 
-      &:not(:last-child)
-        margin-right 8px!important
+      & > .active > a
+        &, &:hover, &:focus
+          border none
 
-      &.btn
-        padding 0
+      & > li
+        font-size 12px
+        margin-top -1px
+        margin-bottom 0
+
+        &:not(:last-child)
+          margin-right 8px!important
+
+        &.btn
+          padding 0
+
 
 .tab-animation > .tab-content
   position relative
@@ -38,6 +48,7 @@
       top 0
       width 100%
 
+
 .tab-content
   min-height 300px
 
@@ -49,6 +60,7 @@
 
   :not(.btn-group) button:not(.btn-link)
     width 100%
+
 
 .tab-pane .row:last-child
   padding-top 10px

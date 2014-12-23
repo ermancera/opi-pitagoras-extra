@@ -1,0 +1,32 @@
+_btn-bg = #eaeff5
+
+.calendar
+  table
+    height 230px
+    width 100%
+
+    td > button
+      height 30px
+
+    th > button
+      width 100%
+
+    .btn
+      background-color _btn-bg
+      border none
+      border-right 1px solid #ddd
+      border-top 1px solid #ddd
+      color #000
+
+      &:active, &:hover, &.active
+        background-color darken(_btn-bg, 5%)
+        border-color darken(_btn-bg, 5%)
+
+        i, span, strong
+          color #000
+
+          &.text-muted
+            color #999
+
+    .well
+      margin-bottom 10px
