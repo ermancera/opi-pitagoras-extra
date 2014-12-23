@@ -3,16 +3,12 @@
 .card-info
   .row(ng-if='breadcrumbs')
     ol.breadcrumb
-      li
-        a(href='#') Home
-        
-      li
-        a(href='#') Library
-      
+      li: a(href='#') Home
+      li: a(href='#') Library
       li Data
   
   .row
-    .col-md-12
+    .col-md-6
       .progress-info
         h6 Presupuesto asignado
         h3 {{activity.budget_breakthrough | currency}}
@@ -24,51 +20,37 @@
             ng-repeat='bar in stacked track by $index'
             type='{{bar.type}}'
             value='bar.value'
-          )
-            span(ng-hide='bar.value < 10') {{bar.value}}%
+          ): span(ng-hide='bar.value < 10') {{bar.value}}%
           
-      .legend
-        .col-xs-3
-          .row
-            .col-xs-1.progress-bar.progress-bar-primary
-            .col-xs-2 Comprometido
-
-        .col-xs-3
-          .row
-            .col-xs-1.progress-bar.progress-bar-info
-            .col-xs-2 Devengado
-
-        .col-xs-3
-          .row
-            .col-xs-1.progress-bar.progress-bar-success
-            .col-xs-2 Pagado
-
-        .col-xs-3
-          .row
-            .col-xs-1.progress-bar.progress-bar-danger
-            .col-xs-5 Por ejercer
-
+      include ../_legend
+      
       .goals-info
         h6 Avances
-        progressbar(value='60', type='progressType(60)')
+        progressbar(value='benefs')
         
         .footnote
           span.footnote-label {{activity.real_beneficiaries | number:0}} de {{activity.total_of_beneficiaries | number:0}}
           
-          button.btn.btn-xs.btn-link(ng-click='ask("benefs")', type='button')
+          button.btn.btn-xs.btn-link(
+            ng-click='ask("benefs")'
+            type='button'
+          )
             i.glyphicon.glyphicon-pencil
             |  Registrar avances
         
-        progressbar(value='30', type='progressType(30)')
+        progressbar(value='goals')
 
         .footnote
           span.footnote-label {{activity.completed_goals | number:0}} de {{activity.quantity}}
           
-          button.btn.btn-xs.btn-link(ng-click='ask("goals")', type='button')
+          button.btn.btn-xs.btn-link(
+            ng-click='ask("goals")'
+            type='button'
+          )
             i.glyphicon.glyphicon-pencil
             |  Registrar avances
 
-    .col-md-12.description-info
+    .col-md-6.description-info
       .action-info
         h6 Acción
         p {{activity.action}}
@@ -77,10 +59,5 @@
         h6 Descripción
       
       .row
-        .col-md-12.more
-          //-
-            a.more(ui-sref="activities.activity.detail({activityId: activity.id, admin1_id: admin1_id })")
-              | Leer Más
-              i.fa.fa-arrow-right
-          
-          button.btn.btn-link(type='button', ng-click='openModal()') Ver detalles
+        .col-md-12
+          p {{activity.description}}

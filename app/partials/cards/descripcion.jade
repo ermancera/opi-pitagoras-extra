@@ -1,12 +1,6 @@
 //- Tarjeta principal
 
 .card-info
-  .row(ng-if='breadcrumbs')
-    ol.breadcrumb
-      li: a(href='#') Home
-      li: a(href='#') Library
-      li Data
-  
   .row
     .col-md-6
       .progress-info
@@ -31,7 +25,10 @@
         .footnote
           span.footnote-label {{activity.real_beneficiaries | number:0}} de {{activity.total_of_beneficiaries | number:0}}
           
-          button.btn.btn-xs.btn-link(ng-click='ask("benefs")', type='button')
+          button.btn.btn-xs.btn-link(
+            ng-click='ask("benefs")'
+            type='button'
+          )
             i.glyphicon.glyphicon-pencil
             |  Registrar avances
         
@@ -40,7 +37,10 @@
         .footnote
           span.footnote-label {{activity.completed_goals | number:0}} de {{activity.quantity}}
           
-          button.btn.btn-xs.btn-link(ng-click='ask("goals")', type='button')
+          button.btn.btn-xs.btn-link(
+            ng-click='ask("goals")'
+            type='button'
+          )
             i.glyphicon.glyphicon-pencil
             |  Registrar avances
 
@@ -54,13 +54,13 @@
       
       .row
         .col-md-12.more
+          p {{activity.description | limitTo:350}}…
           //-
             a.more(ui-sref="activities.activity.detail({activityId: activity.id, admin1_id: admin1_id })")
               | Leer Más
               i.fa.fa-arrow-right
-
-      .row  
-        button.btn.btn-link.pull-right(
-          ng-click='openModal()'
-          type='button'
-        ) Ver detalle &gt;
+          button.btn.btn-link.pull-right(
+            ng-click='openModal()'
+            type='button'
+          ) Ver detalles
+            i.fa.fa-arrow-right
