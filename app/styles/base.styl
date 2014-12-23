@@ -16,7 +16,6 @@ body
     background-size contain
     height 20px
     margin-top -4px
-    width 32px
 
   button, h3, h4, h6, tab-heading
     text-transform uppercase
@@ -60,8 +59,12 @@ span, strong
   padding 0 5px 0 0
 
 
-.modal .breadcrumb
-  display block
+.modal
+  &.fade
+    background-color rgba(0,0,0,0.85)
+
+  .breadcrumb
+    display block
 
 
 .nav, .pagination, .carousel, .panel-title a
