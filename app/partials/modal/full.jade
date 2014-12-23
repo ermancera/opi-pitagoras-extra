@@ -1,3 +1,5 @@
+//- Full activity view (aka "sandwich mode")
+
 script(type='text/ng-template', id='full.html')
   .modal-header
     button.btn.btn-link.close(type='button', data-dismiss='modal')
@@ -15,5 +17,6 @@ script(type='text/ng-template', id='full.html')
     include ../cards/calendario
 
   .modal-footer
-    button.btn.btn-default(type='button', data-dismiss='modal') Cancelar
+    button.btn.btn-default(type='button', data-dismiss='modal') Imprimir
+    button.btn.btn-default(type='button', data-dismiss='modal') Pantalla completa
     button.btn.btn-primary(type='button', data-dismiss='modal') Cerrar
