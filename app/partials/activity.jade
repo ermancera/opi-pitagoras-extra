@@ -1,5 +1,5 @@
 .panel.header(ng-show='displayMode == "collapsed"')
-  include _header
+  include $header
 
 accordion(close-others='single')
   accordion-group(
@@ -85,7 +85,7 @@ accordion(close-others='single')
       | button.btn.btn-xs.btn-primary(type='button', ng-click='randomStacked()') Randomizar
       | button.btn.btn-xs.btn-default(type='button', ng-click='zoom(activity.id)') fullScreen
 
-    include cards/_title
+    include cards/$title
     
     hr
 

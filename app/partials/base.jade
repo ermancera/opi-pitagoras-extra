@@ -5,9 +5,9 @@ include modal/upload
   ng-class='{ expanded: (displayMode == "expanded"), zoomed: zoomed }'
   ng-controller="ActivityCtrl"
 )
-  include _search
+  include $search
   include dashboard
-  include _orderby
+  include $orderby
   include activity
 
   pagination.pagination-sm(

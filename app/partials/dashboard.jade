@@ -42,7 +42,7 @@
         bar(ng-repeat='bar in stacked track by $index', value='bar.value', type='{{bar.type}}')
           span(ng-hide='bar.value < 5') {{bar.value}}%
 
-  include _legend
+  include $legend
 
   .row
     .col-xs-12
