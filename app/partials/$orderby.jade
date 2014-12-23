@@ -1,6 +1,6 @@
 .panel.order-by
   .row
-    .col-xs-8
+    .col-xs-5
       span.small Ordenar avances por 
       
       .btn-group
@@ -8,7 +8,19 @@
         button.btn.btn-sm.btn-default(btn-radio="'completed_goals'", ng-model='orderBy')  Metas
         button.btn.btn-sm.btn-default(btn-radio="'total_of_beneficiaries'", ng-model='orderBy') Beneficiarios 
 
-    .col-xs-2
+    .col-xs-5
+      pagination.pagination-sm(
+        boundary-links=true
+        items-per-page='pagination.per_page'
+        max-size=5
+        next-text='»'
+        ng-change='pageChanged()'
+        ng-model='pagination.page'
+        previous-text='«'
+        rotate=false
+        total-items='pagination.total / pagination.per_page'
+      )
+        
     
     .col-xs-2
       .btn-group
