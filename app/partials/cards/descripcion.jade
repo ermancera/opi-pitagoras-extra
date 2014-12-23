@@ -58,5 +58,9 @@
             a.more(ui-sref="activities.activity.detail({activityId: activity.id, admin1_id: admin1_id })")
               | Leer Más
               i.fa.fa-arrow-right
-          
-          button.btn.btn-link(type='button', ng-click='openModal()') Ver detalles
+
+      .row  
+        button.btn.btn-link.pull-right(
+          ng-click='openModal()'
+          type='button'
+        ) Ver detalle &gt;
