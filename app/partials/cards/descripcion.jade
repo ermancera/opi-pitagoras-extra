@@ -1,66 +1,72 @@
 //- Tarjeta principal
 
-.card-info
-  .row
-    .col-md-6
-      .progress-info
-        h6 Presupuesto asignado
-        h3 {{activity.budget_breakthrough | currency}}
-        //-h2 Presupuesto ejercido {{activity.total_cost | currency}}
-      
-      .budget-info
-        progress.progress-bar-por-ejercer
-          bar(
-            ng-repeat='bar in stacked track by $index'
-            type='{{bar.type}}'
-            value='bar.value'
-          ): span(ng-hide='bar.value < 10') {{bar.value}}%
+.row
+  .col-xs-10
+    h3 Resumen
+    
+  .col-xs-2
+    button.btn.btn-primary.btn-sm(ng-click='openModal()', type='button')
+      i.glyphicon.glyphicon-circle-arrow-right
+      | Ver detalles
           
-      include ../_legend
-      
-      .goals-info
-        h6 Avances
-        progressbar(value='benefs')
+.row
+  .col-md-6
+    .progress-info
+      h6 Presupuesto asignado
+      h3 {{activity.budget_breakthrough | currency}}
+      //-h2 Presupuesto ejercido {{activity.total_cost | currency}}
+    
+    .budget-info
+      progress.progress-bar-por-ejercer
+        bar(
+          ng-repeat='bar in stacked track by $index'
+          type='{{bar.type}}'
+          value='bar.value'
+        ): span(ng-hide='bar.value < 10') {{bar.value}}%
         
-        .footnote
-          span.footnote-label {{activity.real_beneficiaries | number:0}} de {{activity.total_of_beneficiaries | number:0}}
-          
-          button.btn.btn-xs.btn-link(
-            ng-click='ask("benefs")'
-            type='button'
-          )
-            i.glyphicon.glyphicon-pencil
-            |  Registrar avances
+    include ../_legend
+    
+    .goals-info
+      h6 Avances
+      progressbar(value='benefs')
+      
+      .footnote
+        span.footnote-label {{activity.real_beneficiaries | number:0}} de {{activity.total_of_beneficiaries | number:0}}
         
-        progressbar(value='goals')
-
-        .footnote
-          span.footnote-label {{activity.completed_goals | number:0}} de {{activity.quantity}}
-          
-          button.btn.btn-xs.btn-link(
-            ng-click='ask("goals")'
-            type='button'
-          )
-            i.glyphicon.glyphicon-pencil
-            |  Registrar avances
-
-    .col-md-6.description-info
-      .action-info
-        h6 Acción
-        p {{activity.action}}
+        button.btn.btn-xs.btn-link(
+          ng-click='ask("benefs")'
+          type='button'
+        )
+          i.glyphicon.glyphicon-pencil
+          |  Registrar avances
       
-      .action-info
-        h6 Descripción
-      
-      .row
-        .col-md-12.more
-          p {{activity.description | limitTo:350}}…
-          //-
-            a.more(ui-sref="activities.activity.detail({activityId: activity.id, admin1_id: admin1_id })")
-              | Leer Más
-              i.fa.fa-arrow-right
-          button.btn.btn-link.pull-right(
-            ng-click='openModal()'
-            type='button'
-          ) Ver detalles
-            i.fa.fa-arrow-right
+      progressbar(value='goals')
+
+      .footnote
+        span.footnote-label {{activity.completed_goals | number:0}} de {{activity.quantity}}
+        
+        button.btn.btn-xs.btn-link(
+          ng-click='ask("goals")'
+          type='button'
+        )
+          i.glyphicon.glyphicon-pencil
+          |  Registrar avances
+
+  .col-md-6.description-info
+    .action-info
+      h6 Acción
+      p {{activity.action}}
+    
+    .action-info
+      h6 Descripción
+    
+    .row
+      .col-md-12.more
+        p {{activity.description | limitTo:350}}
+          span(ng-if='activity.description.length > 350') …
+        
+      //- button.btn.btn-link.pull-right(
+        |    ng-click='openModal()'
+        |    type='button'
+        |  ) Ver detalles
+        |    i.fa.fa-arrow-right
