@@ -10,7 +10,7 @@
   .col-xs-12
     .progress-info
       h6 Presupuesto asignado
-      h3 {{a.budget_breakthrough | currency}}
+      h3 {{a.budget_breakthrough | number:0 | currency}}
     
     .budget-info
       progress.progress-bar-por-ejercer

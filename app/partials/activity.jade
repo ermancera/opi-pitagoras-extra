@@ -4,9 +4,9 @@
 accordion(close-others='single')
   accordion-group(
     id='a{{a.id}}'
-    ng-repeat='a in D.activities | orderBy:orderBy'
-    is-open='a.isOpen'
     is-disabled='a.isOpen'
+    is-open='a.isOpen'
+    ng-repeat='a in D.activities | orderBy:orderBy'
   )
     accordion-heading
       .row(ng-click='hideHeader(a.id)')

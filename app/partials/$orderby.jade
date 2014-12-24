@@ -4,9 +4,20 @@
       span.small Ordenar avances por 
       
       .btn-group
-        button.btn.btn-sm.btn-default(btn-radio="'budget_breakthrough'", ng-model='orderBy') Presupuesto
-        button.btn.btn-sm.btn-default(btn-radio="'completed_goals'", ng-model='orderBy')  Metas
-        button.btn.btn-sm.btn-default(btn-radio="'total_of_beneficiaries'", ng-model='orderBy') Beneficiarios 
+        button.btn.btn-sm.btn-default(
+          btn-radio="'budget_breakthrough'"
+          ng-model='orderBy'
+        ) Presupuesto
+        
+        button.btn.btn-sm.btn-default(
+          btn-radio="'completed_goals'"
+          ng-model='orderBy'
+        )  Metas
+        
+        button.btn.btn-sm.btn-default(
+          btn-radio="'total_of_beneficiaries'"
+          ng-model='orderBy'
+        ) Beneficiarios 
 
     .col-xs-5
       pagination.pagination-sm(
