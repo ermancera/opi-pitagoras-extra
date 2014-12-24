@@ -2,18 +2,12 @@
 
 
 ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, prompt) ->
-  $scope.activities = []
-  $scope.benefs = 0
+  $scope.D = {} # JSON data
   $scope.busy = false # is the tab container busy navigating to the tab you asked for?
   $scope.calView = 'Mensual'
   $scope.displayMode = 'collapsed'
-  $scope.entries = [] #cambios
-  $scope.facturas = []
-  $scope.files = [] #evidencia
   $scope.fullSearch = false
-  $scope.goals = 0
   $scope.orderBy = 'budget_breakthrough'
-  $scope.pagination = {}
   $scope.single = false
   $scope.zoomed = false
 
@@ -92,7 +86,7 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
 
 
   $scope.pageChanged = ->
-    $log.info "Page changed to #{$scope.pagination.page}"
+    $log.info "Page changed to #{$scope.D.pagination.page}"
 
 
   $scope.progressType = (value) ->
@@ -124,13 +118,11 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
     get = ($http.get url)
 
     get.error (data, status, headers, config) ->
-      console.log 'GET error'
+      $log.info 'GET error'
 
     get.success (data, status, headers, config) ->
-      console.log "GET #{status}"
+      $scope.D = data
 
-      $scope.activities = data.activities
-      $scope.pagination = data.pagination
 
 
   # TODO This should be deleted at some point.
@@ -175,7 +167,8 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
       expanded = ($scope.displayMode is 'expanded')
       $scope.single = !expanded
 
-      for activity in $scope.activities
+      return unless $scope.D.activities
+      for activity in $scope.D.activities
         activity.disabled = activity.isOpen = expanded
 
 

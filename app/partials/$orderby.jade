@@ -11,14 +11,14 @@
     .col-xs-5
       pagination.pagination-sm(
         boundary-links=true
-        items-per-page='pagination.per_page'
+        items-per-page='D.pagination.per_page'
         max-size=4
         next-text='»'
         ng-change='pageChanged()'
-        ng-model='pagination.page'
+        ng-model='D.pagination.page'
         previous-text='«'
         rotate=false
-        total-items='pagination.total / pagination.per_page'
+        total-items='D.pagination.total / D.pagination.per_page'
       )    
     
     .col-xs-2

@@ -5,21 +5,26 @@
 # Inspired by http://stackoverflow.com/a/21265200/4028999
 counter = (angular.module 'counter', [])
 
-directive = ($interval) ->
+directive = ($interval, $timeout) ->
   return (scope, element, attrs) ->
     ticks = 0
 
-    stop = ->
-      $interval.cancel ticker
+    $timeout ->
+      value = element.text()
+      element.text 0
 
-    ticker = $interval ->
-      if (ticks < attrs.to)
-        ticks += (attrs.to * 0.1)
-        element.text (Math.floor ticks)
-      else stop()
-    , (Number attrs.delay) or 1
+      stop = ->
+        $interval.cancel ticker
 
-    element.on '$destroy', ->
-      stop()
+      ticker = $interval ->
+        if (ticks < value)
+          ticks += (value * 0.1)
+          element.text (Math.floor ticks)
+        else stop()
+      , (Number attrs.delay) or 1
 
-counter.directive 'counter', ['$interval', directive]
+      element.on '$destroy', ->
+        stop()
+    , 1000
+
+counter.directive 'counter', ['$interval', '$timeout', directive]

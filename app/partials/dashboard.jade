@@ -5,28 +5,28 @@
 
     .col-xs-2
       .row
-        counter(to=444, delay=100)
+        counter(delay=100) {{D.calculated_values.total_activities}}
 
       .row
         span Actividades
 
     .col-xs-2
       .row
-        counter(to=333, delay=100)
+        counter(delay=100) {{D.calculated_values.for_reviewing.quantity}}
 
       .row
         span Sin Avance
 
     .col-xs-2
       .row
-        counter(to=222, delay=100)
+        counter(delay=100) {{D.calculated_values.in_progress.quantity}}
 
       .row
         span En proceso
 
     .col-xs-2
       .row
-        counter(to=111, delay=100)
+        counter(delay=100) {{D.calculated_values.clean.quantity}}
       
       .row
         span Completadas
@@ -34,7 +34,7 @@
   .row
     .col-xs-6
       h6 Presupuesto Asignado
-      h3 $3,000,000.50
+      h3 {{D.calculated_values.budget.total.value | currency}}
 
   .row
     .col-xs-12
