@@ -28,7 +28,10 @@
     
     .goals-info
       h6 Avances
-      progressbar(value='benefs')
+      progressbar(
+        type='{{progressType(benefs)}}'
+        value='benefs'
+      )
       
       .footnote
         span.footnote-label {{activity.real_beneficiaries | number:0}} de {{activity.total_of_beneficiaries | number:0}}
@@ -40,7 +43,10 @@
           i.glyphicon.glyphicon-pencil
           |  Registrar avances
       
-      progressbar(value='goals')
+      progressbar(
+        type='{{progressType(goals)}}'
+        value='goals'
+      )
 
       .footnote
         span.footnote-label {{activity.completed_goals | number:0}} de {{activity.quantity}}

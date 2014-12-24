@@ -2,7 +2,29 @@
 
 
 ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, prompt) ->
-  $scope.D = {} # JSON data
+  $scope.D =
+    calculated_values:
+      beneficiaries:
+        planned: 0
+        real: 0
+
+      budget:
+        accruable_percent:
+          value: 0
+
+        discharged_percent:
+          value: 0
+
+        pledged_percent:
+          value: 0
+
+        por_ejercer_percent:
+          value: 0
+
+      goals:
+        planned: 0
+        completed: 0
+
   $scope.busy = false # is the tab container busy navigating to the tab you asked for?
   $scope.calView = 'Mensual'
   $scope.displayMode = 'collapsed'
@@ -54,6 +76,19 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
     , 0
 
 
+  $scope.getProgress = (key) ->
+    value = switch key
+      when 'benefs'
+        b = $scope.D.calculated_values.beneficiaries
+        (Math.floor (b.real * 100) / b.planned)
+
+      when 'goals'
+        g = $scope.D.calculated_values.goals
+        (Math.floor (g.completed * 100) / g.planned)
+
+    return value
+
+
   # Hides an accordion's header once clicked
   $scope.hideHeader = (id) ->
     opened = (angular.element document.querySelector 'accordion .open')
@@ -66,10 +101,9 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
     (angular.element element).addClass 'open'
     (angular.element element.querySelector '.panel-heading').addClass 'hidden'
 
-    $scope.benefs = $scope.goals = 0
-
     $timeout ->
-      randomMultiProgress()
+      # FIXME can't fix this until JSON is fixed
+      # see
       $scope.benefs = randomProgress()
       $scope.goals = randomProgress()
     , 350
@@ -91,9 +125,9 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
 
   $scope.progressType = (value) ->
     type = switch
-      when (value < 75) then 'primary'
-      when (value < 50) then 'warning'
-      when (value < 25) then 'danger'
+      when (value < 26) then 'danger'
+      when (value < 51) then 'warning'
+      when (value < 76) then 'primary'
       else 'success'
 
 
@@ -112,29 +146,10 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
     return false
 
 
-  getActivities = ->
-    #url = 'http://pitagoras.nightly.opi.la/api/activities'
-    url = '/js/activities.json'
-    get = ($http.get url)
-
-    get.error (data, status, headers, config) ->
-      $log.info 'GET error'
-
-    get.success (data, status, headers, config) ->
-      $scope.D = data
-
-
-
-  # TODO This should be deleted at some point.
-  randomMultiProgress = ->
+  drawGlobalProgress = (values) ->
     $scope.stacked = []
     i = 0
     total = 0
-
-    random = ->
-      value = (Math.floor (Math.random() * 24) + 1)
-      total += value
-      return value
 
     types = [
       'primary'
@@ -145,8 +160,32 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
 
     for i in [0...4]
       $scope.stacked.push
-        value: if (i < 3) then random() else (100 - total)
+        value: values[i]
         type: types[i]
+
+    return false
+
+
+  getActivities = ->
+    #url = 'http://pitagoras.nightly.opi.la/api/activities'
+    url = '/js/activities.json'
+    get = ($http.get url)
+
+    get.error (data, status, headers, config) ->
+      $log.info 'GET error'
+
+    get.success (data, status, headers, config) ->
+      $scope.D = data
+      b = data.calculated_values.budget
+
+      drawGlobalProgress [
+        b.pledged_percent.value
+        b.accruable_percent.value
+        b.discharged_percent.value
+        # FIXME (see https://github.com/opintel/pitagoras/issues/1183)
+        #b.por_ejercer_percent.value
+        100 - (b.pledged_percent.value + b.accruable_percent.value + b.discharged_percent.value)
+      ]
 
 
   randomProgress = ->
@@ -174,8 +213,7 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
 
   setupContextualHeader()
   getActivities()
-  randomMultiProgress()
-  return
+  return false
 
 
 activity = (angular.module 'activity', [])
