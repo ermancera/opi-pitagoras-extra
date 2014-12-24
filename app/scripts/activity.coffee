@@ -125,8 +125,8 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
 
   $scope.progressType = (value) ->
     type = switch
-      when (value < 26) then 'danger'
-      when (value < 51) then 'warning'
+      when (value < 16) then 'danger'
+      when (value < 26) then 'warning'
       when (value < 76) then 'primary'
       else 'success'
 

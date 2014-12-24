@@ -10,7 +10,7 @@
   .col-xs-12
     .progress-info
       h6 Presupuesto asignado
-      h3 {{activity.budget_breakthrough | currency}}
+      h3 {{a.budget_breakthrough | currency}}
     
     .budget-info
       progress.progress-bar-por-ejercer
@@ -30,7 +30,7 @@
       )
       
       .footnote
-        span.footnote-label {{activity.real_beneficiaries | number:0}} de {{activity.total_of_beneficiaries | number:0}}
+        span.footnote-label {{a.real_beneficiaries | number:0}} de {{a.total_of_beneficiaries | number:0}}
         
         button.btn.btn-xs.btn-link(
           ng-click='ask("benefs")'
@@ -45,7 +45,7 @@
       )
 
       .footnote
-        span.footnote-label {{activity.completed_goals | number:0}} de {{activity.quantity}}
+        span.footnote-label {{a.completed_goals | number:0}} de {{a.quantity | number:0}}
         
         button.btn.btn-xs.btn-link(
           ng-click='ask("goals")'
@@ -57,11 +57,11 @@
   .col-xs-12.description-info
     .action-info
       h6 Acción
-      p {{activity.action}}
+      p {{a.action}}
     
     .action-info
       h6 Descripción
     
     .row
       .col-xs-12
-        p {{activity.description}}
+        p {{a.description}}

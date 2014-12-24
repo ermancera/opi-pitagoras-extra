@@ -13,8 +13,8 @@
   .col-md-6
     .progress-info
       h6 Presupuesto asignado
-      h3 {{activity.budget_breakthrough | currency}}
-      //-h2 Presupuesto ejercido {{activity.total_cost | currency}}
+      h3 {{a.budget_breakthrough | number:0 | currency}}
+      //-h2 Presupuesto ejercido {{a.total_cost | currency}}
     
     .budget-info
       progress.progress-bar-por-ejercer
@@ -34,7 +34,7 @@
       )
       
       .footnote
-        span.footnote-label {{activity.real_beneficiaries | number:0}} de {{activity.total_of_beneficiaries | number:0}}
+        span.footnote-label {{a.real_beneficiaries | number:0}} de {{a.total_of_beneficiaries | number:0}}
         
         button.btn.btn-xs.btn-link(
           ng-click='ask("benefs")'
@@ -49,7 +49,7 @@
       )
 
       .footnote
-        span.footnote-label {{activity.completed_goals | number:0}} de {{activity.quantity}}
+        span.footnote-label {{a.completed_goals | number:0}} de {{a.quantity | number:0}}
         
         button.btn.btn-xs.btn-link(
           ng-click='ask("goals")'
@@ -61,15 +61,15 @@
   .col-md-6.description-info
     .action-info
       h6 Acción
-      p {{activity.action}}
+      p {{a.action}}
     
     .action-info
       h6 Descripción
     
     .row
       .col-md-12.more
-        p {{activity.description | limitTo:350}}
-          span(ng-if='activity.description.length > 350') …
+        p {{a.description | limitTo:350}}
+          span(ng-if='a.description.length > 350') …
         
       //- button.btn.btn-link.pull-right(
         |    ng-click='openModal()'
