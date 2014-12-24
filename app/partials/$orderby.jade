@@ -12,15 +12,14 @@
       pagination.pagination-sm(
         boundary-links=true
         items-per-page='pagination.per_page'
-        max-size=5
+        max-size=4
         next-text='»'
         ng-change='pageChanged()'
         ng-model='pagination.page'
         previous-text='«'
         rotate=false
         total-items='pagination.total / pagination.per_page'
-      )
-        
+      )    
     
     .col-xs-2
       .btn-group
