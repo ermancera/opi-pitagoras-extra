@@ -1,5 +1,11 @@
 //- base styling that doesn't quite fit into the main theme
 
+*[class^=opi]
+  background-size contain
+  height 20px
+  margin-top -4px
+
+
 accordion, .modal
   .btn-link
     color #74c0ed
@@ -10,21 +16,14 @@ accordion, .modal
 accordion
   .panel-group
     margin 0
-    
+
     .panel + .panel:not(.open)
       margin-top inherit !important
 
 
 body
-  line-height inherit
-
   & > hr
     margin 30px 0
-
-  div[class^=opi]
-    background-size contain
-    height 20px
-    margin-top -4px
 
 
 i.fa

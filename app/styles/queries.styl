@@ -3,10 +3,16 @@
 _lg = 1200px
 _md = 992px
 
-@media (min-width: _md) and (max-width: _lg)
+@media (min-width: _md) and (min-width: _lg)
   div[class^=opi]
     width 24px
+
+  nav.navbar ul
+    padding-left 150px
 
 @media (min-width: _lg)
   div[class^=opi]
     width 32px
+
+  nav.navbar ul
+    padding-left 220px

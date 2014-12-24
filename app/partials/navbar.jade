@@ -18,10 +18,18 @@ nav.navbar.navbar-default.navbar-fixed-top(
           include ../assets/img/logo.svg
 
       .collapse.navbar-collapse(collapse='collapsed')
-        ul#nav-links.nav.navbar-nav
-          li: a(href='#') Panel de control
-          li.active: a(href='#') Actividades
-          li: a(href='#') Archivos
+        ul#nav-links.nav.navbar-nav(role='menu')
+          li: a.upper(href='#')
+            fa(name='tachometer')
+            | Panel de control
+          
+          li.active: a.upper(href='#')
+            fa(name='flag-checkered')
+            | Acciones
+          
+          li: a.upper(href='#')
+            fa(name='folder-o')
+            | Archivos
         //-
           li.divider-vertical
           
@@ -38,6 +46,10 @@ nav.navbar.navbar-default.navbar-fixed-top(
               .input-group-btn
                 button.btn.btn-info(type='button')
                   fa(name='search')
+        
+        ul#nav-settings.nav.navbar-nav.navbar-right
+          li: a(href='#')
+            fa(name='gear', size='2')
 
       .header.toggle.hidden
         include $header
