@@ -20,7 +20,7 @@
           ng-click='fullSearch = !fullSearch'
           type='button'
         )
-          i.glyphicon(ng-class='{"glyphicon-chevron-up": fullSearch, "glyphicon-chevron-down": !fullSearch}')
+          fa(name='{{ fullSearch? "chevron-up" : "chevron-down" }}')
           span.sr-only
 
 
@@ -32,7 +32,7 @@
       type="button"
     )
       | Entidad
-      i.glyphicon.glyphicon-chevron-down.pull-right
+      fa.pull-right(name='caret-down')
 
   .col-xs-3
     button.btn.btn-xs.btn-default.dropdown-toggle(
@@ -41,7 +41,7 @@
       type="button"
     )
       | Municipio
-      i.glyphicon.glyphicon-chevron-down.pull-right
+      fa.pull-right(name='caret-down')
 
   .col-xs-3
     button.btn.btn-xs.btn-default.dropdown-toggle(
@@ -50,7 +50,7 @@
       type="button"
     )
       | Polígono
-      i.glyphicon.glyphicon-chevron-down.pull-right
+      fa.pull-right(name='caret-down')
 
   .col-xs-3
     button.btn.btn-xs.btn-default.dropdown-toggle(
@@ -59,4 +59,4 @@
       type="button"
     )
       | Status
-      i.glyphicon.glyphicon-chevron-down.pull-right
+      fa.pull-right(name='caret-down')

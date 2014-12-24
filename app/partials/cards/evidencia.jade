@@ -6,7 +6,7 @@
   
   .col-xs-2
     button.btn.btn-primary.btn-sm(ng-click='openModal("upload")', type='button')
-      i.glyphicon.glyphicon-plus-sign
+      fa(name='plus-circle')
       | Agregar
 
 .row
@@ -24,5 +24,5 @@
           td {{file.type}}
           td
             a.btn.btn-link
-              i.glyphicon.glyphicon-pencil
-              i.glyphicon.glyphicon-trash
+              fa(name='pencil')
+              fa(name='trash')

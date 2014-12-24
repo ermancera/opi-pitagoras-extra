@@ -6,7 +6,7 @@
     
   .col-xs-2
     button.btn.btn-primary.btn-sm(ng-click='openModal()', type='button')
-      i.glyphicon.glyphicon-circle-arrow-right
+      fa(name='chevron-circle-right')
       | Ver detalles
           
 .row
@@ -39,7 +39,7 @@
           ng-click='ask("benefs")'
           type='button'
         )
-          i.glyphicon.glyphicon-pencil
+          fa(name='pencil')
           |  Registrar avances
       
       progressbar(
@@ -54,7 +54,7 @@
           ng-click='ask("goals")'
           type='button'
         )
-          i.glyphicon.glyphicon-pencil
+          fa(name='pencil')
           |  Registrar avances
 
   .col-md-6.description-info

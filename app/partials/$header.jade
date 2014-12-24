@@ -2,56 +2,56 @@
   .col-xs-2
     a.btn.btn-xs.btn-link(ng-click='sortBy("user_key")')
       span.small.upper Código
-        i.fa(
-          ng-class='{"fa-caret-down":!sort.reverse, "fa-caret-up":sort.reverse}'
+        fa(
+          name='{{ sort.reverse? "sort-desc" : "sort-asc" }}'
           ng-show='sort.by=="user_key"'
         )
   
   .col-xs-2
     a.btn.btn-xs.btn-link(ng-click='sortBy("admin2")')
       span.small.upper Municipio
-        i.fa(
-          ng-class='{"fa-caret-down":!sort.reverse, "fa-caret-up":sort.reverse}'
+        fa(
+          name='{{ sort.reverse? "sort-desc" : "sort-asc" }}'
           ng-show='sort.by=="admin2"'
         )
   
   .col-xs-2
     a.btn.btn-xs.btn-link(ng-click='sortBy("admin1")')
       span.small.upper Entidad
-        i.fa(
-          ng-class='{"fa-caret-down":!sort.reverse, "fa-caret-up":sort.reverse}'
+        fa(
+          name='{{ sort.reverse? "sort-desc" : "sort-asc" }}'
           ng-show='sort.by=="admin1"'
         )
   
   .col-xs-1
     a.btn.btn-xs.btn-link(ng-click='sortBy("polygon")')
       span.small.upper Polígono
-        i.fa(
-          ng-class='{"fa-caret-down":!sort.reverse, "fa-caret-up":sort.reverse}'
+        fa(
+          name='{{ sort.reverse? "sort-desc" : "sort-asc" }}'
           ng-show='sort.by=="polygon"'
         )
   
   .col-xs-1
     a.btn.btn-xs.btn-link(ng-click='sortBy("budget_breakthrough")')
       span.small.upper Presupuesto
-        i.fa(
-          ng-class='{"fa-caret-down":!sort.reverse, "fa-caret-up":sort.reverse}'
+        fa(
+          name='{{ sort.reverse? "sort-desc" : "sort-asc" }}'
           ng-show='sort.by=="budget_breakthrough"'
         )
   
   .col-xs-1
     a.btn.btn-xs.btn-link.wide(ng-click='sortBy("completed_goals")')
       span.small.upper Metas
-        i.fa(
-          ng-class='{"fa-caret-down":!sort.reverse, "fa-caret-up":sort.reverse}'
+        fa(
+          name='{{ sort.reverse? "sort-desc" : "sort-asc" }}'
           ng-show='sort.by=="completed_goals"'
         )
   
   .col-xs-1
     a.btn.btn-xs.btn-link(ng-click='sortBy("total_of_beneficiaries")')
       span.small.upper Beneficiarios
-        i.fa(
-          ng-class='{"fa-caret-down":!sort.reverse, "fa-caret-up":sort.reverse}'
+        fa(
+          name='{{ sort.reverse? "sort-desc" : "sort-asc" }}'
           ng-show='sort.by=="total_of_beneficiaries"'
         )
 

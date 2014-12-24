@@ -16,6 +16,7 @@ _deps = [
   'ngRoute'
   'ngStorage'
   'pascalprecht.translate'
+  'picardy.fontawesome'
   'ui.bootstrap'
 ]
 

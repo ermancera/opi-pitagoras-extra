@@ -19,7 +19,7 @@ script(type='text/ng-template', id='upload.html')
                 type='button'
               )
                 | Elige el tipo de documento
-                i.glyphicon.glyphicon-chevron-down.pull-right
+                fa.pull-right(name='chevron-down')
 
           .row
             .col-xs-12
@@ -29,7 +29,7 @@ script(type='text/ng-template', id='upload.html')
                 type='button'
               )
                 | Selecciona un proveedor
-                i.glyphicon.glyphicon-chevron-down.pull-right
+                fa.pull-right(name='chevron-down')
 
           .row
             .col-xs-12
@@ -80,12 +80,12 @@ script(type='text/ng-template', id='upload.html')
       data-dismiss='modal'
       type='button'
     )
-      i.glyphicon.glyphicon-ok-circle
+      fa(name='check-circle')
       | Guardar
     
     button.btn.btn-danger(
       data-dismiss='modal'
       type='button'
     )
-      i.glyphicon.glyphicon-remove-circle
+      fa(name='times-circle')
       | Cancelar
