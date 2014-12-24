@@ -29,7 +29,7 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
   $scope.calView = 'Mensual'
   $scope.displayMode = 'collapsed'
   $scope.fullSearch = false
-  $scope.orderBy = 'budget_breakthrough'
+  $scope.sort = by: 'budget_breakthrough', reverse: false
   $scope.single = false
   $scope.zoomed = false
 
@@ -133,6 +133,17 @@ ActivityCtrl = ($scope, $http, $document, $modal, $log, $timeout, Fullscreen, pr
 
   $scope.setPage = (page) ->
     $scope.currentPage = page
+
+
+  $scope.sortBy = (key) ->
+    if (key is $scope.sort.by)
+      $scope.sort.reverse = !$scope.sort.reverse
+
+    else
+      $scope.sort.by = key
+      $scope.sort.reverse = false
+    
+    return false
 
 
   $scope.zoom = (element) ->

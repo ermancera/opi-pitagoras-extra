@@ -6,7 +6,7 @@ accordion(close-others='single')
     id='a{{a.id}}'
     is-disabled='a.isOpen'
     is-open='a.isOpen'
-    ng-repeat='a in D.activities | orderBy:orderBy'
+    ng-repeat='a in D.activities | orderBy:sort.by:sort.reverse'
   )
     accordion-heading
       .row(ng-click='hideHeader(a.id)')
