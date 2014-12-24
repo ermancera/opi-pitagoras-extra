@@ -20,17 +20,17 @@
         ) Beneficiarios 
 
     .col-xs-5
-      pagination.pagination-sm(
-        boundary-links=true
-        items-per-page='D.pagination.per_page'
-        max-size=4
-        next-text='»'
-        ng-change='pageChanged()'
-        ng-model='D.pagination.page'
-        previous-text='«'
-        rotate=false
-        total-items='D.pagination.total / D.pagination.per_page'
-      )    
+      //- pagination.pagination-sm(
+        |   boundary-links=true
+        |   items-per-page='D.pagination.per_page'
+        |   max-size=4
+        |   next-text='»'
+        |   ng-change='pageChanged()'
+        |   ng-model='D.pagination.page'
+        |   previous-text='«'
+        |   rotate=false
+        |   total-items='D.pagination.total / D.pagination.per_page'
+        | )
     
     .col-xs-2
       .btn-group

@@ -8,15 +8,5 @@ include modal/upload
   include $search
   include dashboard
   include $sort
-  include activity
-
-  //- pager.pagination-sm(
-    |  boundary-links='true'
-    |  first-text='Inicio'
-    |  last-text='Final'  
-    |  next-text='Siguiente »'
-    |  ng-change='pageChanged()'
-    |  ng-model='pagination.page'
-    |  previous-text='« Anterior'
-    |  total-items='pagination.total / pagination.per_page'
-    | )
+  include activities
+  include $pager
