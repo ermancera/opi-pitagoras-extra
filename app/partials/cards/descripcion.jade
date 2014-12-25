@@ -1,15 +1,16 @@
 //- Tarjeta principal (versión compacta)
 
-.row
-  .col-xs-10
-    h3 Resumen
-    
-  .col-xs-2
-    button.btn.btn-primary.btn-sm(ng-click='openModal()', type='button')
-      fa(name='chevron-circle-right')
-      | Ver detalles
-          
-.row
+extends $layout
+
+block title
+  h3 Resumen
+
+block action
+  button.btn.btn-primary.btn-sm(ng-click='openModal()', type='button')
+    fa(name='chevron-circle-right')
+    | Ver detalles
+
+block content
   .col-md-6
     .progress-info
       h6 Presupuesto asignado

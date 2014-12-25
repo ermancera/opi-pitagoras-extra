@@ -1,25 +1,20 @@
 //- Tarjeta calendario
 
-.row
-  .col-xs-10
-    h3 Calendario
+extends $layout
+
+block title
+  h3 Calendario
   //-
     | .col-xs-4
     |   .btn-group
     |     button.btn.btn-default.btn-sm(type='button', btn-radio="'Diario'", ng-model='calView') Diario
     |     button.btn.btn-default.btn-sm(type='button', btn-radio="'Semanal'", ng-model='calView') Semanal
     |     button.btn.btn-default.btn-sm(type='button', btn-radio="'Mensual'", ng-model='calView') Mensual
-  
-  .col-xs-2
-    button.btn.btn-primary.btn-sm(ng-click='openModal("upload")', type='button')
-      fa(name='plus-circle')
-      | Agregar
 
-.row
-  .col-xs-12
-    .calendar
-      datepicker.well.well-sm(
-        ng-model='dt'
-        min-date='minDate'
-        show-weeks='false'
-      )
+block content
+  .calendar
+    datepicker.well.well-sm(
+      ng-model='dt'
+      min-date='minDate'
+      show-weeks='false'
+    )

@@ -1,4 +1,4 @@
-//- Title header (common to most cards)
+//- Title header (common to all cards)
 
 .card
   .card-title
@@ -10,6 +10,6 @@
       .col-md-3
 
       .col-md-3.date-info
-        span.small Fecha de creación:
+        span.small Fecha de creación: {{a.financial_history.created_at | date}}
         br
-        span.small Última modificación:
+        span.small Última modificación: {{a.financial_history.updated_at | date}}

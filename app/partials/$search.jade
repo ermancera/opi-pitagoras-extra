@@ -24,39 +24,25 @@
           span.sr-only
 
 
+mixin search-filter(label)
+  button.btn.btn-xs.btn-default.dropdown-toggle(
+    aria-expanded="false"
+    data-toggle="dropdown"
+    type="button"
+  )
+    |= label
+    fa.pull-right(name='caret-down')
+
+
 .row.filters(ng-show="fullSearch")
   .col-xs-3
-    button.btn.btn-xs.btn-default.dropdown-toggle(
-      aria-expanded="false"
-      data-toggle="dropdown"
-      type="button"
-    )
-      | Entidad
-      fa.pull-right(name='caret-down')
+    +search-filter('Entidad')
+    
+  .col-xs-3
+    +search-filter('Municipio')
 
   .col-xs-3
-    button.btn.btn-xs.btn-default.dropdown-toggle(
-      aria-expanded="false"
-      data-toggle="dropdown"
-      type="button"
-    )
-      | Municipio
-      fa.pull-right(name='caret-down')
+    +search-filter('Polígono')
 
   .col-xs-3
-    button.btn.btn-xs.btn-default.dropdown-toggle(
-      aria-expanded="false"
-      data-toggle="dropdown"
-      type="button"
-    )
-      | Polígono
-      fa.pull-right(name='caret-down')
-
-  .col-xs-3
-    button.btn.btn-xs.btn-default.dropdown-toggle(
-      aria-expanded="false"
-      data-toggle="dropdown"
-      type="button"
-    )
-      | Status
-      fa.pull-right(name='caret-down')
+    +search-filter('Status')

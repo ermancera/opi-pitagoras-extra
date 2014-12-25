@@ -1,15 +1,11 @@
 //- Tarjeta cambios
 
-.row
-  .col-xs-10
-    h3 Resumen de Cambios
-  
-  .col-xs-2
-    button.btn.btn-primary.btn-sm(type='button')
-      fa(name='plus-circle')
-      | Agregar
+extends $layout
 
-.row
+block title
+  h3 Resumen de Cambios
+  
+block content
   .list-group
     a.list-group-item(href='#', ng-repeat='entry in a.entries')
       .col-md-12

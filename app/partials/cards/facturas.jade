@@ -1,15 +1,11 @@
 //- Tarjeta facturas
 
-.row
-  .col-xs-10
-    h3 Contratos / Facturas
-  
-  .col-xs-2
-    button.btn.btn-primary.btn-sm(ng-click='openModal("upload")', type='button')
-      fa(name='plus-circle')
-      | Agregar
+extends $layout
 
-.row
+block title
+  h3 Contratos / Facturas
+  
+block content
   .col-xs-12
     table.table.table-hover
       thead
