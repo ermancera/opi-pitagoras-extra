@@ -1,9 +1,6 @@
 //- Main menu bar
 
-nav.navbar.navbar-default.navbar-fixed-top(
-  ng-controller='ActivityCtrl'
-  role='navigation'
-)
+nav.navbar.navbar-default.navbar-fixed-top(ng-controller='ActivitiesCtrl')
   .navbar-inner.normal
     .container
       .navbar-header
@@ -21,17 +18,31 @@ nav.navbar.navbar-default.navbar-fixed-top(
 
       .collapse.navbar-collapse(collapse='collapsed')
         ul#nav-links.nav.navbar-nav(role='menu')
-          li: a.upper(href='#')
+          li(role='presentation'): a.upper(href='#')
             fa(name='tachometer')
             | Panel de control
           
-          li.active: a.upper(href='#')
+          li(role='presentation').active: a.upper(href='#')
             fa(name='flag-checkered')
             | Acciones
           
-          li: a.upper(href='#')
+          li(role='presentation'): a.upper(href='#')
             fa(name='folder-o')
             | Archivos
+
+        ul#nav-settings.nav.navbar-nav.navbar-right(role='menu')
+          li.dropdown(role='menu')
+            a.dropdown-toggle(
+              data-toggle='dropdown'
+              href='#'
+              role='button'
+              aria-expanded=false
+            ): fa(name='gear', size='2')
+
+            ul.dropdown-menu(role='menu')
+              li: a Imprimir
+              li: a Pantalla completa
+              li: a Regresar
         //-
           li.divider-vertical
           
@@ -49,9 +60,5 @@ nav.navbar.navbar-default.navbar-fixed-top(
                 button.btn.btn-info(type='button')
                   fa(name='search')
         
-        ul#nav-settings.nav.navbar-nav.navbar-right
-          li: a(href='#')
-            fa(name='gear', size='2')
-
       .header.toggle.hidden
         include $header

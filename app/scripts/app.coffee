@@ -1,7 +1,15 @@
 'use strict'
 
 
-_deps = [
+AppCtrl = ($log, $localStorage, $location, $route, $routeParams, $scope) ->
+  #$scope.$storage = ($localStorage.$default accounts: [ 500, 250 ], history: [])
+  $scope.$location = $location
+  $scope.$route = $route
+  $scope.$routeParams = $routeParams
+
+
+dependencies = [
+  'activities'
   'activity'
   'angularMoment'
   'app.templates'
@@ -9,7 +17,6 @@ _deps = [
   'counter'
   'duScroll'
   'FBAngular'
-  'main'
   'modal'
   'navbar'
   'ngAnimate'
@@ -21,27 +28,36 @@ _deps = [
 ]
 
 
-routes = ($routeProvider) ->
+$routeProvider_data = ($routeProvider, $locationProvider) ->
+  #$locationProvider.html5mode = true
+
   $routeProvider
-    .when('/',
-      templateUrl: 'app/partials/base.jade'
-      controller: 'MainCtrl'
+    .when('/acciones',
+      templateUrl: 'app/partials/app.jade'
+      controller: 'AppCtrl'
     )
-    .otherwise redirectTo: '/'
+    .when('/acciones/:id',
+      templateUrl: 'app/partials/cards/$activity.jade'
+      controller: 'ActivityCtrl'
+    )
+    .otherwise redirectTo: '/acciones'
 
 
-translations = ($translateProvider) ->
+$translateProvider = ($translateProvider) ->
   $translateProvider.useUrlLoader 'app/assets/js/lang.json'
   $translateProvider.preferredLanguage 'es'
   $translateProvider.useLocalStorage()
 
 
-app = (angular.module 'app', _deps)
-app.config ['$routeProvider', routes]
-#app.config ['$translateProvider', translations]
+app = (angular.module 'app', dependencies)
+app.config ['$routeProvider', $routeProvider_data]
+#app.config ['$translateProvider', $translateProvider]
+app.constant 'angularMomentConfig', timezone: 'America/Mexico_City'
+app.controller 'AppCtrl', AppCtrl
 
-app.constant 'angularMomentConfig',
-  timezone: 'America/Mexico_City'
+app.directive 'main', ->
+  replace: true
+  template: '<div class="main" ng-view></div>'
 
 app.run (amMoment) ->
   amMoment.changeLocale 'es'
