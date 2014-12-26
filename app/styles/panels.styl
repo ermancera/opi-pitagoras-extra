@@ -1,5 +1,6 @@
 //- Panels (mostly used for cards inside the accordion and sandwich view)
 
+
 .panel
   border none
   border-top 1px solid #ddd
@@ -22,36 +23,33 @@
       &:active, &:focus, &:hover
         background-color #849fbc
 
-  h3
-    margin-top 0
+    h3, h6
+      user-select text
 
-  h3, h6
-    user-select text
+    h3:first-child
+      margin-bottom 0
 
-  h3:first-child
-    margin-bottom 0
+    .panel-heading
+      background-color inherit
+      min-height 38px
+      padding 0
+      transition margin 0.25 ease-in
 
-  .panel-heading
-    background-color inherit
-    min-height 38px
-    padding 0
-    transition margin 0.25 ease-in
+      &:hover
+        box-shadow inset 0 0 10px rgba(0,0,0,0.1)
 
-    &:hover
-      box-shadow inset 0 0 10px rgba(0,0,0,0.1)
+      .btn-group
+        margin-top -1px
 
-    .btn-group
-      margin-top -1px
+      .btn-xs
+        line-height 1
+        padding 0 3px
 
-    .btn-xs
-      line-height 1
-      padding 0 3px
+      .row
+        padding 12px 0 0 16px
 
-    .row
-      padding 12px 0 0 16px
+    .panel-title
+      font-size 14px
 
-  .panel-title
-    font-size 14px
-
-  .well
-    margin-bottom 10px
+    .well
+      margin-bottom 10px

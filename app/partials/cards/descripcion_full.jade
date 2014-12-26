@@ -8,59 +8,67 @@
 
 .row
   .col-xs-12
-    .progress-info
-      h6 Presupuesto asignado
-      h3 {{a.budget_breakthrough | number:0 | currency}}
+    .row
+      .col-xs-12
+        h4 Presupuesto asignado
+        h3.budget {{a.budget_breakthrough | number:0 | currency}}
     
-    .budget-info
-      progress.progress-bar-por-ejercer
-        bar(
-          ng-repeat='bar in stacked track by $index'
-          type='{{bar.type}}'
-          value='bar.value'
-        ): span(ng-hide='bar.value < 10') {{bar.value}}%
+    .row
+      .col-xs-12
+        progress.progress-bar-por-ejercer
+          bar(
+            ng-repeat='bar in stacked track by $index'
+            type='{{bar.type}}'
+            value='bar.value'
+          ): span(ng-hide='bar.value < 10') {{bar.value}}%
         
     include ../$legend
     
-    .goals-info
-      h6 Avances
-      progressbar(
-        type='{{progressType(benefs)}}'
-        value='benefs'
-      )
-      
-      .footnote
-        span.footnote-label {{a.real_beneficiaries | number:0}} de {{a.total_of_beneficiaries | number:0}}
+    .row
+      .col-xs-12      
+        h4 Avances
         
-        button.btn.btn-xs.btn-link(
-          ng-click='ask("benefs")'
-          type='button'
+      .col-xs-6
+        progressbar(
+          type='{{progressType(benefs)}}'
+          value='benefs'
         )
-          fa(name='pencil')
-          |  Registrar avances
-      
-      progressbar(
-        type='{{progressType(goals)}}'
-        value='goals'
-      )
+        
+        .footnote
+          span.footnote-label {{a.real_beneficiaries | number:0}} de {{a.total_of_beneficiaries | number:0}}
+          
+          button.btn.btn-xs.btn-link(
+            ng-click='ask("benefs")'
+            type='button'
+          )
+            fa(name='pencil')
+            |  Registrar avances
 
-      .footnote
-        span.footnote-label {{a.completed_goals | number:0}} de {{a.quantity | number:0}}
-        
-        button.btn.btn-xs.btn-link(
-          ng-click='ask("goals")'
-          type='button'
+      .col-xs-6        
+        progressbar(
+          type='{{progressType(goals)}}'
+          value='goals'
         )
-          fa(name='pencil')
-          |  Registrar avances
+
+        .footnote
+          span.footnote-label {{a.completed_goals | number:0}} de {{a.quantity | number:0}}
+          
+          button.btn.btn-xs.btn-link(
+            ng-click='ask("goals")'
+            type='button'
+          )
+            fa(name='pencil')
+            |  Registrar avances
 
   .col-xs-12.description-info
-    .action-info
-      h6 Acción
-      p {{a.action}}
+    .row
+      .col-xs-12
+        h4 Acción
+        p {{a.action}}
     
-    .action-info
-      h6 Descripción
+    .row
+      .col-xs-12
+        h4 Descripción
     
     .row
       .col-xs-12

@@ -65,8 +65,10 @@ tab-heading .fa-li
   & > .active
     display block
 
-  :not(.btn-group) button:not(.btn-link)
-    width 100%
+  :not(.btn-group)
+    a.btn, button
+      &:not(.btn-link)
+        width 100%
 
 
 .tab-pane .row:last-child
