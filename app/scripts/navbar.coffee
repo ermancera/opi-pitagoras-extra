@@ -5,9 +5,6 @@ NavbarCtrl = ($scope, $document) ->
   $scope.btnLabel = 'Entrar'
   $scope.toggle = ($document.querySelector 'nav .toggle')
 
-  $scope.toggleHeader = ->
-    $scope.toggle.toggleClass '.hidden'
-
 navbar = (angular.module 'navbar', [])
 navbar.controller 'NavbarCtrl', NavbarCtrl
 
