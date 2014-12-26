@@ -28,18 +28,22 @@ dependencies = [
 ]
 
 
-$routeProvider_data = ($routeProvider, $locationProvider) ->
+$routeProvider = ($routeProvider, $locationProvider) ->
   #$locationProvider.html5mode = true
 
+  routes =
+    activities:
+      many:
+        templateUrl: 'app/partials/app.jade'
+        controller: 'AppCtrl'
+
+      one:
+        templateUrl: 'app/partials/cards/$activity.jade'
+        controller: 'ActivityCtrl'
+
   $routeProvider
-    .when('/acciones',
-      templateUrl: 'app/partials/app.jade'
-      controller: 'AppCtrl'
-    )
-    .when('/acciones/:id',
-      templateUrl: 'app/partials/cards/$activity.jade'
-      controller: 'ActivityCtrl'
-    )
+    .when('/acciones', routes.activities.many)
+    .when('/acciones/:id', routes.activities.one)
     .otherwise redirectTo: '/acciones'
 
 
@@ -50,7 +54,7 @@ $translateProvider = ($translateProvider) ->
 
 
 app = (angular.module 'app', dependencies)
-app.config ['$routeProvider', $routeProvider_data]
+app.config ['$routeProvider', $routeProvider]
 #app.config ['$translateProvider', $translateProvider]
 app.constant 'angularMomentConfig', timezone: 'America/Mexico_City'
 app.controller 'AppCtrl', AppCtrl
