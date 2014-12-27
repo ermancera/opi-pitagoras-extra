@@ -28,9 +28,7 @@ dependencies = [
 ]
 
 
-$routeProvider = ($routeProvider, $locationProvider) ->
-  #$locationProvider.html5mode = true
-
+$routeProvider = ($routeProvider) ->
   routes =
     activities:
       many:
@@ -54,6 +52,7 @@ $translateProvider = ($translateProvider) ->
 
 
 app = (angular.module 'app', dependencies)
+
 app.config ['$routeProvider', $routeProvider]
 #app.config ['$translateProvider', $translateProvider]
 app.constant 'angularMomentConfig', timezone: 'America/Mexico_City'

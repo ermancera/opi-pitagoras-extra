@@ -1,8 +1,10 @@
 'use strict'
 
 
-ActivitiesCtrl = ($http, $route, $scope, $document, $modal, $log, $timeout, Fullscreen, prompt) ->
-  $scope.D =
+ActivitiesCtrl = ($http, $route, $scope, $document, $modal, $localStorage, $log, $timeout, Fullscreen, prompt) ->
+  data =
+    activities: []
+
     calculated_values:
       beneficiaries:
         planned: 0
@@ -25,6 +27,10 @@ ActivitiesCtrl = ($http, $route, $scope, $document, $modal, $log, $timeout, Full
         planned: 0
         completed: 0
 
+    pagination:
+      page: 0
+
+  $scope.$data = $localStorage.$default {data}
   $scope.busy = false # is the tab container busy navigating to the tab you asked for?
   $scope.calView = 'Mensual'
   $scope.displayMode = 'collapsed'
@@ -33,7 +39,14 @@ ActivitiesCtrl = ($http, $route, $scope, $document, $modal, $log, $timeout, Full
   $scope.single = false
   $scope.zoomed = false
 
+
   $scope.$watch 'displayMode', ->
+    expanded = ($scope.displayMode is 'expanded')
+    $scope.single = !expanded
+
+    if $scope.$data.activities?.length
+      a.disabled = a.isOpen = expanded for a in $scope.$data.activities
+
     get = (what) ->
       (angular.element document.querySelectorAll what)
 
@@ -76,13 +89,15 @@ ActivitiesCtrl = ($http, $route, $scope, $document, $modal, $log, $timeout, Full
 
 
   $scope.getProgress = (key) ->
+    return unless $scope.$data.calculated_values?
+
     value = switch key
       when 'benefs'
-        b = $scope.D.calculated_values.beneficiaries
+        b = $scope.$data.calculated_values.beneficiaries
         (Math.floor (b.real * 100) / b.planned)
 
       when 'goals'
-        g = $scope.D.calculated_values.goals
+        g = $scope.$data.calculated_values.goals
         (Math.floor (g.completed * 100) / g.planned)
 
     return value
@@ -117,9 +132,8 @@ ActivitiesCtrl = ($http, $route, $scope, $document, $modal, $log, $timeout, Full
       size: size
       templateUrl: "#{template}.html"
 
-
   $scope.pageChanged = ->
-    $log.info "Page changed to #{$scope.D.pagination.page}"
+    $log.info "Page changed to #{$scope.$data.pagination.page}"
 
 
   $scope.progressType = (value) ->
@@ -144,6 +158,35 @@ ActivitiesCtrl = ($http, $route, $scope, $document, $modal, $log, $timeout, Full
 
     return false
 
+  $scope.sync = (forced=false, callback=false) ->
+    if $localStorage.lastSync?
+      # checks if last sync was done less than 15 mins ago
+      last = (Date.parse $localStorage.lastSync)
+      forced |= (Math.floor (new Date() - last) / 1000) > 1800
+    else forced = true
+
+    unless forced
+      $scope.$data = $localStorage.data
+      drawGlobalProgress $scope.$data
+      (callback $scope.$data) if callback
+      $log.debug 'loading cached data'
+      return
+    else $log.debug 'forced refresh'
+
+    #url = 'http://pitagoras.nightly.opi.la/api/activities'
+    url = '/js/activities.json'
+    get = ($http.get url)
+
+    get.error (data, status, headers, config) ->
+      $log.error 'GET error'
+
+    get.success (data, status, headers, config) ->
+      $localStorage.lastSync = new Date()
+      $scope.$data = $localStorage.data = data
+      drawGlobalProgress data
+      (callback data) if callback
+      $log.debug 'loaded data from server'
+
 
   $scope.zoom = (element) ->
     el = (document.querySelector "#a#{element} > .panel-collapse")
@@ -156,8 +199,10 @@ ActivitiesCtrl = ($http, $route, $scope, $document, $modal, $log, $timeout, Full
     return false
 
 
-  drawGlobalProgress = (values) ->
+  drawGlobalProgress = (data) ->
     $scope.stacked = []
+
+    b = data.calculated_values.budget
     i = 0
     total = 0
 
@@ -168,34 +213,21 @@ ActivitiesCtrl = ($http, $route, $scope, $document, $modal, $log, $timeout, Full
       'danger'
     ]
 
+    values = [
+      b.pledged_percent.value
+      b.accruable_percent.value
+      b.discharged_percent.value
+      # FIXME (see https://github.com/opintel/pitagoras/issues/1183)
+      #b.por_ejercer_percent.value
+      100 - (b.pledged_percent.value + b.accruable_percent.value + b.discharged_percent.value)
+    ]
+
     for i in [0...4]
       $scope.stacked.push
         value: values[i]
         type: types[i]
 
     return false
-
-
-  getActivities = ->
-    #url = 'http://pitagoras.nightly.opi.la/api/activities'
-    url = '/js/activities.json'
-    get = ($http.get url)
-
-    get.error (data, status, headers, config) ->
-      $log.info 'GET error'
-
-    get.success (data, status, headers, config) ->
-      $scope.D = data
-      b = data.calculated_values.budget
-
-      drawGlobalProgress [
-        b.pledged_percent.value
-        b.accruable_percent.value
-        b.discharged_percent.value
-        # FIXME (see https://github.com/opintel/pitagoras/issues/1183)
-        #b.por_ejercer_percent.value
-        100 - (b.pledged_percent.value + b.accruable_percent.value + b.discharged_percent.value)
-      ]
 
 
   randomProgress = ->
@@ -212,17 +244,9 @@ ActivitiesCtrl = ($http, $route, $scope, $document, $modal, $log, $timeout, Full
       inner.toggleClass 'normal', hidden
       toggle.toggleClass 'hidden', hidden
 
-    $scope.$watch 'displayMode', (mode) ->
-      expanded = ($scope.displayMode is 'expanded')
-      $scope.single = !expanded
-
-      return unless $scope.D.activities
-      for activity in $scope.D.activities
-        activity.disabled = activity.isOpen = expanded
-
 
   setupContextualHeader()
-  getActivities()
+  $scope.sync()
   return false
 
 

@@ -40,9 +40,9 @@ nav.navbar.navbar-default.navbar-fixed-top(ng-controller='ActivitiesCtrl')
             ): fa(name='gear', size='2')
 
             ul.dropdown-menu(role='menu')
-              li: a Imprimir
-              li: a Pantalla completa
-              li: a Regresar
+              li: a(href='#') Imprimir
+              li: a(href='#') Pantalla completa
+              li: a(ng-click='sync(true)') Actualizar
         //-
           li.divider-vertical
           

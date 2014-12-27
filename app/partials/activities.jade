@@ -1,14 +1,16 @@
 //- Main activities view
 
+
 .panel.header(ng-show='displayMode == "collapsed"')
   include $header
+
 
 accordion(close-others='single')
   accordion-group(
     id='a{{a.id}}'
     is-disabled='a.isOpen'
     is-open='a.isOpen'
-    ng-repeat='a in D.activities | orderBy:sort.by:sort.reverse'
+    ng-repeat='a in $data.activities | orderBy:sort.by:sort.reverse'
   )
     accordion-heading
       .row(ng-click='hideHeader(a.id)')
