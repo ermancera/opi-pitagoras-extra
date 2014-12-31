@@ -3,9 +3,9 @@
 
 .row
   ol.breadcrumb
-    li: a(href='#') Home
-    li: a(href='#') Library
-    li Data
+    li: a(href='#/') Inicio
+    li: a(href='#/acciones') Acciones
+    li # {{a.id}}
 
 
 .row
@@ -13,7 +13,7 @@
     .row
       .col-xs-12
         h4 Presupuesto asignado
-        h3.budget {{a.budget_breakthrough | number:0 | currency}}
+        h3.budget {{a.budget_breakthrough | currency}}
     
     .row
       .col-xs-12
