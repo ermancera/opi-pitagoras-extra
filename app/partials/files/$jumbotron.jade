@@ -4,6 +4,26 @@
       h3 Archivos
       
   .row
-    .col-sm-6 left
+    .col-sm-6
+      button.btn.btn-default.dropdown-toggle(
+        dropdown-toggle,
+        on-toggle='toggled(open)'
+      )
+        | Selecciona tu dependencia
+        span.caret
+
+      ul.dropdown-menu
+        li(ng-repeat='dependency in dependencies')
+          a(href) {{dependency}}
   
-    .col-sm-6 right
+    .col-sm-6
+      button.btn.btn-default.dropdown-toggle(
+        dropdown-toggle,
+        on-toggle='toggled(open)'
+      )        
+        | Selecciona el tipo de documento
+        span.caret
+
+      ul.dropdown-menu
+        li(ng-repeat='type in types')
+          a(href) {{type}}
