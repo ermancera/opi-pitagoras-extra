@@ -31,17 +31,27 @@ dependencies = [
 $routeProvider = ($routeProvider) ->
   routes =
     activities:
-      many:
+      all:
         controller: 'AppCtrl'
-        templateUrl: 'app/partials/app.jade'
+        templateUrl: 'app/partials/activities.jade'
 
       one:
         controller: 'ActivityCtrl'
         templateUrl: 'app/partials/cards/$activity.jade'
 
+    dashboard:
+      controller: 'DashboardCtrl'
+      templateUrl: 'app/partials/dashboard.jade'
+
+    files:
+      controller: 'FilesCtrl'
+      templateUrl: 'app/partials/files.jade'
+
   $routeProvider
-    .when('/acciones', routes.activities.many)
+    .when('/acciones', routes.activities.all)
     .when('/acciones/:id', routes.activities.one)
+    .when('/archivos', routes.files)
+    .when('/panel', routes.dashboard)
     .otherwise redirectTo: '/acciones'
 
 

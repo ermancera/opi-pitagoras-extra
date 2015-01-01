@@ -1,0 +1,13 @@
+//- Base layout (everything converges here)
+
+include activities/modal/upload
+
+.container(
+  ng-class='{ expanded: (displayMode == "expanded"), zoomed: zoomed }'
+  ng-controller="ActivitiesCtrl"
+)
+  include activities/$search
+  include activities/$jumbotron
+  include activities/$toolbar
+  include activities/$accordion
+  include activities/$pager
