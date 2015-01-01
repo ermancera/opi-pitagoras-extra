@@ -41,9 +41,11 @@ exports.config =
       paths:
         javascript: 'public/js'
         stylesheets: 'public/css'
-        
+
     jade_angular:
-      modules_folder: 'templates'
+      modules_folder: 'app/partials'
+      single_file: true
+      single_file_name: 'js/app.templates.js'
       locals: {}
 
     pleeease:
