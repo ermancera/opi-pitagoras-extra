@@ -32,12 +32,12 @@ $routeProvider = ($routeProvider) ->
   routes =
     activities:
       many:
-        templateUrl: 'app/partials/app.jade'
         controller: 'AppCtrl'
+        templateUrl: 'app/partials/app.jade'
 
       one:
-        templateUrl: 'app/partials/cards/$activity.jade'
         controller: 'ActivityCtrl'
+        templateUrl: 'app/partials/cards/$activity.jade'
 
   $routeProvider
     .when('/acciones', routes.activities.many)

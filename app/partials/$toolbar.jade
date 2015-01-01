@@ -43,3 +43,7 @@
           btn-radio="'expanded'"
           ng-model='displayMode'
         ): fa(name='plus')
+
+
+.panel.header(ng-show='displayMode == "collapsed"')
+  include $header
