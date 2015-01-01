@@ -1,0 +1,17 @@
+//- Files table
+
+.panel
+  table.table.table-striped
+    thead
+      tr
+        th Dependencia
+        th Clase
+        th Fecha
+        th Descripción
+    
+    tbody
+      tr(ng-repeat='file in files track by $index')
+        td {{file.dependency}}
+        td {{file.type}}
+        td {{file.date}}
+        td {{file.description}}
