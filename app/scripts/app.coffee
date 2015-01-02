@@ -79,6 +79,7 @@ dependencies = [
   'ngAnimate'
   'ngRoute'
   'ngStorage'
+  'omr.angularFileDnD'
   'pascalprecht.translate'
   'picardy.fontawesome'
   'ui.bootstrap'

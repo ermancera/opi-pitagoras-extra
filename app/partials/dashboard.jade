@@ -1,2 +1,12 @@
 .container(ng-controller='DashboardCtrl')
-  //- stuff goes here
+  div(
+    data-max-file-size=3
+    file-dropzone="[image/png, image/jpeg, image/gif]"
+    file="image.file"
+    file-name="image.name"
+    style="width: 150px; height: 150px; border: 1px solid;"
+  ): span Drop Background Images Here
+
+  .panel
+    img(ng-src="{{image.file}}")
+    span {{image.name}}

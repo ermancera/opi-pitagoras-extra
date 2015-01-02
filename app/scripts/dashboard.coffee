@@ -2,7 +2,9 @@
 
 
 DashboardCtrl = ($scope) ->
-  return
+  $scope.image =
+    file: null
+    name: ''
 
 
 dashboard = (angular.module 'dashboard', [])
