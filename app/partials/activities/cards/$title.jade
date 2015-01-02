@@ -1,7 +1,7 @@
 //- Title header (common to all cards)
 
 .card
-  .card-title
+  .card-title.upper
     .row
       .col-md-6.id-info
         h3 {{a.user_key}}
@@ -10,6 +10,6 @@
       .col-md-3
 
       .col-md-3.date-info
-        span.small Fecha de creación: {{a.financial_history.created_at | date}}
-        br
-        span.small Última modificación: {{a.financial_history.updated_at | date}}
+        p.small
+          | Fecha de creación: {{a.financial_history.created_at | date}}
+          | Última modificación: {{a.financial_history.updated_at | date}}

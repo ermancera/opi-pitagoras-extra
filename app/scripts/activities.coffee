@@ -1,36 +1,7 @@
 'use strict'
 
 
-ActivitiesCtrl = ($http, $route, $scope, $document, $modal, $localStorage, $log, $timeout, Fullscreen, prompt) ->
-  data =
-    activities: []
-
-    calculated_values:
-      beneficiaries:
-        planned: 0
-        real: 0
-
-      budget:
-        accruable_percent:
-          value: 0
-
-        discharged_percent:
-          value: 0
-
-        pledged_percent:
-          value: 0
-
-        por_ejercer_percent:
-          value: 0
-
-      goals:
-        planned: 0
-        completed: 0
-
-    pagination:
-      page: 0
-
-  $scope.$data = $localStorage.$default {data}
+ActivitiesCtrl = ($route, $scope, $document, $modal, $localStorage, $log, $timeout, Fullscreen, prompt) ->
   $scope.busy = false # is the tab container busy navigating to the tab you asked for?
   $scope.calView = 'Mensual'
   $scope.displayMode = 'collapsed'
@@ -158,36 +129,6 @@ ActivitiesCtrl = ($http, $route, $scope, $document, $modal, $localStorage, $log,
 
     return false
 
-  $scope.sync = (forced=false, callback=false) ->
-    if $localStorage.lastSync?
-      # checks if last sync was done less than 15 mins ago
-      last = (Date.parse $localStorage.lastSync)
-      forced |= (Math.floor (new Date() - last) / 1000) > 1800
-    else forced = true
-
-    unless forced
-      $scope.$data = $localStorage.data
-      drawGlobalProgress $scope.$data
-      (callback $scope.$data) if callback
-      $log.debug 'loading cached data'
-      return
-    else $log.debug 'forced refresh'
-
-    #url = 'http://pitagoras.nightly.opi.la/api/activities'
-    url = '/js/activities.json'
-    get = ($http.get url)
-
-    get.error (data, status, headers, config) ->
-      $log.error 'GET error'
-
-    get.success (data, status, headers, config) ->
-      $localStorage.lastSync = new Date()
-      $scope.$data = $localStorage.data = data
-      drawGlobalProgress data
-      (callback data) if callback
-      $log.debug 'loaded data from server'
-
-
   $scope.zoom = (element) ->
     el = (document.querySelector "#a#{element} > .panel-collapse")
     $scope.zoomed = Fullscreen.isEnabled()
@@ -246,7 +187,9 @@ ActivitiesCtrl = ($http, $route, $scope, $document, $modal, $localStorage, $log,
 
 
   setupContextualHeader()
-  $scope.sync()
+  $scope.sync false, (data) ->
+    drawGlobalProgress data
+    $scope.$data = data
   return false
 
 

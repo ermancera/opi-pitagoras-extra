@@ -1,6 +1,6 @@
 //- Main menu bar
 
-nav.navbar.navbar-default.navbar-fixed-top(ng-controller='ActivitiesCtrl')
+nav.navbar.navbar-default.navbar-fixed-top(ng-controller='NavbarCtrl')
   .navbar-inner.normal
     .container
       .navbar-header
@@ -18,17 +18,29 @@ nav.navbar.navbar-default.navbar-fixed-top(ng-controller='ActivitiesCtrl')
 
       .collapse.navbar-collapse(collapse='collapsed')
         ul#nav-links.nav.navbar-nav(role='menu')
-          li(role='presentation'): a.upper(href='#/panel')
-            fa(name='tachometer')
-            | Panel de control
+          li(
+            ng-class='{active: isActive("/panel")}'
+            role='presentation'
+          )
+            a.upper(href='#/panel')
+              fa(name='tachometer')
+              | Panel de control
 
-          li(role='presentation'): a.upper(href='#/acciones')
-            fa(name='flag-checkered')
-            | Acciones
+          li(
+            ng-class='{active: isActive("/acciones")}'
+            role='presentation'
+          )
+            a.upper(href='#/acciones')
+              fa(name='flag-checkered')
+              | Acciones
 
-          li(role='presentation'): a.upper(href='#/archivos')
-            fa(name='folder-o')
-            | Archivos
+          li(
+            ng-class='{active: isActive("/archivos")}'
+            role='presentation'
+          )
+            a.upper(href='#/archivos')
+              fa(name='folder-o')
+              | Archivos
 
         ul#nav-settings.nav.navbar-nav.navbar-right(role='menu')
           li.dropdown(role='menu')

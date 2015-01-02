@@ -10,7 +10,7 @@ FilesCtrl = ($scope) ->
       dependency: 'Colima'
       description: 'Lorem ipsum blah blah'
       type: 'Convenio de Adhesión'
-      
+
     ($scope.files.push file) for i in [0...40]
 
   $scope.fillDummyFiles()

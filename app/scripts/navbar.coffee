@@ -1,9 +1,9 @@
 'use strict'
 
 
-NavbarCtrl = ($scope, $document) ->
-  $scope.btnLabel = 'Entrar'
-  $scope.toggle = ($document.querySelector 'nav .toggle')
+NavbarCtrl = ($document, $location, $log, $scope) ->
+  $scope.isActive = (url) ->
+    url is $location.path()
 
 navbar = (angular.module 'navbar', [])
 navbar.controller 'NavbarCtrl', NavbarCtrl
