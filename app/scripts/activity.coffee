@@ -6,9 +6,8 @@ ActivityCtrl = ($http, $log, $routeParams, $scope) ->
   id = (Number $routeParams.id)
 
   $scope.sync false, (data) ->
-    for a in data.activities
-      continue unless a.id is id
-      $scope.a = a
+    (return $scope.a = a) if (a.id is id) for a in data.activities
+    return false
 
 activity = angular.module 'activity', []
 activity.controller 'ActivityCtrl', ActivityCtrl

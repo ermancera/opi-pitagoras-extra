@@ -39,7 +39,7 @@ $routeProvider = ($routeProvider) ->
 
       one:
         controller: 'ActivityCtrl'
-        templateUrl: 'app/partials/cards/$activity.jade'
+        templateUrl: 'app/partials/activities/single.jade'
 
     dashboard:
       controller: 'DashboardCtrl'
