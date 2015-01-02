@@ -7,14 +7,6 @@ tab-heading .fa-li
 
 
 .container:not(.zoomed)
-  .panel-collapse > .panel-body > .ng-isolate-scope
-    // hack to place tabs at the bottom
-    display flex
-    flex-direction column-reverse
-
-    & > *
-      flex 0 0 auto
-
   .panel-body div:last-child
     & > .nav-tabs
       border none
@@ -35,27 +27,39 @@ tab-heading .fa-li
         &.btn
           padding 0
 
+  .panel-collapse > .panel-body > .ng-isolate-scope
+    // hack to place tabs at the bottom
+    display flex
+    flex-direction column-reverse
 
-.tab-animation > .tab-content
-  position relative
+    & > *
+      flex 0 0 auto
 
-  & > .tab-pane
-    transition 0.25s ease-out all
 
-    &.active-add
-      margin-top -12px
+.tab-animation
+    & > ul.nav-tabs a
+      padding 5px 15px
 
-    &.active-remove-active
-      margin-top 12px
+    & > .tab-content
+      position relative
 
-    &.active-add, &.active-remove-active
-      opacity 0
+      & > .tab-pane
+        transition 0.25s ease-out all
 
-    &.active-remove
-      display block
-      position absolute
-      top 0
-      width 100%
+        &.active-add
+          margin-top -12px
+
+        &.active-remove-active
+          margin-top 12px
+
+        &.active-add, &.active-remove-active
+          opacity 0
+
+        &.active-remove
+          display block
+          position absolute
+          top 0
+          width 100%
 
 
 .tab-content
