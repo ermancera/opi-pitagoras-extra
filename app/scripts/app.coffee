@@ -124,7 +124,7 @@ $translateProvider = ($translateProvider) ->
 app = (angular.module 'app', dependencies)
 
 app.config ['$routeProvider', $routeProvider]
-#app.config ['$translateProvider', $translateProvider]
+app.config ['$translateProvider', $translateProvider]
 app.constant 'angularMomentConfig', timezone: 'America/Mexico_City'
 app.controller 'AppCtrl', AppCtrl
 
