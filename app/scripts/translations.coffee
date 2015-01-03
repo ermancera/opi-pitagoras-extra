@@ -1,6 +1,7 @@
 'use strict'
 
-# A = 'Activities'
+
+# A = 'Activities', D = 'Dashboard', F = 'Files'
 DICT =
   'en':
     A:
@@ -38,6 +39,7 @@ DICT =
       GOALS: 'Goals'
       HOME: 'Home'
       INVOICES: 'Contracts / Invoices'
+      LANG: 'Cambiar a Español'
       LOBBIED: 'Lobbied'
       MODIFIED: 'Modified'
       MOVING: 'In progress'
@@ -101,6 +103,7 @@ DICT =
       GOALS: 'Metas'
       HOME: 'Inicio'
       INVOICES: 'Contratos / Facturas'
+      LANG: 'Switch to English'
       LOBBIED: 'Ejercido'
       MODIFIED: 'Última modificación'
       MOVING: 'En proceso'
@@ -129,13 +132,8 @@ DICT =
       UPLOAD: 'Subir contrato/factura'
 
 
-TranslationsCtrl = ($scope, $translate) ->
-  $scope.toggleLang = ->
-    using = $translate.uses()
-    $translate.uses if (using is 'en') then 'es' else 'en'
-
-  $translate.uses 'es'
-
+TranslationsCtrl = ($log, $scope, $translate) ->
+  return
 
 $translateProvider = ($translateProvider) ->
   $translateProvider

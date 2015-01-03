@@ -1,7 +1,7 @@
 'use strict'
 
 
-AppCtrl = ($http, $log, $localStorage, $location, $route, $routeParams, $scope) ->
+AppCtrl = ($http, $log, $localStorage, $route, $routeParams, $scope, $translate) ->
   data =
     activities: []
 
@@ -31,7 +31,7 @@ AppCtrl = ($http, $log, $localStorage, $location, $route, $routeParams, $scope) 
       page: 0
 
   $scope.$data = $localStorage.$default {data}
-  $scope.$location = $location
+  #$scope.$location = $location
   $scope.$route = $route
   $scope.$routeParams = $routeParams
 
@@ -61,6 +61,9 @@ AppCtrl = ($http, $log, $localStorage, $location, $route, $routeParams, $scope) 
       $scope.$data = $localStorage.data = data
       (callback data) if callback
       $log.debug 'loaded data from server'
+
+  $scope.toggleLang = ->
+    $translate.use if ($translate.use() is 'en') then 'es' else 'en'
 
 
 dependencies = [
