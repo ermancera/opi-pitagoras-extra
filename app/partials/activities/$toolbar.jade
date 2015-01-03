@@ -1,23 +1,26 @@
 .panel.order-by
   .row
     .col-xs-5
-      span.small Ordenar avances por 
+      span.small(translate='A.ORDER')
       
       .btn-group
         button.btn.btn-sm.btn-default(
           btn-radio="'budget_breakthrough'"
           ng-model='sort.by'
-        ) Presupuesto
+          translate='A.BUDGET'
+        )
         
         button.btn.btn-sm.btn-default(
           btn-radio="'completed_goals'"
           ng-model='sort.by'
-        )  Metas
+          translate='A.GOALS'
+        )
         
         button.btn.btn-sm.btn-default(
           btn-radio="'total_of_beneficiaries'"
           ng-model='sort.by'
-        ) Beneficiarios 
+          translate='A.BENEFS'
+        )
 
     .col-xs-5
       //- pagination.pagination-sm(

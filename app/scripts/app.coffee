@@ -82,6 +82,7 @@ dependencies = [
   'omr.angularFileDnD'
   'pascalprecht.translate'
   'picardy.fontawesome'
+  'translations'
   'ui.bootstrap'
 ]
 
@@ -115,16 +116,9 @@ $routeProvider = ($routeProvider) ->
     .otherwise redirectTo: '/acciones'
 
 
-$translateProvider = ($translateProvider) ->
-  $translateProvider.useUrlLoader 'app/assets/js/lang.json'
-  $translateProvider.preferredLanguage 'es'
-  $translateProvider.useLocalStorage()
-
-
 app = (angular.module 'app', dependencies)
 
 app.config ['$routeProvider', $routeProvider]
-app.config ['$translateProvider', $translateProvider]
 app.constant 'angularMomentConfig', timezone: 'America/Mexico_City'
 app.controller 'AppCtrl', AppCtrl
 

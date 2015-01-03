@@ -8,7 +8,7 @@ nav.navbar.navbar-default.navbar-fixed-top(ng-controller='NavbarCtrl')
           ng-click='collapsed = !collapsed'
           type='button'
         )
-          span.sr-only Toggle navigation
+          span.sr-only(tranlsate='A.TOGGLE')
           span.icon-bar
           span.icon-bar
           span.icon-bar
@@ -24,7 +24,7 @@ nav.navbar.navbar-default.navbar-fixed-top(ng-controller='NavbarCtrl')
           )
             a.upper(href='#/panel')
               fa(name='tachometer')
-              | Panel de control
+              | {{'A.DASHBOARD' | translate}}
 
           li(
             ng-class='{active: isActive("/acciones")}'
@@ -32,7 +32,7 @@ nav.navbar.navbar-default.navbar-fixed-top(ng-controller='NavbarCtrl')
           )
             a.upper(href='#/acciones')
               fa(name='flag-checkered')
-              | Acciones
+              | {{'A.ACTIONS' | translate}}
 
           li(
             ng-class='{active: isActive("/archivos")}'
@@ -40,21 +40,21 @@ nav.navbar.navbar-default.navbar-fixed-top(ng-controller='NavbarCtrl')
           )
             a.upper(href='#/archivos')
               fa(name='folder-o')
-              | Archivos
+              | {{'A.FILES' | translate}}
 
         ul#nav-settings.nav.navbar-nav.navbar-right(role='menu')
           li.dropdown(role='menu')
             a.dropdown-toggle(
               data-toggle='dropdown'
-              href='#'
+              href
               role='button'
               aria-expanded=false
             ): fa(name='gear', size=2)
 
             ul.dropdown-menu(role='menu')
-              li: a(href='#') Imprimir
-              li: a(href='#') Pantalla completa
-              li: a(ng-click='sync(true)') Actualizar
+              li: a(href, tranlsate='A.PRINT')
+              li: a(href, translate='A.FULLSCREEN')
+              li: a(href, ng-click='sync(true)', translate='A.SYNC')
         //-
           li.divider-vertical
 

@@ -3,8 +3,8 @@
 
 .row
   ol.breadcrumb
-    li: a(href='#/') Inicio
-    li: a(href='#/acciones') Acciones
+    li: a(href='#/', translate='A.HOME')
+    li: a(href='#/acciones', translate='A.ACTIONS')
     li # {{a.id}}
 
 
@@ -12,7 +12,7 @@
   .col-xs-12
     .row
       .col-xs-12
-        h4 Presupuesto asignado
+        h4(translate='A.TOTAL')
         h3.budget {{a.budget_breakthrough | currency}}
     
     .row
@@ -28,7 +28,7 @@
     
     .row
       .col-xs-12      
-        h4 Avances
+        h4(translate='A.PROGRESS')
         
       .col-xs-6
         progressbar(
@@ -37,14 +37,14 @@
         )
         
         .footnote
-          span.footnote-label {{a.real_beneficiaries | number:0}} de {{a.total_of_beneficiaries | number:0}}
+          span.footnote-label {{a.real_beneficiaries | number:0}} {{'A.OF' | translate}} {{a.total_of_beneficiaries | number:0}}
           
           button.btn.btn-xs.btn-link(
             ng-click='ask("benefs")'
             type='button'
           )
             fa(name='pencil')
-            |  Registrar avances
+            |  {{'A.REGISTER' | translate}}
 
       .col-xs-6        
         progressbar(
@@ -53,24 +53,24 @@
         )
 
         .footnote
-          span.footnote-label {{a.completed_goals | number:0}} de {{a.quantity | number:0}}
+          span.footnote-label {{a.completed_goals | number:0}} {{'A.OF' | translate}} {{a.quantity | number:0}}
           
           button.btn.btn-xs.btn-link(
             ng-click='ask("goals")'
             type='button'
           )
             fa(name='pencil')
-            |  Registrar avances
+            |  {{'A.REGISTER' | translate}}
 
   .col-xs-12.description-info
     .row
       .col-xs-12
-        h4 Acción
+        h4(translate='A.ACTION')
         p {{a.action}}
     
     .row
       .col-xs-12
-        h4 Descripción
+        h4(translate='A.DESCRIPTION')
     
     .row
       .col-xs-12

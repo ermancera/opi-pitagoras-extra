@@ -3,17 +3,17 @@
 extends $layout
 
 block title
-  h3 Resumen
+  h3(translate='A.SUMMARY')
 
 block action
   a.btn.btn-primary.btn-sm(href="#/acciones/{{a.id}}")
     fa(name='chevron-circle-right')
-    | Ver detalles
+    | {{'A.DETAILS' | translate}}
 
 block content
   .col-md-6
     .progress-info
-      h6 Presupuesto asignado
+      h6(translate='A.TOTAL')
       h3 {{a.budget_breakthrough | currency}}
     
     .budget-info
@@ -27,21 +27,21 @@ block content
     include ../$legend
     
     .goals-info
-      h6 Avances
+      h6(translate='A.PROGRESS')
       progressbar(
         type='{{progressType(benefs)}}'
         value='benefs'
       )
       
       .footnote
-        span.footnote-label {{a.real_beneficiaries | number:0}} de {{a.total_of_beneficiaries | number:0}}
+        span.footnote-label {{a.real_beneficiaries | number:0}} {{'A.OF' | translate}} {{a.total_of_beneficiaries | number:0}}
         
         button.btn.btn-xs.btn-link(
           ng-click='ask("benefs")'
           type='button'
         )
           fa(name='pencil')
-          |  Registrar avances
+          |  {{'A.REGISTER' | translate}}
       
       progressbar(
         type='{{progressType(goals)}}'
@@ -49,22 +49,22 @@ block content
       )
 
       .footnote
-        span.footnote-label {{a.completed_goals | number:0}} de {{a.quantity | number:0}}
+        span.footnote-label {{a.completed_goals | number:0}} {{'A.OF' | translate}} {{a.quantity | number:0}}
         
         button.btn.btn-xs.btn-link(
           ng-click='ask("goals")'
           type='button'
         )
           fa(name='pencil')
-          |  Registrar avances
+          |  {{'A.REGISTER' | translate}}
 
   .col-md-6.description-info
     .action-info
-      h6 Acción
+      h6(translate='A.ACTION')
       p {{a.action}}
     
     .action-info
-      h6 Descripción
+      h6(translate='A.DESCRIPTION')
     
     .row
       .col-md-12.more
@@ -74,5 +74,5 @@ block content
       //- button.btn.btn-link.pull-right(
         |    ng-click='openModal()'
         |    type='button'
-        |  ) Ver detalles
+        |  ) {{'A.DETAILS' | translate}}
         |    i.fa.fa-arrow-right

@@ -93,34 +93,34 @@ accordion(close-others='single')
       tab.btn.btn-default
         tab-heading
           fa(name='info-circle')
-          | Resumen
+          | {{'A.SUMMARY' | translate}}
           
         include cards/summary
         
       tab.btn.btn-default
         tab-heading
           fa(name='certificate')
-          | Contratos / Facturas
+          | {{'A.INVOICES' | translate}}
       
         include cards/invoices
       
       tab.btn.btn-default
         tab-heading
           fa(name='paperclip')
-          | Evidencia
+          | {{'A.EVIDENCE' | translate}}
         
         include cards/evidence
       
       tab.btn.btn-default
         tab-heading
           fa(name='list-alt')
-          | Resumen de cambios
+          | {{'A.CHANGELOG' | translate}}
       
         include cards/changelog
       
       tab.btn.btn-default
         tab-heading
           fa(name='calendar')
-          | Calendario
+          | {{'A.CALENDAR' | translate}}
       
         include cards/calendar

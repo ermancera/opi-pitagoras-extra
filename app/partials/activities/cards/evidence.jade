@@ -3,16 +3,16 @@
 extends $layout
 
 block title
-  h3 Evidencia
+  h3(translate='A.EVIDENCE')
   
 block content
   .col-xs-12
     table.table.table-hover
       thead
         tr
-          th Fecha
-          th Tipo
-          th Acciones
+          th(translate='A.DATE')
+          th(translate='A.TYPE')
+          th(translate='A.ACTIONS')
       
       tbody
         tr(ng-repeat='file in a.files')

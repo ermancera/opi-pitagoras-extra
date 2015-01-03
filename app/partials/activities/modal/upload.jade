@@ -2,9 +2,9 @@ script(type='text/ng-template', id='upload.html')
   .modal-header
     button.close(type='button', data-dismiss='modal')
       span(aria-hidden='true') &times;
-      span.sr-only Cerrar
+      span.sr-only(translate='A.CLOSE')
 
-    h4.modal-title Subir Contrato / Factura
+    h4.modal-title(translate='A.UPLOAD')
     include ../cards/$title
 
   .modal-body
@@ -18,7 +18,7 @@ script(type='text/ng-template', id='upload.html')
                 data-toggle='dropdown'
                 type='button'
               )
-                | Elige el tipo de documento
+                | {{'A.DOCSEL' | translate}}
                 fa.pull-right(name='chevron-down')
 
           .row
@@ -28,7 +28,7 @@ script(type='text/ng-template', id='upload.html')
                 data-toggle='dropdown'
                 type='button'
               )
-                | Selecciona un proveedor
+                | {{'A.PROSEL' | translate}}
                 fa.pull-right(name='chevron-down')
 
           .row
@@ -65,14 +65,14 @@ script(type='text/ng-template', id='upload.html')
         .col-sm-6
           .row
             .col-xs-12.drag-drop
-              h6 Haz click o arrastra tu archivo aquí para subir
-              p Únicamente archivos con la extensión JPG, PDF o XML no mayores a 2MB
+              h6(translate='A.UPTITLE')
+              p(translate='A.UPDESC')
 
           .row
             .col-xs-12
               textarea.form-control(
                 placeholder='Observaciones'
-                rows='3'
+                rows=3
               )
   
   .modal-footer
@@ -81,11 +81,11 @@ script(type='text/ng-template', id='upload.html')
       type='button'
     )
       fa(name='check-circle')
-      | Guardar
+      | {{'A.SAVE' | translate}}
     
     button.btn.btn-danger(
       data-dismiss='modal'
       type='button'
     )
       fa(name='times-circle')
-      | Cancelar
+      | {{'A.CANCEL' | translate}}

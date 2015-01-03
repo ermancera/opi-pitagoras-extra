@@ -4,9 +4,9 @@ script(type='text/ng-template', id='full.html')
   .modal-header
     button.btn.btn-link.close(type='button', data-dismiss='modal')
       span(aria-hidden='true') &times;
-      span.sr-only Cerrar
+      span.sr-only(translate='A.CLOSE')
 
-    h4.modal-title Actividad
+    h4.modal-title(translate='A.ACTIVITY')
     include ../cards/$title
 
   .modal-body
@@ -26,6 +26,6 @@ script(type='text/ng-template', id='full.html')
       include ../cards/calendar
 
   .modal-footer
-    button.btn.btn-default(type='button') Imprimir
-    button.btn.btn-default(type='button') Pantalla completa
-    button.btn.btn-primary(type='button', data-dismiss='modal') Cerrar
+    button.btn.btn-default(translate='A.PRINT', type='button')
+    button.btn.btn-default(translate='A.FULLSCREEN', type='button')
+    button.btn.btn-primary(translate='A.CLOSE', type='button', data-dismiss='modal')

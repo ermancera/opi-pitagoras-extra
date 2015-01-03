@@ -1,6 +1,6 @@
 mixin header-link(label, key)
   a.btn.btn-xs.btn-link(ng-click="sortBy('#{key}')")
-    span.small.upper= label
+    span.small.upper(translate=label)
       fa(
         name='{{ sort.reverse? "sort-desc" : "sort-asc" }}'
         ng-show="sort.by=='#{key}'"
@@ -8,26 +8,26 @@ mixin header-link(label, key)
 
 .row
   .col-xs-2
-    +header-link('Código', 'user_key')
+    +header-link('A.CODE', 'user_key')
 
   .col-xs-2
-    +header-link('Municipio', 'admin2')
+    +header-link('A.TOWN', 'admin2')
   
   .col-xs-2
-    +header-link('Entidad', 'admin1')
+    +header-link('A.ENTITY', 'admin1')
 
   .col-xs-1
-    +header-link('Polígono', 'polygon')
+    +header-link('A.POLY', 'polygon')
   
   .col-xs-1
-    +header-link('Presupuesto', 'budget_breakthrough')
+    +header-link('A.BUDGET', 'budget_breakthrough')
   
   .col-xs-1
-    +header-link('Metas', 'completed_goals')
+    +header-link('A.GOALS', 'completed_goals')
   
   .col-xs-1
-    +header-link('Beneficiarios', 'total_of_beneficiaries')
+    +header-link('A.BENEFS', 'total_of_beneficiaries')
 
   .col-xs-2
     a.btn.btn-xs.btn-link.disabled.wide
-      span.small.upper Acciones
+      span.small.upper(translate='A.ACTIONS')

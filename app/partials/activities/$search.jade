@@ -1,7 +1,15 @@
 .row.tools
   .col-xs-12
-    button.btn.btn-primary.btn-md(type='button', ng-click='') Reprogramar
-    button.btn.btn-primary.btn-md(type='button', ng-click='') Enviar informe
+    button.btn.btn-primary.btn-md(
+      ng-click=''
+      translate='A.REPROGRAM'
+      type='button'
+    )
+    button.btn.btn-primary.btn-md(
+      ng-click=''
+      translate='A.SEND'
+      type='button'
+    )
 
 
 .row.search
@@ -14,7 +22,7 @@
         button.btn.btn-default(
           ng-click=''
           type='button'
-        ) {{fullSearch? 'Filtrar por' : 'Buscar'}}
+        ) {{fullSearch? 'A.FILTER' : 'A.SEARCH' | translate}}
 
         button.btn.btn-default(
           ng-click='fullSearch = !fullSearch'
@@ -30,19 +38,19 @@ mixin search-filter(label)
     data-toggle="dropdown"
     type="button"
   )
-    span= label
+    span(translate=label)
     fa.pull-right(name='caret-down')
 
 
 .row.filters(ng-show="fullSearch")
   .col-xs-3
-    +search-filter('Entidad')
+    +search-filter('A.ENTITY')
     
   .col-xs-3
-    +search-filter('Municipio')
+    +search-filter('A.TOWN')
 
   .col-xs-3
-    +search-filter('Polígono')
+    +search-filter('A.POLY')
 
   .col-xs-3
-    +search-filter('Status')
+    +search-filter('A.STATUS')

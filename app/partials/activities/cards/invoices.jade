@@ -3,20 +3,20 @@
 extends $layout
 
 block title
-  h3 Contratos / Facturas
+  h3(translate='A.INVOICES')
   
 block content
   .col-xs-12
     table.table.table-hover
       thead
         tr
-          th Fecha
-          th # Doc
-          th Proveedor
-          th Monto
-          th Tipo
-          th Status
-          th Acciones
+          th(translate='A.DATE')
+          th(translate='A.DOC')
+          th(translate='A.PROVIDER')
+          th(translate='A.AMOUNT')
+          th(translate='A.TYPE')
+          th(translate='A.STATUS')
+          th(translate='A.ACTIONS')
       
       tbody
         tr(ng-repeat='factura in a.facturas')
