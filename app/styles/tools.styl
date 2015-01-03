@@ -23,9 +23,19 @@
 
 
 .header
-  a
+  [class^=col]
     padding 0
 
+    &:nth-child(5), &:nth-child(7)
+      & > a
+        padding 0 !important
+
+
+    & > a:not(.wide)
+      padding 0 0 0 15px
+      text-align left
+
+  a
     &.active
       color #74c0ed
 
@@ -34,9 +44,6 @@
 
   .row
     padding 0 15px
-
-  span
-    display block
 
 
 .header, .order-by
@@ -67,11 +74,8 @@
     .btn-group
       width 100%
 
-  .col-xs-5
-    text-align center
-
   .row
-    padding 7px 5px
+    padding 7px 15px
 
   ul.pagination
     margin 0
@@ -85,6 +89,9 @@
 .pages
   ul
     margin 0
+
+  .col-xs-5
+    text-align center
 
   .col-xs-12
     padding 4px 0 0 0
