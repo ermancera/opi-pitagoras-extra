@@ -31,7 +31,6 @@ AppCtrl = ($http, $log, $localStorage, $route, $routeParams, $scope, $translate)
       page: 0
 
   $scope.$data = $localStorage.$default {data}
-  #$scope.$location = $location
   $scope.$route = $route
   $scope.$routeParams = $routeParams
 
@@ -75,8 +74,8 @@ dependencies = [
   'counter'
   'dashboard'
   'duScroll'
-  'files'
   'FBAngular'
+  'files'
   'modal'
   'navbar'
   'ngAnimate'
