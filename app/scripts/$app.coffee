@@ -95,7 +95,7 @@ $routeProvider = ($routeProvider) ->
       all:
         controller: 'AppCtrl'
         reloadOnSearch: false
-        templateUrl: 'app/partials/activities.jade'
+        templateUrl: 'app/partials/activities/main.jade'
 
       one:
         controller: 'ActivityCtrl'
@@ -104,11 +104,11 @@ $routeProvider = ($routeProvider) ->
 
     dashboard:
       controller: 'DashboardCtrl'
-      templateUrl: 'app/partials/dashboard.jade'
+      templateUrl: 'app/partials/dashboard/main.jade'
 
     files:
       controller: 'FilesCtrl'
-      templateUrl: 'app/partials/files.jade'
+      templateUrl: 'app/partials/files/main.jade'
 
   $routeProvider
     .when('/acciones', routes.activities.all)

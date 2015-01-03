@@ -1,0 +1,14 @@
+//- Activities view
+
+
+include modal/upload
+
+.activities.container(
+  ng-class='{ expanded: (displayMode == "expanded"), zoomed: zoomed }'
+  ng-controller="ActivitiesCtrl"
+)
+  include $search
+  include $jumbotron
+  include $toolbar
+  include $accordion
+  include $pager

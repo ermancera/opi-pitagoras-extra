@@ -24,7 +24,7 @@ nav.navbar.navbar-default.navbar-fixed-top(ng-controller='NavbarCtrl')
           )
             a.upper(href='#/panel')
               fa(name='tachometer')
-              | {{'A.DASHBOARD' | translate}}
+              span(translate='A.DASHBOARD')
 
           li(
             ng-class='{active: isActive("/acciones")}'
@@ -32,7 +32,7 @@ nav.navbar.navbar-default.navbar-fixed-top(ng-controller='NavbarCtrl')
           )
             a.upper(href='#/acciones')
               fa(name='flag-checkered')
-              | {{'A.ACTIONS' | translate}}
+              span(translate='A.ACTIONS')
 
           li(
             ng-class='{active: isActive("/archivos")}'
@@ -40,7 +40,7 @@ nav.navbar.navbar-default.navbar-fixed-top(ng-controller='NavbarCtrl')
           )
             a.upper(href='#/archivos')
               fa(name='folder-o')
-              | {{'A.FILES' | translate}}
+              span(translate='A.FILES')
 
         ul#nav-settings.nav.navbar-nav.navbar-right(role='menu')
           li.dropdown(role='menu')
@@ -73,5 +73,5 @@ nav.navbar.navbar-default.navbar-fixed-top(ng-controller='NavbarCtrl')
                 button.btn.btn-info(type='button')
                   fa(name='search')
 
-      .header.toggle.hidden
+      .header.toggle.hidden(ng-if='isActive("/acciones")')
         include activities/$header

@@ -1,4 +1,4 @@
-//- Full details view
+//- Expanded version of summary.jade
 
 
 .row
@@ -62,8 +62,8 @@
             fa(name='pencil')
             |  {{'A.REGISTER' | translate}}
 
-  .col-xs-12.description-info
-    .row
+  .col-xs-12
+    .row.description-info
       .col-xs-12
         hr
         h4(translate='A.ACTION')
@@ -73,6 +73,6 @@
       .col-xs-12
         h4(translate='A.DESCRIPTION')
     
-    .row
+    .row.minh
       .col-xs-12
         p {{a.description}}

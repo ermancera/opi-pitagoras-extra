@@ -1,15 +1,12 @@
 //- Title header (common to all cards)
 
-.card
-  .card-title.upper
-    .row
-      .col-md-6.id-info
-        h3 {{a.user_key}}
-        h6 {{a.admin1}} / {{a.admin2}} / {{'A.POLY' | translate}} {{a.polygon}}
+.row.card-title.upper
+  .col-md-6.id-info
+    h3 {{a.user_key}}
+    h6 {{a.admin1}} / {{a.admin2}} / {{'A.POLY' | translate}} {{a.polygon}}
 
-      .col-md-3
-
-      .col-md-3.date-info
-        p.small
-          | {{'A.CREATED' | translate}} {{a.financial_history.created_at | date}}
-          | {{'A.MODIFIED' | translate}} {{a.financial_history.updated_at | date}}
+  .col-md-3
+  .col-md-3.date-info
+    p.small
+      | {{'A.CREATED' | translate}} {{a.financial_history.created_at | date}}
+      | {{'A.MODIFIED' | translate}} {{a.financial_history.updated_at | date}}

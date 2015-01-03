@@ -1,4 +1,4 @@
-//- base styling that doesn't quite fit into the main theme
+//- common styling (shared by all views)
 
 
 *[class^=opi]
@@ -13,24 +13,6 @@ accordion, .modal
     text-decoration underline
     font-size x-small
 
-
-accordion
-  .panel-group
-    margin 0
-
-    .panel + .panel:not(.open)
-      margin-top inherit !important
-
-  h3
-    margin 0
-
-  h4
-    strong
-      display block
-      margin-top 3px
-
-    .small
-      font-size 70%
 
 body
   & > hr
@@ -61,6 +43,10 @@ i.fa
   &.zoomed
     .panel-collapse.collapse.in
       height 100% !important
+
+
+.minh
+  min-height 250px
 
 
 .modal .panel > .row
