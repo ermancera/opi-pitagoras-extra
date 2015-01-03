@@ -10,8 +10,12 @@ nav.navbar
     border-left 1px solid #f2f2f2
 */
 
-  .navbar-inner:not(.normal)
-    box-shadow inset #eaeff5 0 -21px 0 0
+  .navbar-inner
+    &:not(.normal)
+      box-shadow inset #eaeff5 0 -21px 0 0
+
+    .container
+      padding 0
 
   .toggle
     background-color #fff
