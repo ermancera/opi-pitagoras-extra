@@ -1,14 +1,19 @@
 //- Esqueleto de tarjeta
 
+mixin card-btn(action)
+  button.btn.btn-primary.btn-sm(
+    ng-click="openModal('#{action}')"
+    type='button'
+  )
+    fa(name='plus-circle')
+    span(translate='A.ADD')
+
 .row
   .col-xs-10
     block title
   
   .col-xs-2
     block action
-      button.btn.btn-primary.btn-sm(type='button')
-        fa(name='plus-circle')
-        | {{'A.ADD' | translate}}
 
 .row.minh
   block content

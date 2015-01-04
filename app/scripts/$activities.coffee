@@ -1,7 +1,7 @@
 'use strict'
 
 
-ActivitiesCtrl = ($route, $scope, $document, $modal, $localStorage, $log, $timeout, Fullscreen, prompt) ->
+ActivitiesCtrl = ($route, $scope, $document, $localStorage, $log, $timeout, Fullscreen, prompt) ->
   $scope.busy = false # is the tab container busy navigating to the tab you asked for?
   $scope.calView = 'Mensual'
   $scope.displayMode = 'collapsed'
@@ -96,12 +96,6 @@ ActivitiesCtrl = ($route, $scope, $document, $modal, $localStorage, $log, $timeo
     $scope.enableTab id
     return false
 
-
-  $scope.openModal = (template='full', size='lg') ->
-    $modal.open
-      controller: 'ModalCtrl'
-      size: size
-      templateUrl: "#{template}.html"
 
   $scope.pageChanged = ->
     $log.info "Page changed to #{$scope.$data.pagination.page}"

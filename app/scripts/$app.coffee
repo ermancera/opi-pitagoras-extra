@@ -1,7 +1,7 @@
 'use strict'
 
 
-AppCtrl = ($http, $log, $localStorage, $route, $routeParams, $scope, $translate) ->
+AppCtrl = ($http, $log, $localStorage, $modal, $route, $routeParams, $scope, $translate) ->
   data =
     activities: []
 
@@ -33,6 +33,12 @@ AppCtrl = ($http, $log, $localStorage, $route, $routeParams, $scope, $translate)
   $scope.$data = $localStorage.$default {data}
   $scope.$route = $route
   $scope.$routeParams = $routeParams
+
+  $scope.openModal = (template='upload', size='lg') ->
+    $modal.open
+      controller: 'ModalCtrl'
+      size: size
+      templateUrl: "#{template}.html"
 
   $scope.sync = (forced=false, callback=false) ->
     if $localStorage.lastSync?
