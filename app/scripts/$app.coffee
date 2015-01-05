@@ -43,7 +43,7 @@ AppCtrl = ($http, $log, $localStorage, $modal, $route, $scope, $translate, promp
       input: true
       label: what
       message: question
-      title: 'Actualizar'
+      title: 'Registrar Avances'
 
     prompt(params).then (response) ->
       $log.info "The response was '#{response}'."

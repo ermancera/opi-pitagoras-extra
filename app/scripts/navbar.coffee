@@ -3,7 +3,11 @@
 
 NavbarCtrl = ($document, $location, $log, $scope) ->
   $scope.isActive = (url) ->
-    url is $location.path()
+    path = $location.path()
+
+    switch url
+      when '/acciones/*' then (path.search /^\/acciones\/\d+$/) is 0
+      else (path is url)
 
 navbar = (angular.module 'navbar', [])
 navbar.controller 'NavbarCtrl', NavbarCtrl

@@ -52,8 +52,8 @@ nav.navbar.navbar-default.navbar-fixed-top(ng-controller='NavbarCtrl')
             ): fa(name='gear', size=2)
 
             ul.dropdown-menu(role='menu')
-              li: a(href, translate='A.PRINT')
-              li: a(href, translate='A.FULLSCREEN')
+              //-li: a(href, translate='A.PRINT')
+              //-li: a(href, translate='A.FULLSCREEN')
               li: a(href, ng-click='sync(true)', translate='A.SYNC')
               li: a(href, ng-click='toggleLang()', translate='A.LANG')
         //-
@@ -73,5 +73,5 @@ nav.navbar.navbar-default.navbar-fixed-top(ng-controller='NavbarCtrl')
                 button.btn.btn-info(type='button')
                   fa(name='search')
 
-      .header.toggle.hidden(ng-if='isActive("/acciones")')
+      .header.toggle.hidden
         include activities/$header
