@@ -1,7 +1,7 @@
 'use strict'
 
 
-ActivitiesCtrl = ($route, $scope, $document, $localStorage, $log, $timeout, Fullscreen, prompt) ->
+ActivitiesCtrl = ($route, $scope, $document, $localStorage, $log, $timeout, Fullscreen) ->
   $scope.busy = false # is the tab container busy navigating to the tab you asked for?
   $scope.calView = 'Mensual'
   $scope.displayMode = 'collapsed'
@@ -27,23 +27,6 @@ ActivitiesCtrl = ($route, $scope, $document, $localStorage, $log, $timeout, Full
         (get '.panel-heading.hidden').removeClass 'hidden'
 
       when 'expanded' then (get '.panel').addClass 'open'
-
-
-  # TODO not finished
-  $scope.ask = (what) ->
-    question = switch what
-      when 'benefs' then "Actualizar el número de beneficiarios (min. 0):"
-      when 'goals' then "Actualizar el número de metas (min. 0):"
-
-    prompt(
-      input: true
-      label: what
-      message: question
-      title: 'Actualizar'
-    ).then (response) ->
-      $log.info "The response was '#{response}'."
-    , ->
-      $log.info "No response registered."
 
 
   $scope.enableTab = (id, index=1) ->

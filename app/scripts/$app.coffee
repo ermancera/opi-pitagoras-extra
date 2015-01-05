@@ -1,7 +1,7 @@
 'use strict'
 
 
-AppCtrl = ($http, $log, $localStorage, $modal, $route, $routeParams, $scope, $translate) ->
+AppCtrl = ($http, $log, $localStorage, $modal, $route, $scope, $translate, prompt) ->
   data =
     activities: []
 
@@ -32,7 +32,23 @@ AppCtrl = ($http, $log, $localStorage, $modal, $route, $routeParams, $scope, $tr
 
   $scope.$data = $localStorage.$default {data}
   $scope.$route = $route
-  $scope.$routeParams = $routeParams
+
+  # TODO not finished
+  $scope.ask = (what) ->
+    question = switch what
+      when 'benefs' then "Actualizar el número de beneficiarios (min. 0):"
+      when 'goals' then "Actualizar el número de metas (min. 0):"
+
+    params =
+      input: true
+      label: what
+      message: question
+      title: 'Actualizar'
+
+    prompt(params).then (response) ->
+      $log.info "The response was '#{response}'."
+    , ->
+      $log.info "No response registered."
 
   $scope.openModal = (template='upload', size='lg') ->
     $modal.open
