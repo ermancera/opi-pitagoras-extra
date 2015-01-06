@@ -3,39 +3,39 @@
 .jumbotron
   .row
     .col-xs-4
-      h3(translate='A.GLOBAL')
+      h3(translate='GLOBAL')
 
     .col-xs-2
       .row
         counter(delay=100) {{$data.calculated_values.total_activities}}
 
       .row
-        span(translate='A.ACTIONS')
+        span(translate='ACTIONS')
 
     .col-xs-2
       .row
         counter(delay=100) {{$data.calculated_values.for_reviewing.quantity}}
 
       .row
-        span(translate='A.FROZEN')
+        span(translate='FROZEN')
 
     .col-xs-2
       .row
         counter(delay=100) {{$data.calculated_values.in_progress.quantity}}
 
       .row
-        span(translate='A.MOVING')
+        span(translate='MOVING')
 
     .col-xs-2
       .row
         counter(delay=100) {{$data.calculated_values.clean.quantity}}
       
       .row
-        span(translate='A.COMPLETED')
+        span(translate='COMPLETED')
 
   .row
     .col-xs-6
-      h6(translate='A.TOTAL')
+      h6(translate='TOTAL')
       h3 {{$data.calculated_values.budget.total.value | currency}}
 
   .row
@@ -48,7 +48,7 @@
 
   .row
     .col-xs-12
-      h6(translate='A.PROGRESS')
+      h6(translate='PROGRESS')
 
     .col-xs-6
       progressbar(value='getProgress("benefs")', type='success')
@@ -58,7 +58,7 @@
 
   .row
     .col-xs-6
-      h6(translate='A.BENEFS')
+      h6(translate='BENEFS')
       
     .col-xs-6
-      h6(translate='A.GOALS')
+      h6(translate='GOALS')

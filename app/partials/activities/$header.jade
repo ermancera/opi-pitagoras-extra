@@ -16,44 +16,44 @@ mixin single-link(label, key)
 
 .row(ng-if='isActive("/acciones")')
   .col-xs-2
-    +header-link('A.CODE', 'user_key')
+    +header-link('CODE', 'user_key')
 
   .col-xs-2
-    +header-link('A.TOWN', 'admin2')
+    +header-link('TOWN', 'admin2')
   
   .col-xs-2
-    +header-link('A.ENTITY', 'admin1')
+    +header-link('ENTITY', 'admin1')
 
   .col-xs-1
-    +header-link('A.POLY', 'polygon')
+    +header-link('POLY', 'polygon')
   
   .col-xs-1
-    +header-link('A.BUDGET', 'budget_breakthrough')
+    +header-link('BUDGET', 'budget_breakthrough')
   
   .col-xs-1
-    +header-link('A.GOALS', 'completed_goals')
+    +header-link('GOALS', 'completed_goals')
   
   .col-xs-1
-    +header-link('A.BENEFS', 'total_of_beneficiaries')
+    +header-link('BENEFS', 'total_of_beneficiaries')
 
   .col-xs-2
     a.btn.btn-xs.btn-link.disabled.wide
-      span.small.upper(translate='A.ACTIONS')
+      span.small.upper(translate='ACTIONS')
 
 .row(ng-if='isActive("/acciones/*")')
   .col-xs-1
   .col-xs-2
-    +single-link('A.SUMMARY', 'summary')
+    +single-link('SUMMARY', 'summary')
 
   .col-xs-2
-    +single-link('A.INVOICES', 'invoices')
+    +single-link('INVOICES', 'invoices')
   
   .col-xs-2
-    +single-link('A.EVIDENCE', 'evidence')
+    +single-link('EVIDENCE', 'evidence')
 
   .col-xs-2
-    +single-link('A.CHANGELOG', 'changelog')
+    +single-link('CHANGELOG', 'changelog')
   
   .col-xs-2
-    +single-link('A.CALENDAR', 'calendar')
+    +single-link('CALENDAR', 'calendar')
   .col-xs-1

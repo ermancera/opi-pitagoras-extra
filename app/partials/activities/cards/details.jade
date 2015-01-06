@@ -3,8 +3,8 @@
 
 .row
   ol.breadcrumb
-    li: a(href='#/', translate='A.HOME')
-    li: a(href='#/acciones', translate='A.ACTIONS')
+    li: a(href='#/', translate='HOME')
+    li: a(href='#/acciones', translate='ACTIONS')
     li # {{a.id}}
 
 
@@ -12,7 +12,7 @@
   .col-xs-12
     .row
       .col-xs-12
-        h4(translate='A.TOTAL')
+        h4(translate='TOTAL')
         h3.budget {{a.budget_breakthrough | currency}}
     
     .row
@@ -28,7 +28,7 @@
     
     .row
       .col-xs-12      
-        h4(translate='A.PROGRESS')
+        h4(translate='PROGRESS')
         
       .col-xs-6
         progressbar(
@@ -37,14 +37,14 @@
         )
         
         .footnote
-          span.footnote-label {{a.real_beneficiaries | number:0}} {{'A.OF' | translate}} {{a.total_of_beneficiaries | number:0}}
+          span.footnote-label {{a.real_beneficiaries | number:0}} {{'OF' | translate}} {{a.total_of_beneficiaries | number:0}}
           
           button.btn.btn-xs.btn-link(
             ng-click='ask("benefs")'
             type='button'
           )
             fa(name='pencil')
-            |  {{'A.REGISTER' | translate}}
+            |  {{'REGISTER' | translate}}
 
       .col-xs-6        
         progressbar(
@@ -53,25 +53,25 @@
         )
 
         .footnote
-          span.footnote-label {{a.completed_goals | number:0}} {{'A.OF' | translate}} {{a.quantity | number:0}}
+          span.footnote-label {{a.completed_goals | number:0}} {{'OF' | translate}} {{a.quantity | number:0}}
           
           button.btn.btn-xs.btn-link(
             ng-click='ask("goals")'
             type='button'
           )
             fa(name='pencil')
-            |  {{'A.REGISTER' | translate}}
+            |  {{'REGISTER' | translate}}
 
   .col-xs-12
     .row.description-info
       .col-xs-12
         hr
-        h4(translate='A.ACTION')
+        h4(translate='ACTION')
         p {{a.action}}
     
     .row
       .col-xs-12
-        h4(translate='A.DESCRIPTION')
+        h4(translate='DESCRIPTION')
     
     .row.minh
       .col-xs-12

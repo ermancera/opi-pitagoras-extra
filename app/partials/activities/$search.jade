@@ -2,12 +2,12 @@
   .col-xs-12
     button.btn.btn-primary.btn-md(
       ng-click=''
-      translate='A.REPROGRAM'
+      translate='REPROGRAM'
       type='button'
     )
     button.btn.btn-primary.btn-md(
       ng-click=''
-      translate='A.SEND'
+      translate='SEND'
       type='button'
     )
 
@@ -22,7 +22,7 @@
         button.btn.btn-default(
           ng-click=''
           type='button'
-        ) {{fullSearch? 'A.FILTER' : 'A.SEARCH' | translate}}
+        ) {{fullSearch? 'FILTER' : 'SEARCH' | translate}}
 
         button.btn.btn-default(
           ng-click='fullSearch = !fullSearch'
@@ -44,13 +44,13 @@ mixin search-filter(label)
 
 .row.filters(ng-show="fullSearch")
   .col-xs-3
-    +search-filter('A.ENTITY')
+    +search-filter('ENTITY')
     
   .col-xs-3
-    +search-filter('A.TOWN')
+    +search-filter('TOWN')
 
   .col-xs-3
-    +search-filter('A.POLY')
+    +search-filter('POLY')
 
   .col-xs-3
-    +search-filter('A.STATUS')
+    +search-filter('STATUS')

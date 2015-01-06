@@ -2,9 +2,9 @@ script(type='text/ng-template', id='date.html')
   .modal-header
     button.close(type='button', data-dismiss='modal')
       span(aria-hidden='true') &times;
-      span.sr-only(translate='A.CLOSE')
+      span.sr-only(translate='CLOSE')
 
-    h4.modal-title(translate='A.DATE')
+    h4.modal-title(translate='DATE')
     include ../cards/$title
 
   .modal-body
@@ -18,7 +18,7 @@ script(type='text/ng-template', id='date.html')
                 data-toggle='dropdown'
                 type='button'
               )
-                | {{'A.DOCSEL' | translate}}
+                | {{'DOCSEL' | translate}}
                 fa.pull-right(name='chevron-down')
 
           .row
@@ -28,7 +28,7 @@ script(type='text/ng-template', id='date.html')
                 data-toggle='dropdown'
                 type='button'
               )
-                | {{'A.PROSEL' | translate}}
+                | {{'PROSEL' | translate}}
                 fa.pull-right(name='chevron-down')
 
           .row
@@ -65,8 +65,8 @@ script(type='text/ng-template', id='date.html')
         .col-sm-6
           .row
             .col-xs-12.drag-drop
-              h6(translate='A.UPTITLE')
-              p(translate='A.UPDESC')
+              h6(translate='UPTITLE')
+              p(translate='UPDESC')
 
           .row
             .col-xs-12
@@ -81,11 +81,11 @@ script(type='text/ng-template', id='date.html')
       type='button'
     )
       fa(name='check-circle')
-      | {{'A.SAVE' | translate}}
+      | {{'SAVE' | translate}}
     
     button.btn.btn-danger(
       data-dismiss='modal'
       type='button'
     )
       fa(name='times-circle')
-      | {{'A.CANCEL' | translate}}
+      | {{'CANCEL' | translate}}
