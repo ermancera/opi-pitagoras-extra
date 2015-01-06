@@ -8,7 +8,12 @@ ActivityCtrl = ($http, $log, $routeParams, $scope, $translate, uiCalendarConfig)
   onDayClick = (event) ->
     $log.debug event
 
+  $scope.calTitle = ''
   $scope.calView = 'month'
+
+  $scope.calViewRendered = (view, element) ->
+    $log.debug "View Changed: ", view, element
+    $scope.calTitle = view.title
 
   $scope.calendarConfig =
     dayClick: onDayClick
@@ -16,9 +21,10 @@ ActivityCtrl = ($http, $log, $routeParams, $scope, $translate, uiCalendarConfig)
     header: false
     height: 500
     lang: $translate.use()
+    viewRender: $scope.calViewRendered
 
-  $scope.changeCal = (what, command=null) ->
-    uiCalendarConfig.calendars['full'].fullCalendar what, command
+  $scope.changeCal = (command, value=null) ->
+    uiCalendarConfig.calendars['full'].fullCalendar command, value
 
   $scope.eventSources = [
     events :
