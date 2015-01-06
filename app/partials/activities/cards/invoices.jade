@@ -3,10 +3,11 @@
 extends $layout
 
 block action
-  +card-btn('invoice')
+  +card-btn-primary('invoice')
 
 block title
-  h3(translate='INVOICES')
+  .col-xs-10
+    h3(translate='INVOICES')
   
 block content
   .col-xs-12

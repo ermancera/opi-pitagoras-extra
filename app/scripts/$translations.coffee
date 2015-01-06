@@ -21,6 +21,7 @@ DICT =
     CODE: 'Code'
     COMPLETED: 'Completed'
     CREATED: 'Created'
+    DAILY: 'Daily'
     DASHBOARD: 'Dashboard'
     DATE: 'Date'
     DESCRIPTION: 'Description'
@@ -41,6 +42,7 @@ DICT =
     LANG: 'Cambiar a Español'
     LOBBIED: 'Lobbied'
     MODIFIED: 'Modified'
+    MONTHLY: 'Monthly'
     MOVING: 'In progress'
     OF: 'of'
     ORDER: 'Order progress by'
@@ -58,6 +60,7 @@ DICT =
     STATUS: 'Status'
     SUMMARY: 'Summary'
     SYNC: 'Sync data'
+    TODAY: 'Today'
     TOGGLE: 'Toggle navigation'
     TOTAL: 'Assigned Budget'
     TOWN: 'Town'
@@ -65,6 +68,7 @@ DICT =
     UPDESC: 'Only files <= 2MB with JPG, PDF, or XML extension are allowed'
     UPTITLE: 'Click or drag a file here'
     UPLOAD: 'Upload contract/invoice'
+    WEEKLY: 'Weekly'
 
   'es':
     ACCRUABLE: 'Devengado'
@@ -84,6 +88,7 @@ DICT =
     CODE: 'Código'
     COMPLETED: 'Completadas'
     CREATED: 'Fecha de creación'
+    DAILY: 'Diario'
     DASHBOARD: 'Panel de Control'
     DATE: 'Fecha'
     DESCRIPTION: 'Descripción'
@@ -104,6 +109,7 @@ DICT =
     LANG: 'Switch to English'
     LOBBIED: 'Ejercido'
     MODIFIED: 'Última modificación'
+    MONTHLY: 'Mensual'
     MOVING: 'En proceso'
     OF: 'de'
     ORDER: 'Ordenar avances por'
@@ -121,6 +127,7 @@ DICT =
     STATUS: 'Status'
     SUMMARY: 'Resumen'
     SYNC: 'Sincronizar datos'
+    TODAY: 'Hoy'
     TOGGLE: 'Alternar navegación'
     TOTAL: 'Presupuesto Asignado'
     TOWN: 'Municipio'
@@ -128,6 +135,7 @@ DICT =
     UPDESC: 'Únicamente archivos con la extensión JPG, PDF o XML no mayores a 2MB'
     UPTITLE: 'Haz click o arrastra tu archivo aquí para subir'
     UPLOAD: 'Subir contrato/factura'
+    WEEKLY: 'Semanal'
 
 
 $translateProvider = ($translateProvider) ->
