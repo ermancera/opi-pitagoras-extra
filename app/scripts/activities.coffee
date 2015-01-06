@@ -3,6 +3,7 @@
 
 ActivitiesCtrl = ($route, $scope, $document, $localStorage, $log, $timeout, Fullscreen) ->
   $scope.busy = false # is the tab container busy navigating to the tab you asked for?
+  $scope.displayMode = 'collapsed'
   $scope.fullSearch = false
   $scope.sort = by: 'budget_breakthrough', reverse: false
   $scope.single = false
@@ -156,7 +157,9 @@ ActivitiesCtrl = ($route, $scope, $document, $localStorage, $log, $timeout, Full
 
     $document.on 'scroll', ->
       expanded = ($scope.displayMode is 'expanded')
-      hidden = expanded or ($document.scrollTop() < 510)
+      # TODO This number should be changed once the blue buttons are enabled
+      #hidden = expanded or ($document.scrollTop() < 510)
+      hidden = expanded or ($document.scrollTop() < 435)
       inner.toggleClass 'normal', hidden
       toggle.toggleClass 'hidden', hidden
 
