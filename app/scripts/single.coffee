@@ -8,6 +8,8 @@ ActivityCtrl = ($http, $log, $routeParams, $scope, $translate, uiCalendarConfig)
   onDayClick = (event) ->
     $log.debug event
 
+  $scope.calView = 'MONTHLY'
+
   $scope.calendarConfig =
     dayClick: onDayClick
     editable: true

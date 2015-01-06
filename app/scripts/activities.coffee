@@ -3,8 +3,6 @@
 
 ActivitiesCtrl = ($route, $scope, $document, $localStorage, $log, $timeout, Fullscreen) ->
   $scope.busy = false # is the tab container busy navigating to the tab you asked for?
-  $scope.calView = 'Mensual'
-  $scope.displayMode = 'collapsed'
   $scope.fullSearch = false
   $scope.sort = by: 'budget_breakthrough', reverse: false
   $scope.single = false
