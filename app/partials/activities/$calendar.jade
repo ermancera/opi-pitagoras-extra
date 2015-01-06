@@ -2,17 +2,19 @@
 
 extends cards/$layout
 
-mixin card-cal-btn-grp(label)
+mixin card-cal-btn-grp(label, view)
   button.btn.btn-default.btn-sm(
     type='button'
-    btn-radio="'#{label}'"
+    btn-radio="'#{view}'"
+    ng-click="changeCal('changeView', '#{view}')"
     ng-model='calView'
   )
     span(translate=label)
 
 
-mixin card-cal-btn(label)
+mixin card-cal-btn(label, command)
   button.btn.btn-default.btn-sm(
+    ng-click="changeCal('#{command}')"
     translate=label
     type='button'
   )
@@ -25,14 +27,14 @@ block title
   .col-xs-7.nopad
     .btn-toolbar.pull-right
       .btn-group
-        +card-cal-btn-grp('DAILY')
-        +card-cal-btn-grp('WEEKLY')
-        +card-cal-btn-grp('MONTHLY')
+        +card-cal-btn-grp('DAILY', 'agendaDay')
+        +card-cal-btn-grp('WEEKLY', 'basicWeek')
+        +card-cal-btn-grp('MONTHLY', 'month')
 
       .btn-group
-        +card-cal-btn('TODAY')
-        +card-cal-btn('<')
-        +card-cal-btn('>')
+        +card-cal-btn('TODAY', 'today')
+        +card-cal-btn('<', 'prev')
+        +card-cal-btn('>', 'next')
       
   .col-xs-2
     +card-btn-primary('date')
