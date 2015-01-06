@@ -6,13 +6,11 @@ mixin header-link(label, key)
       ng-show="sort.by=='#{key}'"
     )
 
-mixin single-link(label, key)
-  a.btn.btn-xs.btn-link(ng-click="sortBy('#{key}')")
+
+mixin single-link(label, target)
+  a.btn.btn-xs.btn-link(href="#{target}")
     span.small.upper(translate=label)
-    fa(
-      name='{{ sort.reverse? "sort-desc" : "sort-asc" }}'
-      ng-show="sort.by=='#{key}'"
-    )
+
 
 .row(ng-if='isActive("/acciones")')
   .col-xs-2
@@ -40,20 +38,23 @@ mixin single-link(label, key)
     a.btn.btn-xs.btn-link.disabled.wide
       span.small.upper(translate='ACTIONS')
 
+
 .row(ng-if='isActive("/acciones/*")')
   .col-xs-1
-  .col-xs-2
-    +single-link('SUMMARY', 'summary')
 
   .col-xs-2
-    +single-link('INVOICES', 'invoices')
-  
-  .col-xs-2
-    +single-link('EVIDENCE', 'evidence')
+    +single-link('SUMMARY', '#summary')
 
   .col-xs-2
-    +single-link('CHANGELOG', 'changelog')
+    +single-link('INVOICES', '#invoices')
   
   .col-xs-2
-    +single-link('CALENDAR', 'calendar')
+    +single-link('EVIDENCE', '#evidence')
+
+  .col-xs-2
+    +single-link('CHANGELOG', '#changelog')
+  
+  .col-xs-2
+    +single-link('CALENDAR', '#calendar')
+
   .col-xs-1
