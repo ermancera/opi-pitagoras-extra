@@ -1,6 +1,6 @@
 //- Esqueleto de tarjeta
 
-mixin card-btn(action)
+mixin card-btn-primary(action)
   button.btn.btn-primary.btn-sm(
     ng-click="openModal('#{action}')"
     type='button'
@@ -9,11 +9,10 @@ mixin card-btn(action)
     span(translate='ADD')
 
 .row
-  .col-xs-10
-    block title
+  block title
   
   .col-xs-2
     block action
 
-.row.minh
+.row.content
   block content

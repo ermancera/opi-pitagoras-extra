@@ -1,7 +1,7 @@
 'use strict'
 
 
-AppCtrl = ($http, $log, $localStorage, $modal, $route, $scope, $translate, prompt) ->
+AppCtrl = ($http, $log, $localStorage, $modal, $route, $scope, $translate, prompt, uiCalendarConfig) ->
   data =
     activities: []
 
@@ -32,7 +32,6 @@ AppCtrl = ($http, $log, $localStorage, $modal, $route, $scope, $translate, promp
 
   $scope.$data = $localStorage.$default {data}
   $scope.$route = $route
-
 
   # TODO not finished
   $scope.ask = (what) ->
@@ -141,6 +140,7 @@ dependencies = [
   'picardy.fontawesome'
   'translations'
   'ui.bootstrap'
+  'ui.calendar'
 ]
 
 

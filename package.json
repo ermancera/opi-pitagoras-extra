@@ -1,6 +1,6 @@
 {
   "name": "opi-pitagoras-extra",
-  "version": "0.9.7",
+  "version": "0.9.8",
   "description": "Controles para Pitágoras",
   "scripts": {
     "start": "brunch watch --server",
