@@ -28,6 +28,8 @@ Nota: Para que el último comando funcione se necesita que git esté disponible 
 `bower install` creará el subdirectorio `bower_components` y
 descargará los componentes relacionados con AngularJS, Bootstrap, etc (especificados dentro de `bower.json`).
 
+Nota 2: Existe un bug con fullcalendar que se puede arreglar [siguiendo las instrucciones en el repo](https://github.com/angular-ui/ui-calendar/issues/195).
+
 
 ## Uso del servidor
 ### Arrancar el servidor local
