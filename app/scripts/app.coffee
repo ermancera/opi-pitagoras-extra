@@ -33,6 +33,7 @@ AppCtrl = ($http, $log, $localStorage, $modal, $route, $scope, $translate, promp
   $scope.$data = $localStorage.$default {data}
   $scope.$route = $route
 
+
   # TODO not finished
   $scope.ask = (what) ->
     question = switch what
@@ -50,11 +51,13 @@ AppCtrl = ($http, $log, $localStorage, $modal, $route, $scope, $translate, promp
     , ->
       $log.info "No response registered."
 
+
   $scope.openModal = (template='upload', size='lg') ->
     $modal.open
       controller: 'ModalCtrl'
       size: size
       templateUrl: "#{template}.html"
+
 
   $scope.sync = (forced=false, callback=false) ->
     if $localStorage.lastSync?
@@ -83,32 +86,9 @@ AppCtrl = ($http, $log, $localStorage, $modal, $route, $scope, $translate, promp
       (callback data) if callback
       $log.debug 'loaded data from server'
 
+
   $scope.toggleLang = ->
     $translate.use if ($translate.use() is 'en') then 'es' else 'en'
-
-
-dependencies = [
-  'activities'
-  'activity'
-  'angularMoment'
-  'app.templates'
-  'cgPrompt'
-  'counter'
-  'dashboard'
-  'duScroll'
-  'FBAngular'
-  'files'
-  'modal'
-  'navbar'
-  'ngAnimate'
-  'ngRoute'
-  'ngStorage'
-  'omr.angularFileDnD'
-  'pascalprecht.translate'
-  'picardy.fontawesome'
-  'translations'
-  'ui.bootstrap'
-]
 
 
 $routeProvider = ($routeProvider) ->
@@ -138,6 +118,30 @@ $routeProvider = ($routeProvider) ->
     .when('/archivos', routes.files)
     .when('/panel', routes.dashboard)
     .otherwise redirectTo: '/acciones'
+
+
+dependencies = [
+  'activities'
+  'activity'
+  'angularMoment'
+  'app.templates'
+  'cgPrompt'
+  'counter'
+  'dashboard'
+  'duScroll'
+  'FBAngular'
+  'files'
+  'modal'
+  'navbar'
+  'ngAnimate'
+  'ngRoute'
+  'ngStorage'
+  'omr.angularFileDnD'
+  'pascalprecht.translate'
+  'picardy.fontawesome'
+  'translations'
+  'ui.bootstrap'
+]
 
 
 app = (angular.module 'app', dependencies)
