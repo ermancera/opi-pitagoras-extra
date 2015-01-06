@@ -24,4 +24,4 @@ navbar.directive 'navbar', ->
 
   replace: true
   transclude: true
-  templateUrl: 'app/partials/navbar.jade'
+  templateUrl: 'app/partials/$navbar.jade'
