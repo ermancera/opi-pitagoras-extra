@@ -4,37 +4,38 @@
 .jumbotron
   .row
     .col-xs-4
-      h3(translate='GLOBAL')
+      h2.nomar.upper(translate='GLOBAL')
 
     .col-xs-2
       .row
         counter(delay=100) {{$data.calculated_values.total_activities}}
-
+        
       .row
-        span(translate='ACTIONS')
+        span.small.upper(translate='ACTIONS')
 
     .col-xs-2
       .row
         counter(delay=100) {{$data.calculated_values.for_reviewing.quantity}}
 
       .row
-        span(translate='FROZEN')
+        span.small.upper(translate='FROZEN')
 
     .col-xs-2
       .row
         counter(delay=100) {{$data.calculated_values.in_progress.quantity}}
 
       .row
-        span(translate='MOVING')
+        span.small.upper(translate='MOVING')
 
     .col-xs-2
       .row
         counter(delay=100) {{$data.calculated_values.clean.quantity}}
       
       .row
-        span(translate='COMPLETED')
+        span.small.upper(translate='COMPLETED')
 
   .row
+    hr
     .col-xs-6
       h6(translate='TOTAL')
       h3 {{$data.calculated_values.budget.total.value | currency}}
