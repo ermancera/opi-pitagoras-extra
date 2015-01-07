@@ -1,7 +1,7 @@
 'use strict'
 
 
-ActivityCtrl = ($http, $log, $routeParams, $scope, $translate, uiCalendarConfig) ->
+ActivityCtrl = ($http, $log, $routeParams, $scope, $timeout, $translate, uiCalendarConfig) ->
   return unless $routeParams.id?
   id = (Number $routeParams.id)
 
@@ -11,26 +11,32 @@ ActivityCtrl = ($http, $log, $routeParams, $scope, $translate, uiCalendarConfig)
   $scope.calTitle = ''
   $scope.calView = 'month'
 
-  $scope.calViewRendered = (view, element) ->
-    $log.debug "View Changed: ", view, element
-    $scope.calTitle = view.title
-
   $scope.calendarConfig =
     dayClick: onDayClick
     editable: true
-    header: false
+    header:
+      left: 'title'
+      center: ''
+      right: ''
     height: 500
     lang: $translate.use()
-    viewRender: $scope.calViewRendered
 
   $scope.changeCal = (command, value=null) ->
     uiCalendarConfig.calendars['full'].fullCalendar command, value
+    $scope.getCalTitle()
 
   $scope.eventSources = [
     events :
       url: 'http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic'
       currentTimezone: 'America/Chicago'
   ]
+
+  $scope.getCalTitle = ->
+    $scope.calTitle = (document.querySelector '.fc-toolbar h2')?.innerText
+
+  $timeout ->
+    $scope.getCalTitle()
+  , 100
 
   $scope.sync false, (data) ->
     (return $scope.a = a) if (a.id is id) for a in data.activities

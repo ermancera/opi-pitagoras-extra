@@ -22,10 +22,10 @@ mixin card-cal-btn(label, command)
 
 
 block title
-  .col-xs-3
-    h3(translate='CALENDAR')
+  .col-xs-6
+    h3 {{calTitle}}
 
-  .col-xs-7.nopad
+  .col-xs-4.nopad
     .btn-toolbar.pull-right
       .btn-group
         +card-cal-btn-grp('DAILY', 'agendaDay')
