@@ -51,26 +51,30 @@ accordion(close-others='single')
         .col-xs-2
           a.btn.btn-link.btn-xs(
             ng-click='enableTab(a.id, 2)'
-            tooltip='{{ "GOALS" | translate }}'
-            tooltip-placement='left'
+            popover='{{ "GOALS" | translate }}'
+            popover-placement='left'
+            popover-trigger='mouseenter'
           ): .opi-achievement-alt
               
           a.btn.btn-link.btn-xs(
             ng-click='enableTab(a.id, 3)'
-            tooltip='{{ "EVIDENCE" | translate }}'
-            tooltip-placement='left'
+            popover='{{ "EVIDENCE" | translate }}'
+            popover-placement='left'
+            popover-trigger='mouseenter'
           ): .opi-add-file
           
           a.btn.btn-link.btn-xs(
             ng-click='enableTab(a.id, 4)'
-            tooltip='{{ "CHANGELOG" | translate }}'
-            tooltip-placement='left'
+            popover='{{ "CHANGELOG" | translate }}'
+            popover-placement='left'
+            popover-trigger='mouseenter'
           ): .opi-eye
 
           a.btn.btn-link.btn-xs(
             ng-click='enableTab(a.id, 5)'
-            tooltip='{{ "CALENDAR" | translate }}'
-            tooltip-placement='left'
+            popover='{{ "CALENDAR" | translate }}'
+            popover-placement='left'
+            popover-trigger='mouseenter'
           ): .opi-calendar
 
     //-
