@@ -45,5 +45,6 @@ ActivityCtrl = ($http, $log, $routeParams, $scope, $timeout, $translate, uiCalen
   $scope.$watch ($scope) ->
     $scope.calendarConfig.lang = $translate.use()
 
+
 activity = (angular.module 'activity', [])
 activity.controller 'ActivityCtrl', ActivityCtrl

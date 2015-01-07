@@ -1,7 +1,6 @@
 'use strict'
 
 
-# A = 'Activities', D = 'Dashboard', F = 'Files'
 DICT =
   'en':
     ACCRUABLE: 'Accruable'

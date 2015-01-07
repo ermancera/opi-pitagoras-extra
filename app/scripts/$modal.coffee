@@ -1,6 +1,5 @@
 'use strict'
 
-modal = (angular.module 'modal', [])
 
 ModalCtrl = ($scope, $modalInstance) ->
   $scope.breadcrumbs = true
@@ -11,4 +10,6 @@ ModalCtrl = ($scope, $modalInstance) ->
   $scope.ok = ->
     $modalInstance.close()
 
+
+modal = (angular.module 'modal', [])
 modal.controller 'ModalCtrl', ModalCtrl

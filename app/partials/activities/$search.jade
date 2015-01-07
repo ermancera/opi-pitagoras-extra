@@ -1,3 +1,16 @@
+//- Search bar & filters
+
+
+mixin search-filter(label)
+  button.btn.btn-xs.btn-default.dropdown-toggle(
+    aria-expanded="false"
+    data-toggle="dropdown"
+    type="button"
+  )
+    span(translate=label)
+    fa.pull-right(name='caret-down')
+
+
 //-.row.tools
   .col-xs-12
     button.btn.btn-primary.btn-md(
@@ -30,16 +43,6 @@
         )
           fa(name='{{ fullSearch? "chevron-up" : "chevron-down" }}')
           span.sr-only
-
-
-mixin search-filter(label)
-  button.btn.btn-xs.btn-default.dropdown-toggle(
-    aria-expanded="false"
-    data-toggle="dropdown"
-    type="button"
-  )
-    span(translate=label)
-    fa.pull-right(name='caret-down')
 
 
 .row.filters(ng-show="fullSearch")

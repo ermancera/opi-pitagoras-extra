@@ -32,6 +32,7 @@ AppCtrl = ($http, $log, $localStorage, $modal, $route, $scope, $translate, promp
 
   $scope.$data = $localStorage.$default {data}
   $scope.$route = $route
+  
 
   # TODO not finished
   $scope.ask = (what) ->

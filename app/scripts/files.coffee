@@ -15,5 +15,6 @@ FilesCtrl = ($scope) ->
 
   $scope.fillDummyFiles()
 
+
 files = (angular.module 'files', [])
 files.controller 'FilesCtrl', FilesCtrl
