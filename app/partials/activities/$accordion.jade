@@ -1,6 +1,33 @@
 //- Accordion for main activities view
 
 
+mixin bar(max, label, value)
+  progressbar.small(
+    max=max
+    popover='{{ label | translate }}'
+    popover-placement='bottom'
+    popover-trigger='mouseenter'
+    type='{{progressType(value)}}'
+    value=value
+  )
+
+
+mixin btn(tab, label)
+  a.btn.btn-link.btn-xs(
+    ng-click='enableTab(a.id, {{tab}})'
+    popover='{{ label | translate }}'
+    popover-placement='left'
+    popover-trigger='mouseenter'
+  )
+
+
+mixin tab(icon, label)
+  tab.btn.btn-default
+    tab-heading
+      fa(name=icon)
+      span(translate=label)
+
+
 accordion(close-others='single')
   accordion-group(
     id='a{{a.id}}'
@@ -19,63 +46,19 @@ accordion(close-others='single')
         .col-xs-1: span.small {{a.quantity}}
         
         .col-xs-1
-          progressbar.small(
-            max='a.total_cost'
-            popover='{{ "BUDGET" | translate}}'
-            popover-placement='bottom'
-            popover-trigger='mouseenter'
-            type='{{progressType((a.budget_breakthrough * a.total_cost) / 100)}}'
-            value='(a.budget_breakthrough * a.total_cost) / 100'
-          )
+          +bar("a.total_cost", "BUDGET", "(a.budget_breakthrough * a.total_cost) / 100)")
         
         .col-xs-1
-          progressbar.small(
-            max='a.goal_number'
-            popover='{{ "GOALS" | translate }}'
-            popover-placement='bottom'
-            popover-trigger='mouseenter'
-            type='{{progressType((a.completed_goals * a.goal_number) / 100)}}'
-            value='(a.completed_goals * a.goal_number) / 100'
-          )
+          +bar("a.goal_number", "GOALS", "(a.completed_goals * a.goal_number) / 100)")
         
         .col-xs-1
-          progressbar.small(
-            max='a.total_of_beneficiaries'
-            popover='{{ "BENEFS" | translate }}'
-            popover-placement='bottom'
-            popover-trigger='mouseenter'
-            type='{{progressType((a.real_beneficiaries * a.total_of_beneficiaries) / 100)}}'
-            value='(a.real_beneficiaries * a.total_of_beneficiaries) / 100'
-          )
+          +bar("a.total_of_beneficiaries", "BENEFS", "(a.real_beneficiaries * a.total_of_beneficiaries) / 100")
         
         .col-xs-2
-          a.btn.btn-link.btn-xs(
-            ng-click='enableTab(a.id, 2)'
-            popover='{{ "GOALS" | translate }}'
-            popover-placement='left'
-            popover-trigger='mouseenter'
-          ): .opi-achievement-alt
-              
-          a.btn.btn-link.btn-xs(
-            ng-click='enableTab(a.id, 3)'
-            popover='{{ "EVIDENCE" | translate }}'
-            popover-placement='left'
-            popover-trigger='mouseenter'
-          ): .opi-add-file
-          
-          a.btn.btn-link.btn-xs(
-            ng-click='enableTab(a.id, 4)'
-            popover='{{ "CHANGELOG" | translate }}'
-            popover-placement='left'
-            popover-trigger='mouseenter'
-          ): .opi-eye
-
-          a.btn.btn-link.btn-xs(
-            ng-click='enableTab(a.id, 5)'
-            popover='{{ "CALENDAR" | translate }}'
-            popover-placement='left'
-            popover-trigger='mouseenter'
-          ): .opi-calendar
+          +btn(2, "INVOICES"): .opi-achievement-alt
+          +btn(3, "EVIDENCE"): .opi-add-file
+          +btn(4, "CHANGELOG"): .opi-eye
+          +btn(5, "CALENDAR"): .opi-calendar
 
     //-
       | .btn-group
@@ -87,37 +70,17 @@ accordion(close-others='single')
     hr
 
     tabset.tab-animation
-      tab.btn.btn-default
-        tab-heading
-          fa(name='info-circle')
-          span(translate='SUMMARY')
-          
+      +tab('info-circle', 'SUMMARY')
         include cards/summary
         
-      tab.btn.btn-default
-        tab-heading
-          fa(name='certificate')
-          span(translate='INVOICES')
-      
+      +tab('certificate', 'INVOICES')
         include cards/invoices
       
-      tab.btn.btn-default
-        tab-heading
-          fa(name='paperclip')
-          span(translate='EVIDENCE')
-        
+      +tab('paperclip', 'EVIDENCE')
         include cards/evidence
       
-      tab.btn.btn-default
-        tab-heading
-          fa(name='list-alt')
-          span(translate='CHANGELOG')
-      
+      +tab('list-alt', 'CHANGELOG')
         include cards/changelog
       
-      tab.btn.btn-default
-        tab-heading
-          fa(name='calendar')
-          span(translate='CALENDAR')
-      
+      +tab('calendar', 'CALENDAR')
         include cards/calendar
