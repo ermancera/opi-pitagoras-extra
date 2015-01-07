@@ -16,9 +16,16 @@ mixin card-cal-btn-grp(label, view)
 mixin card-cal-btn(label, command)
   button.btn.btn-default.btn-sm(
     ng-click="changeCal('#{command}')"
-    translate=label
     type='button'
   )
+    if label === '<'
+      fa(name='chevron-left')
+    
+    else if label === '>'
+      fa(name='chevron-right')
+    
+    else
+      span(translate=label)
 
 
 block title
@@ -26,16 +33,18 @@ block title
     h3 {{calTitle}}
 
   .col-xs-4.nopad
-    .btn-toolbar.pull-right
+    .btn-toolbar
+      .btn-group
+        +card-cal-btn('<', 'prev')
+        +card-cal-btn('>', 'next')
+
+      .btn-group
+        +card-cal-btn('TODAY', 'today')
+        
       .btn-group
         +card-cal-btn-grp('DAILY', 'agendaDay')
         +card-cal-btn-grp('WEEKLY', 'basicWeek')
         +card-cal-btn-grp('MONTHLY', 'month')
-
-      .btn-group
-        +card-cal-btn('TODAY', 'today')
-        +card-cal-btn('<', 'prev')
-        +card-cal-btn('>', 'next')
       
   .col-xs-2
     +card-btn-primary('date')
