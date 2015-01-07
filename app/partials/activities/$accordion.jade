@@ -21,7 +21,7 @@ accordion(close-others='single')
         .col-xs-1
           progressbar.small(
             max='a.total_cost'
-            popover='Presupuesto'
+            popover='{{ "BUDGET" | translate}}'
             popover-placement='bottom'
             popover-trigger='mouseenter'
             type='{{progressType((a.budget_breakthrough * a.total_cost) / 100)}}'
@@ -31,7 +31,7 @@ accordion(close-others='single')
         .col-xs-1
           progressbar.small(
             max='a.goal_number'
-            popover='Metas'
+            popover='{{ "GOALS" | translate }}'
             popover-placement='bottom'
             popover-trigger='mouseenter'
             type='{{progressType((a.completed_goals * a.goal_number) / 100)}}'
@@ -41,7 +41,7 @@ accordion(close-others='single')
         .col-xs-1
           progressbar.small(
             max='a.total_of_beneficiaries'
-            popover='Beneficiarios'
+            popover='{{ "BENEFS" | translate }}'
             popover-placement='bottom'
             popover-trigger='mouseenter'
             type='{{progressType((a.real_beneficiaries * a.total_of_beneficiaries) / 100)}}'
@@ -51,30 +51,26 @@ accordion(close-others='single')
         .col-xs-2
           a.btn.btn-link.btn-xs(
             ng-click='enableTab(a.id, 2)'
-            tooltip='Contratos/Facturas'
+            tooltip='{{ "GOALS" | translate }}'
             tooltip-placement='left'
-            tooltip-trigger
           ): .opi-achievement-alt
               
           a.btn.btn-link.btn-xs(
             ng-click='enableTab(a.id, 3)'
-            tooltip='Evidencia'
+            tooltip='{{ "EVIDENCE" | translate }}'
             tooltip-placement='left'
-            tooltip-trigger
           ): .opi-add-file
           
           a.btn.btn-link.btn-xs(
             ng-click='enableTab(a.id, 4)'
-            tooltip='Cambios'
+            tooltip='{{ "CHANGELOG" | translate }}'
             tooltip-placement='left'
-            tooltip-trigger
           ): .opi-eye
 
           a.btn.btn-link.btn-xs(
             ng-click='enableTab(a.id, 5)'
-            tooltip='Calendario'
+            tooltip='{{ "CALENDAR" | translate }}'
             tooltip-placement='left'
-            tooltip-trigger
           ): .opi-calendar
 
     //-
