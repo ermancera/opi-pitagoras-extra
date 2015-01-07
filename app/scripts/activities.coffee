@@ -158,8 +158,8 @@ ActivitiesCtrl = ($route, $scope, $document, $localStorage, $log, $timeout, Full
     $document.on 'scroll', ->
       expanded = ($scope.displayMode is 'expanded')
       # TODO This number should be changed once the blue buttons are enabled
-      #hidden = expanded or ($document.scrollTop() < 510)
-      hidden = expanded or ($document.scrollTop() < 435)
+      #hidden = expanded or ($document.scrollTop() < 482)
+      hidden = expanded or ($document.scrollTop() < 397)
       inner.toggleClass 'normal', hidden
       toggle.toggleClass 'hidden', hidden
 
