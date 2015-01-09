@@ -1,7 +1,7 @@
 'use strict'
 
 
-AppCtrl = ($http, $log, $localStorage, $modal, $route, $scope, $translate, prompt, uiCalendarConfig) ->
+AppCtrl = ($document, $http, $log, $localStorage, $modal, $route, $scope, $translate, prompt, uiCalendarConfig) ->
   data =
     activities: []
 
@@ -32,7 +32,7 @@ AppCtrl = ($http, $log, $localStorage, $modal, $route, $scope, $translate, promp
 
   $scope.$data = $localStorage.$default {data}
   $scope.$route = $route
-  
+
 
   # TODO not finished
   $scope.ask = (what) ->
@@ -91,17 +91,31 @@ AppCtrl = ($http, $log, $localStorage, $modal, $route, $scope, $translate, promp
     $translate.use if ($translate.use() is 'en') then 'es' else 'en'
 
 
+  setupContextualHeader = ->
+    inner = (angular.element document.querySelector 'nav .navbar-inner')
+    toggle = (angular.element document.querySelector 'nav .toggle .row')
+
+    $document.on 'scroll', ->
+      expanded = ($scope.displayMode is 'expanded')
+      # TODO This number should be changed once the blue buttons are enabled
+      #hidden = expanded or ($document.scrollTop() < 482)
+      hidden = expanded or ($document.scrollTop() < 397)
+      inner.toggleClass 'normal', hidden
+      toggle.toggleClass 'hidden', hidden
+
+
+  setupContextualHeader()
+
+
 $routeProvider = ($routeProvider) ->
   routes =
     activities:
       all:
         controller: 'AppCtrl'
-        reloadOnSearch: false
         templateUrl: 'app/partials/activities/main.jade'
 
       one:
         controller: 'ActivityCtrl'
-        reloadOnSearch: false
         templateUrl: 'app/partials/activities/single.jade'
 
     dashboard:

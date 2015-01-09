@@ -1,7 +1,7 @@
 'use strict'
 
 
-ActivitiesCtrl = ($route, $scope, $document, $localStorage, $log, $timeout, Fullscreen) ->
+ActivitiesCtrl = ($route, $scope, $localStorage, $log, $timeout, Fullscreen) ->
   $scope.busy = false # is the tab container busy navigating to the tab you asked for?
   $scope.displayMode = 'collapsed'
   $scope.fullSearch = false
@@ -155,20 +155,6 @@ ActivitiesCtrl = ($route, $scope, $document, $localStorage, $log, $timeout, Full
     Math.floor (Math.random() * 99) + 1
 
 
-  setupContextualHeader = ->
-    inner = (angular.element document.querySelector 'nav .navbar-inner')
-    toggle = (angular.element document.querySelector 'nav .toggle')
-
-    $document.on 'scroll', ->
-      expanded = ($scope.displayMode is 'expanded')
-      # TODO This number should be changed once the blue buttons are enabled
-      #hidden = expanded or ($document.scrollTop() < 482)
-      hidden = expanded or ($document.scrollTop() < 397)
-      inner.toggleClass 'normal', hidden
-      toggle.toggleClass 'hidden', hidden
-
-
-  setupContextualHeader()
   $scope.sync false, (data) ->
     drawGlobalProgress data
     $scope.$data = data
