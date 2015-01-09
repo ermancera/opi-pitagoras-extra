@@ -8,89 +8,36 @@ script(type='text/ng-template', id='date.html')
       span.sr-only(translate='CLOSE')
 
     h4.modal-title(translate='DATE')
-    include ../cards/$title
 
 
   .modal-body
     form(role='form')
       .row
-        .col-sm-6
-          .row
-            .col-xs-12
-              button.btn.btn-xs.btn-default.dropdown-toggle.form-control(
-                aria-expanded='false'
-                data-toggle='dropdown'
-                type='button'
-              )
-                | {{'DOCSEL' | translate}}
-                fa.pull-right(name='chevron-down')
+        .col-xs-6
+          input.form-control(
+            name='docDate'
+            type='date'
+          )
+      
+        .col-xs-6
+          input.form-control(
+            name='partPres'
+            placeholder='{{ "DESCRIPTION" | translate }}'
+            type='text'
+          )
 
-          .row
-            .col-xs-12
-              button.btn.btn-xs.btn-default.dropdown-toggle.form-control(
-                aria-expanded='false'
-                data-toggle='dropdown'
-                type='button'
-              )
-                | {{'PROSEL' | translate}}
-                fa.pull-right(name='chevron-down')
 
-          .row
-            .col-xs-12
-              input.form-control(
-                name='docId'
-                placeholder='Número de factura, contrato o recibo'
-                type='number'
-              )
-          
-          .row
-            .col-xs-12
-              input.form-control(
-                name='docDate'
-                placeholder='Fecha de expedición'
-                type='date'
-              )
-          
-          .row
-            .col-xs-6
-              input.form-control(
-                name='partPres'
-                placeholder='Partida presupuestal'
-                type='text'
-              )
-            
-            .col-xs-6
-              input.form-control(
-                name='amount'
-                placeholder='Monto del documento'
-                type='number'
-              )
-        
-        .col-sm-6
-          .row
-            .col-xs-12.drag-drop
-              h6(translate='UPTITLE')
-              p(translate='UPDESC')
-
-          .row
-            .col-xs-12
-              textarea.form-control(
-                placeholder='Observaciones'
-                rows=3
-              )
-  
-  
   .modal-footer
     button.btn.btn-success(
       data-dismiss='modal'
       type='button'
     )
       fa(name='check-circle')
-      | {{'SAVE' | translate}}
+      span(translate='SAVE')
     
     button.btn.btn-danger(
       data-dismiss='modal'
       type='button'
     )
       fa(name='times-circle')
-      | {{'CANCEL' | translate}}
+      span(translate='CANCEL')
