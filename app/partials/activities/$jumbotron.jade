@@ -34,11 +34,13 @@
       .row
         span.small.upper(translate='COMPLETED')
 
+
   .row
     hr
     .col-xs-6
       h6(translate='TOTAL')
       h3 {{$data.calculated_values.budget.total.value | currency}}
+
 
   .row
     .col-xs-12
@@ -46,7 +48,9 @@
         bar(ng-repeat='bar in stacked track by $index', value='bar.value', type='{{bar.type}}')
           span(ng-hide='bar.value < 5') {{bar.value}}%
 
+
   include $legend
+
 
   .row
     .col-xs-12
@@ -57,6 +61,7 @@
 
     .col-xs-6
       progressbar(value='getProgress("goals")', type='success')
+
 
   .row
     .col-xs-6

@@ -6,7 +6,7 @@ script(type='text/ng-template', id='date.html')
     button.close(type='button', data-dismiss='modal')
       span(aria-hidden='true') &times;
       span.sr-only(translate='CLOSE')
-
+  
     h4.modal-title(translate='DATE')
 
 
@@ -15,13 +15,13 @@ script(type='text/ng-template', id='date.html')
       .row
         .col-xs-6
           input.form-control(
-            name='docDate'
+            name='date'
             type='date'
           )
-      
+
         .col-xs-6
           input.form-control(
-            name='partPres'
+            name='description'
             placeholder='{{ "DESCRIPTION" | translate }}'
             type='text'
           )
@@ -29,6 +29,7 @@ script(type='text/ng-template', id='date.html')
 
   .modal-footer
     button.btn.btn-success(
+      disabled
       data-dismiss='modal'
       type='button'
     )
