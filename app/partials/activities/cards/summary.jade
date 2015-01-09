@@ -7,10 +7,12 @@ block title
   .col-xs-10
     h3(translate='SUMMARY')
 
+
 block action
   a.btn.btn-primary.btn-sm(href="#/acciones/{{a.id}}")
     fa(name='chevron-circle-right')
     | {{'DETAILS' | translate}}
+
 
 block content
   .col-md-6
@@ -59,6 +61,7 @@ block content
         )
           fa(name='pencil')
           |  {{'REGISTER' | translate}}
+
 
   .col-md-6.description-info
     .action-info

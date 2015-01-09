@@ -58,22 +58,26 @@ ActivitiesCtrl = ($route, $scope, $document, $localStorage, $log, $timeout, Full
 
   # Hides an accordion's header once clicked
   $scope.hideHeader = (id) ->
+    element = (document.getElementById "a#{id}")
     opened = (angular.element document.querySelector 'accordion .open')
 
     if opened.length
       (angular.element document.querySelector 'accordion .open .hidden').removeClass 'hidden'
       opened.removeClass 'open'
 
-    element = (document.getElementById "a#{id}")
     (angular.element element).addClass 'open'
-    (angular.element element.querySelector '.panel-heading').addClass 'hidden'
 
     $timeout ->
-      # FIXME can't fix this until JSON is fixed
-      # see
-      $scope.benefs = randomProgress()
-      $scope.goals = randomProgress()
-    , 350
+      (angular.element element.querySelector '.panel-heading').addClass 'hidden'
+
+
+      $timeout ->
+        # FIXME can't fix this until JSON is fixed
+        # see
+        $scope.benefs = randomProgress()
+        $scope.goals = randomProgress()
+      , 250
+    , 100
 
     $scope.enableTab id
     return false

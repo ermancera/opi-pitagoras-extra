@@ -10,11 +10,13 @@
 
 .row
   .col-xs-12
+
     .row
       .col-xs-12
         h4(translate='TOTAL')
         h3.budget {{a.budget_breakthrough | currency}}
     
+
     .row
       .col-xs-12
         progress.progress-bar-por-ejercer
@@ -26,6 +28,7 @@
         
     include ../$legend
     
+
     .row
       .col-xs-12      
         h4(translate='PROGRESS')
@@ -46,6 +49,7 @@
             fa(name='pencil')
             |  {{'REGISTER' | translate}}
 
+
       .col-xs-6        
         progressbar(
           type='{{progressType(goals)}}'
@@ -62,6 +66,7 @@
             fa(name='pencil')
             |  {{'REGISTER' | translate}}
 
+
   .col-xs-12
     .row.description-info
       .col-xs-12
@@ -69,10 +74,12 @@
         h4(translate='ACTION')
         p {{a.action}}
     
+
     .row
       .col-xs-12
         h4(translate='DESCRIPTION')
     
+
     .row.content
       .col-xs-12
         p {{a.description}}

@@ -15,7 +15,7 @@ mixin single-link(label, target)
     span.small.upper(translate=label)
 
 
-.row(ng-if='isActive("/acciones")')
+.row.hidden(ng-if='isActive("/acciones")')
   .col-xs-2
     +header-link('CODE', 'user_key')
 
@@ -49,15 +49,15 @@ mixin single-link(label, target)
     +single-link('SUMMARY', '#summary')
 
   .col-xs-2
-    +single-link('INVOICES', '#invoices')
+    +single-link('CALENDAR', '#calendar')
   
   .col-xs-2
-    +single-link('EVIDENCE', '#evidence')
+    +single-link('INVOICES', '#invoices')
 
   .col-xs-2
-    +single-link('CHANGELOG', '#changelog')
+    +single-link('EVIDENCE', '#evidence')
   
   .col-xs-2
-    +single-link('CALENDAR', '#calendar')
+    +single-link('CHANGELOG', '#changelog')
 
   .col-xs-1

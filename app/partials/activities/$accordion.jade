@@ -13,7 +13,7 @@ mixin bar(max, label, value)
 
 
 mixin btn(tab, label, opicon)
-  a.btn.btn-link.btn-xs(
+  a.btn.btn-link.btn-xs.nopad(
     ng-click='enableTab(a.id, #{tab})'
     popover='{{ #{label} | translate }}'
     popover-placement='left'
