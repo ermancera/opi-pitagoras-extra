@@ -26,9 +26,7 @@ ActivityCtrl = ($http, $log, $routeParams, $scope, $timeout, $translate, uiCalen
     $scope.getCalTitle()
 
   $scope.eventSources = [
-    events :
-      url: 'http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic'
-      currentTimezone: 'America/Chicago'
+    url: '/js/dummy-events.json'
   ]
 
   $scope.getCalTitle = ->
