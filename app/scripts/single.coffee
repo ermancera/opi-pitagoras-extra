@@ -14,6 +14,9 @@ ActivityCtrl = ($http, $log, $routeParams, $scope, $timeout, $translate, uiCalen
   $scope.calendarConfig =
     dayClick: onDayClick
     editable: true
+    eventClick: onCalClick
+    eventDrop: onCalEvent
+    eventResize: onCalEvent
     header:
       left: 'title'
       center: ''
@@ -25,6 +28,7 @@ ActivityCtrl = ($http, $log, $routeParams, $scope, $timeout, $translate, uiCalen
     uiCalendarConfig.calendars['full'].fullCalendar command, value
     $scope.getCalTitle()
 
+  # TODO replace url
   $scope.eventSources = [
     url: '/js/dummy-events.json'
   ]
@@ -43,6 +47,11 @@ ActivityCtrl = ($http, $log, $routeParams, $scope, $timeout, $translate, uiCalen
   $scope.$watch ($scope) ->
     $scope.calendarConfig.lang = $translate.use()
 
+  onCalClick = (date, jsEvent, view) ->
+    $log.info date
+
+  onCalEvent = (event, delta, revertFunc, jsEvent, ui, view) ->
+    $log.info delta
 
 activity = (angular.module 'activity', [])
 activity.controller 'ActivityCtrl', ActivityCtrl
